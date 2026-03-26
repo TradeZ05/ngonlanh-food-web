@@ -1,5 +1,7 @@
 package com.ngonlanh.backend.controller;
 
+import com.ngonlanh.backend.config.JwtTokenProvider;
+import com.ngonlanh.backend.dto.JwtAuthResponse;
 import com.ngonlanh.backend.dto.LoginRequest;
 import com.ngonlanh.backend.dto.RegisterRequest;
 import com.ngonlanh.backend.service.AuthService;
@@ -18,38 +20,42 @@ public class AuthController {
     @Autowired
     private AuthService authService;
 
-    // API Đăng ký tài khoản
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
+    // 1. Gắn thêm máy phát Token vào đây
+    @Autowired
+    private JwtTokenProvider tokenProvider; 
+
+    // API Đăng ký tài khoản (Giữ nguyên)
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody RegisterRequest request) {
         String result = authService.register(request);
         
-        // Nếu kết quả trả về có chữ "Lỗi", trả về HTTP Status 400 (Bad Request)
         if (result.startsWith("Lỗi")) {
             return ResponseEntity.badRequest().body(result);
         }
         
-        // Thành công trả về HTTP Status 200 (OK)
         return ResponseEntity.ok(result);
     }
     
-    @Autowired
-    private AuthenticationManager authenticationManager;
-
-    // API Đăng nhập
+    // API Đăng nhập (Đã sửa đổi)
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody LoginRequest request) {
+    public ResponseEntity<?> login(@RequestBody LoginRequest request) { // Đổi <String> thành <?>
         try {
-            // Ném username và password cho AuthenticationManager xử lý
             Authentication authentication = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword())
             );
             
-            // Lưu thông tin đăng nhập vào Context (Phiên làm việc hiện tại)
             SecurityContextHolder.getContext().setAuthentication(authentication);
             
-            return ResponseEntity.ok("Đăng nhập thành công!");
+            // 2. Nhờ máy phát Token tạo ra một chuỗi mã hóa
+            String jwt = tokenProvider.generateToken(authentication);
+            
+            // 3. Bỏ chuỗi mã hóa đó vào cái rổ JwtAuthResponse và trả về cho Postman
+            return ResponseEntity.ok(new JwtAuthResponse(jwt));
+            
         } catch (Exception e) {
-            // Nếu sai tài khoản hoặc mật khẩu, Spring Security sẽ ném lỗi, ta bắt lại và trả về 400
             return ResponseEntity.badRequest().body("Lỗi: Sai tên đăng nhập hoặc mật khẩu!");
         }
     }
