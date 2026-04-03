@@ -1,0 +1,12 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Chạy Spring Boot (giao diện web)",
+      "request": "launch",
+      "mainClass": "com.chay.store.ChayStoreApplication",
+      "projectName": "web-ban-hang-chay"
+    }
+  ]
+}
