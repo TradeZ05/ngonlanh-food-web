@@ -1,62 +1,136 @@
 package com.ngonlanh.backend.controller;
 
-import com.ngonlanh.backend.config.JwtTokenProvider;
-import com.ngonlanh.backend.dto.JwtAuthResponse;
-import com.ngonlanh.backend.dto.LoginRequest;
-import com.ngonlanh.backend.dto.RegisterRequest;
-import com.ngonlanh.backend.service.AuthService;
+import com.ngonlanh.backend.entity.User;
+import com.ngonlanh.backend.repository.UserRepository;
+import com.ngonlanh.backend.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.security.core.Authentication;
+
+import java.time.LocalDateTime;
+import java.util.Random;
 
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
 
     @Autowired
-    private AuthService authService;
+    private UserRepository userRepository;
 
     @Autowired
-    private AuthenticationManager authenticationManager;
+    private PasswordEncoder passwordEncoder;
 
-    // 1. Gắn thêm máy phát Token vào đây
     @Autowired
-    private JwtTokenProvider tokenProvider; 
+    private EmailService emailService; // Gọi tổng đài gửi mail
 
-    // API Đăng ký tài khoản (Giữ nguyên)
     @PostMapping("/register")
-    public ResponseEntity<String> register(@RequestBody RegisterRequest request) {
-        String result = authService.register(request);
-        
-        if (result.startsWith("Lỗi")) {
-            return ResponseEntity.badRequest().body(result);
+    public ResponseEntity<?> registerUser(@RequestBody User user) {
+        // 1. Kiểm tra username đã tồn tại chưa (Tùy logic cũ của bạn)
+        if (userRepository.existsByUsername(user.getUsername())) {
+            return ResponseEntity.badRequest().body("Lỗi: Username đã tồn tại!");
         }
+
+        String passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!]).{8,}$";
+        if (!user.getPassword().matches(passwordRegex)) {
+            return ResponseEntity.badRequest().body("Lỗi: Mật khẩu phải có ít nhất 8 ký tự, bao gồm chữ hoa, chữ thường và ký tự đặc biệt!");
+        }
+
+        // 2. Mã hóa mật khẩu
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+
+        // 3. Sinh mã OTP ngẫu nhiên 6 chữ số
+        String otp = String.format("%06d", new Random().nextInt(999999));
         
-        return ResponseEntity.ok(result);
+        // 4. Gắn cờ trạng thái và lưu OTP vào user
+        user.setEnabled(true); // THÊM DÒNG NÀY
+        user.setIsActive(false); // Khóa tài khoản
+        user.setOtpCode(otp);
+        user.setOtpExpiryTime(LocalDateTime.now().plusMinutes(5)); // Hạn 5 phút
+
+        // 5. Lưu xuống Database
+        userRepository.save(user);
+
+        // 6. Ra lệnh gửi Email (Dùng luồng riêng Thread để không làm chậm API)
+        new Thread(() -> {
+            // Giả sử user của bạn đăng nhập bằng email hoặc có trường email
+            emailService.sendOtpEmail(user.getEmail(), otp); 
+        }).start();
+
+        return ResponseEntity.ok("Đăng ký thành công! Vui lòng kiểm tra email để lấy mã OTP.");
     }
-    
-    // API Đăng nhập (Đã sửa đổi)
-    @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody LoginRequest request) { // Đổi <String> thành <?>
-        try {
-            Authentication authentication = authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword())
-            );
-            
-            SecurityContextHolder.getContext().setAuthentication(authentication);
-            
-            // 2. Nhờ máy phát Token tạo ra một chuỗi mã hóa
-            String jwt = tokenProvider.generateToken(authentication);
-            
-            // 3. Bỏ chuỗi mã hóa đó vào cái rổ JwtAuthResponse và trả về cho Postman
-            return ResponseEntity.ok(new JwtAuthResponse(jwt));
-            
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Lỗi: Sai tên đăng nhập hoặc mật khẩu!");
+
+    @PostMapping("/verify-otp")
+    public ResponseEntity<?> verifyOtp(@RequestBody java.util.Map<String, String> request) {
+        String username = request.get("username"); 
+        String otp = request.get("otp");
+
+        // 1. Tìm user trong Database
+        // Lưu ý: Đảm bảo trong UserRepository của bạn đã khai báo hàm: Optional<User> findByUsername(String username);
+        User user = userRepository.findByUsername(username).orElse(null);
+
+        if (user == null) {
+            return ResponseEntity.badRequest().body("Lỗi: Không tìm thấy tài khoản!");
         }
+
+        // 2. Kiểm tra xem tài khoản đã kích hoạt chưa
+        if (user.getIsActive()) {
+            return ResponseEntity.badRequest().body("Lỗi: Tài khoản này đã được kích hoạt từ trước!");
+        }
+
+        // 3. Kiểm tra tính chính xác của mã OTP
+        if (user.getOtpCode() == null || !user.getOtpCode().equals(otp)) {
+            return ResponseEntity.badRequest().body("Lỗi: Mã OTP không chính xác!");
+        }
+
+        // 4. Kiểm tra thời hạn của mã OTP (Có bị quá 5 phút chưa)
+        if (user.getOtpExpiryTime().isBefore(LocalDateTime.now())) {
+            return ResponseEntity.badRequest().body("Lỗi: Mã OTP đã hết hạn! Vui lòng yêu cầu gửi lại mã mới.");
+        }
+
+        // 5. Nếu mọi thứ hợp lệ -> Kích hoạt tài khoản
+        user.setIsActive(true);
+        user.setOtpCode(null); // Xóa mã OTP để bảo mật, không cho dùng lại
+        user.setOtpExpiryTime(null);
+        
+        userRepository.save(user);
+
+        return ResponseEntity.ok("Xác thực OTP thành công! Tài khoản đã được kích hoạt.");
+    }
+
+    @PostMapping("/resend-otp")
+    public ResponseEntity<?> resendOtp(@RequestBody java.util.Map<String, String> request) {
+        String username = request.get("username");
+
+        // 1. Tìm user trong Database
+        User user = userRepository.findByUsername(username).orElse(null);
+
+        if (user == null) {
+            return ResponseEntity.badRequest().body("Lỗi: Không tìm thấy tài khoản!");
+        }
+
+        // 2. Nếu tài khoản đã kích hoạt rồi thì không cho gửi nữa
+        if (user.getIsActive()) {
+            return ResponseEntity.badRequest().body("Lỗi: Tài khoản này đã được kích hoạt rồi!");
+        }
+
+        // 3. Tạo mã OTP mới (6 số)
+        String newOtp = String.format("%06d", new java.util.Random().nextInt(1000000));
+        
+        // 4. Cập nhật mã mới và thời hạn mới (thêm 5 phút) vào Database
+        user.setOtpCode(newOtp);
+        user.setOtpExpiryTime(java.time.LocalDateTime.now().plusMinutes(5));
+        userRepository.save(user);
+
+        // 5. Gửi email mã mới (Dùng Thread để không làm treo UI người dùng)
+        new Thread(() -> {
+            try {
+                emailService.sendOtpEmail(user.getEmail(), newOtp);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }).start();
+
+        return ResponseEntity.ok("Mã OTP mới đã được gửi! Vui lòng kiểm tra lại email.");
     }
 }

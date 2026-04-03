@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.util.HashSet;
 import java.util.Set;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -31,7 +32,13 @@ public class User {
     @Column(name = "full_name")
     private String fullName;
 
-    private boolean enabled = true;
+    private Boolean enabled = true;
+
+    private Boolean isActive = false;
+
+    private String otpCode;
+
+    private LocalDateTime otpExpiryTime;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
