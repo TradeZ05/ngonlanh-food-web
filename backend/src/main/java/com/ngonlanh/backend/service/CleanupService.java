@@ -15,7 +15,7 @@ public class CleanupService {
     private UserRepository userRepository;
 
     // Chạy mỗi 1 phút một lần để bạn dễ quan sát kết quả (60000ms)
-    @Scheduled(fixedRate = 60000)
+    @Scheduled(fixedRate = 600000)
     @Transactional
     public void deleteUnverifiedUsers() {
         LocalDateTime now = LocalDateTime.now();

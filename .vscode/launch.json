@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "BackendApplication",
+      "request": "launch",
+      "mainClass": "BackendApplication",
+      "projectName": "web-ban-hang-chay"
+    },
+    {
+      "type": "java",
       "name": "Chạy Spring Boot (giao diện web)",
       "request": "launch",
       "mainClass": "com.chay.store.ChayStoreApplication",

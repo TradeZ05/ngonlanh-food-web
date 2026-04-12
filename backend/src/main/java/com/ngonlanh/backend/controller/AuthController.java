@@ -22,8 +22,41 @@ public class AuthController {
     private PasswordEncoder passwordEncoder;
 
     @Autowired
+    private org.springframework.security.authentication.AuthenticationManager authenticationManager;
+
+    @Autowired
+    private com.ngonlanh.backend.config.JwtTokenProvider tokenProvider;
+
+    @Autowired
     private EmailService emailService; // Gọi tổng đài gửi mail
 
+    @PostMapping("/login")
+    public ResponseEntity<?> authenticateUser(@RequestBody java.util.Map<String, String> loginRequest) {
+        try {
+            org.springframework.security.core.Authentication authentication = authenticationManager.authenticate(
+                    new org.springframework.security.authentication.UsernamePasswordAuthenticationToken(
+                            loginRequest.get("username"),
+                            loginRequest.get("password")
+                    )
+            );
+            
+            org.springframework.security.core.context.SecurityContextHolder.getContext().setAuthentication(authentication);
+            String jwt = tokenProvider.generateToken(authentication);
+            
+            com.ngonlanh.backend.entity.User user = userRepository.findByUsername(loginRequest.get("username"))
+                    .orElseThrow(() -> new RuntimeException("User not found"));
+
+            if (!user.getIsActive()) {
+                return ResponseEntity.status(org.springframework.http.HttpStatus.FORBIDDEN).body("Tài khoản chưa kích hoạt OTP!");
+            }
+            
+            return ResponseEntity.ok(new com.ngonlanh.backend.dto.JwtAuthResponse(jwt, user.getUsername(), user.getEmail()));
+            
+        } catch (Exception e) {
+            return ResponseEntity.status(org.springframework.http.HttpStatus.UNAUTHORIZED).body("Sai tài khoản hoặc mật khẩu!");
+        }
+    }
+    
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@RequestBody User user) {
         // 1. Kiểm tra username đã tồn tại chưa (Tùy logic cũ của bạn)

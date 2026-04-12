@@ -42,6 +42,14 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/api/auth/**").permitAll() // Mở cửa cho đăng ký, đăng nhập
                 .requestMatchers("/error").permitAll() // BẮT BUỘC: Mở cửa cho route xử lý lỗi ngầm định của Spring Boot
+                
+                // BẮT ĐẦU THÊM MỚI TẠI ĐÂY ---
+                // Mở cửa cho khách vãng lai xem Danh mục và Món ăn (Chỉ cho phép phương thức GET)
+                .requestMatchers(org.springframework.http.HttpMethod.GET, "/api/categories/**").permitAll()
+                .requestMatchers(org.springframework.http.HttpMethod.GET, "/api/products/**").permitAll()
+                .requestMatchers(org.springframework.http.HttpMethod.GET, "/api/product/**").permitAll() // Đề phòng member đặt tên thiếu 's'
+                // KẾT THÚC THÊM MỚI ---
+
                 .anyRequest().authenticated() // CÁC API KHÁC BẮT BUỘC PHẢI CÓ TOKEN
             );
 
