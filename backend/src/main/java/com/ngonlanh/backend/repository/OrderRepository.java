@@ -6,6 +6,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import java.util.List;
+import com.ngonlanh.backend.entity.Product;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 @Repository
 public interface OrderRepository extends JpaRepository<Order, Long> {
@@ -23,4 +26,7 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     Double calculateRevenueByMonth(int month, int year);
 
     List<Order> findByUserOrderByIdDesc(User user);
+
+    @Query("SELECT CASE WHEN COUNT(o) > 0 THEN true ELSE false END FROM Order o JOIN o.orderDetails od WHERE o.user = :user AND od.product = :product")
+    boolean hasUserOrderedProduct(@Param("user") User user, @Param("product") Product product);
 }

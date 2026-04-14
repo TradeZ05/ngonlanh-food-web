@@ -48,13 +48,17 @@ public class SecurityConfig {
                 .requestMatchers(org.springframework.http.HttpMethod.GET, "/api/categories/**").permitAll()
                 .requestMatchers(org.springframework.http.HttpMethod.GET, "/api/products/**").permitAll()
                 .requestMatchers(org.springframework.http.HttpMethod.GET, "/api/product/**").permitAll() // Đề phòng member đặt tên thiếu 's'
+                .requestMatchers(org.springframework.http.HttpMethod.GET, "/api/addresses/**").permitAll() // Mở cửa cho tất cả xem địa chỉ (GET /api/addresses)
                 // KẾT THÚC THÊM MỚI ---
 
+                .requestMatchers("/api/reviews/product/**").permitAll() // Mở cửa cho tất cả xem review của món ăn (GET /api/reviews/product/{productId})   
+                
                 .anyRequest().authenticated() // CÁC API KHÁC BẮT BUỘC PHẢI CÓ TOKEN
             );
 
         // Đặt JWT Filter đứng chặn ở cửa trước
         http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+        
 
         return http.build();
     }
