@@ -1,9 +1,11 @@
 package com.ngonlanh.backend.repository;
 
 import com.ngonlanh.backend.entity.Order;
+import com.ngonlanh.backend.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+import java.util.List;
 
 @Repository
 public interface OrderRepository extends JpaRepository<Order, Long> {
@@ -19,4 +21,6 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     // 3. Tính tổng doanh thu theo một tháng và năm cụ thể (Dùng Native SQL cho dễ xử lý ngày tháng)
     @Query(value = "SELECT SUM(total_amount) FROM orders WHERE status = 'DELIVERED' AND MONTH(order_date) = :month AND YEAR(order_date) = :year", nativeQuery = true)
     Double calculateRevenueByMonth(int month, int year);
+
+    List<Order> findByUserOrderByIdDesc(User user);
 }

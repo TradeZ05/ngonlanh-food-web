@@ -34,4 +34,19 @@ public class Order {
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderDetail> orderDetails = new ArrayList<>();
+
+    @Column(name = "address")
+    private String address;
+
+    @Column(name = "phone_number")
+    private String phoneNumber;
+
+    @Column(name = "note")
+    private String note;
+
+    @Column(name = "payment_method")
+    private String paymentMethod;
+
+    @Column(name = "total_price")
+    private Double totalPrice;
 }
