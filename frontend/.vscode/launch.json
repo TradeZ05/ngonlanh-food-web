@@ -1,0 +1,44 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Open trangchu.html",
+            "file": "d:\\Ngonlanh\\trangchu.html"
+        }
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Open thucdonchay.html",
+            "file": "d:\\Ngonlanh\\thucdonchay.html"
+        }
+         {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Open thucdonkien.html",
+            "file": "d:\\Ngonlanh\\thucdonkien.html"
+        }
+         {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Open douong.html",
+            "file": "d:\\Ngonlanh\\douong.html"
+        }
+         {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Open tuyendung.html",
+            "file": "d:\\Ngonlanh\\tuyendung.html"
+        }
+         {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Open lienhe.html",
+            "file": "d:\\Ngonlanh\\lienhe.html"
+        }
+    ]
+}
