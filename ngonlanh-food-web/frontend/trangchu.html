@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ngon Lành - Trang chủ</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="home-page">
+
+    <!-- HEADER -->
+    <header class="top-bar">
+        <div class="logo-small">
+            <img src="D:\Ngonlanh\ngonlanh-food-web\frontend\anh\LOGO_N.png" alt="Logo">
+        </div>
+
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm...">
+            <button>🔍</button>
+        </div>
+
+        <div class="nav-actions">
+            <span>⏳</span>
+            <span>🕒</span>
+             <div class="user-icon-box">
+        <img src="D:\Ngonlanh\ngonlanh-food-web\frontend\anh\meme.png" alt="Tài khoản">
+    </div>
+            <button onclick="window.location.href='D:\\Ngonlanh\\ngonlanh-food-web\\frontend\\dangnhap.html'">
+    Đăng nhập
+</button>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <div class="hero-section">
+        <div class="hero-background"></div>
+
+       <div class="home-page">
+
+    <div class="hero">
+
+        <!-- ẢNH FULL -->
+        <img class="hero-img" src="D:\Ngonlanh\ngonlanh-food-web\frontend\anh\000.png" alt="">
+
+        <!-- LOGO ĐÈ LÊN -->
+        <div class="hero-logo">
+            <img src="D:\Ngonlanh\ngonlanh-food-web\frontend\anh\LOGO_L.png" alt="">
+        </div>
+
+    </div>
+
+</div>
+
+    <!-- POPUP -->
+    <div id="popup" class="popup-overlay">
+        <div class="popup-box">
+            <button class="close-btn" onclick="closePopup()">×</button>
+
+            <img src="D:\Ngonlanh\ngonlanh-food-web\frontend\anh\image 10.png" alt="Khuyến mãi">
+
+            <div class="popup-actions">
+                <button>Đặt món</button>
+                <button>Xem chi tiết</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAV -->
+    <nav class="main-nav">
+    <ul>
+        <li><a href="D:\Ngonlanh\ngonlanh-food-web\frontend\trangchu.html" class="active">Trang chủ</a></li>
+        
+        <li><a href="D:\Ngonlanh\ngonlanh-food-web\frontend\thucdonchay.html">Thực đơn chay</a></li>
+        
+        <li><a href="D:\Ngonlanh\ngonlanh-food-web\frontend\thucdonkieng.html">Thực đơn kiêng</a></li>
+        <li><a href="D:\Ngonlanh\ngonlanh-food-web\frontend\douong.html">Đồ uống</a></li>
+        <li><a href="D:\Ngonlanh\ngonlanh-food-web\frontend\tuyendung.html">Tuyển dụng</a></li>
+        <li><a href="D:\Ngonlanh\ngonlanh-food-web\frontend\lienhe.html">Liên hệ</a></li>
+    </ul>
+    </nav>
+
+    <!-- SCRIPT -->
+    <script>
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+    </script>
+
+
+<section class="promo-section">
+
+    <div class="promo-container">
+
+        <h2 class="promo-title">Ưu đãi</h2>
+
+        <!-- ===== VOUCHER ===== -->
+        <div class="voucher-grid">
+
+            <!-- CARD 1 -->
+            <div class="voucher-card">
+                <div class="card-media">
+                    <img src="D:\Ngonlanh\ngonlanh-food-web\frontend\anh\1.1.png">
+                    <span class="badge">-10%</span>
+
+                    <div class="punch left"></div>
+                    <div class="punch right"></div>
+                </div>
+
+                <div class="card-content">
+                    <h3>Khuyến mãi “Mùng 1”</h3>
+                    <p>Giảm 10% trên tổng hóa đơn khi dùng tại nhà hàng.</p>
+
+                    <div class="card-footer">
+                        <span class="expire">Sắp hết hạn</span>
+                        <span class="coin">1000 xu</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="voucher-card">
+                <div class="card-media">
+                    <img src="D:\Ngonlanh\ngonlanh-food-web\frontend\anh\1.2.png">
+                    <span class="badge">-500K</span>
+
+                    <div class="punch left"></div>
+                    <div class="punch right"></div>
+                </div>
+
+                <div class="card-content">
+                    <h3>Ưu đãi khách VIP</h3>
+                    <p>Giảm ngay 500.000đ cho hóa đơn từ 2.000.000đ.</p>
+
+                    <div class="card-footer">
+                        <span class="expire">01/03 - 15/03</span>
+                        <span class="coin">1000 xu</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="voucher-card">
+                <div class="card-media">
+                    <img src="D:\Ngonlanh\ngonlanh-food-web\frontend\anh\1.3.png">
+
+                    <div class="punch left"></div>
+                    <div class="punch right"></div>
+                </div>
+
+                <div class="card-content">
+                    <h3>Ra mắt món mới</h3>
+                    <p>Giảm 50% khi trải nghiệm món chay mới.</p>
+
+                    <div class="card-footer">
+                        <span class="expire">Sắp hết hạn</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ===== FEATURE ===== -->
+        <div class="feature-grid">
+
+            <div class="feature-card">
+                <div class="icon">🎁</div>
+                <h4>ƯU ĐÃI TÍCH ĐIỂM</h4>
+                <p>
+                    Với mỗi hóa đơn từ 100.000đ, bạn sẽ tích lũy 1 điểm 
+                    để đổi ưu đãi hấp dẫn.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon">🥣</div>
+                <h4>KHÔNG GIAN TIỆC</h4>
+                <p>
+                    Không gian chay yên tĩnh, ấm cúng, phù hợp tổ chức 
+                    tiệc từ 20 đến 70 khách.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon">🛎️</div>
+                <h4>GIAO TẬN NƠI</h4>
+                <p>
+                    Đặt món online nhanh chóng, giao tận nơi tiện lợi, 
+                    phục vụ mọi lúc bạn cần.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon">🌿</div>
+                <h4>THỰC PHẨM SẠCH</h4>
+                <p>
+                    Nguyên liệu tươi sạch, nguồn gốc rõ ràng, đảm bảo 
+                    an toàn cho sức khỏe.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+<div class="menu-page">
+
+
+    <section class="menu-hero">
+
+        <!-- ẢNH NỀN -->
+        <div class="menu-bg">
+              <img src="D:\Ngonlanh\ngonlanh-food-web\frontend\anh\00.png" alt="">
+        </div>
+
+
+        <!-- LỚP PHỦ MỜ -->
+        <div class="menu-overlay"></div>
+
+        <!-- BOX NỘI DUNG -->
+        <div class="menu-box">
+            <h1>KHÁM PHÁ THỰC ĐƠN NGON LÀNH</h1>
+
+            <div class="menu-buttons">
+                <button class="btn-primary">Thực đơn chay</button>
+                <button class="btn-outline">Thực đơn kiêng</button>
+            </div>
+
+            <p>
+                Bước vào không gian của Ngon Lành, mỗi món chay phục vụ 
+                đều được chuẩn bị chu đáo mang trong mình những ý nghĩa riêng biệt.
+            </p>
+
+            <p>
+                Có khi là lời gửi gắm sức khỏe qua những nguyên liệu tinh khiết, 
+                mát lành và giàu dinh dưỡng; có khi là thông điệp sâu lắng về 
+                tâm an và sự nhẹ nhàng trong từng bữa cơm chay hằng ngày.
+            </p>
+
+            <p>
+                Trên tất cả, đó là sự tỉ mỉ, thấu hiểu và lòng biết ơn sâu sắc mà 
+                chúng tôi dành cho quý khách – những người đã tin tưởng lựa chọn 
+                không gian an lành và đồng hành cùng thực đơn chay – kiêng của Ngon Lành.
+            </p>
+        </div>
+
+    </section>
+
+</div>
+   <section class="about">
+
+    <!-- ẢNH NỀN -->
+    <img class="about-bg" src="D:\Ngonlanh\ngonlanh-food-web\frontend\anh\01.png" alt="">
+
+    <!-- NỘI DUNG -->
+    <div class="about-content">
+
+        <h2>DÀNH CHO CHÚNG TA</h2>
+
+        <p>
+            Những người đang tìm kiếm sự nhẹ nhàng, thuần khiết 
+            trong cuộc sống thường nhật.
+        </p>
+
+        <p>
+            Ngon Lành không chỉ là món ăn, mà còn là cách ta 
+            trân trọng sức khỏe và những giá trị tự nhiên.
+        </p>
+
+        <p>
+            Mỗi bữa ăn là một hành trình nuôi dưỡng cả cơ thể 
+            và tâm hồn.
+        </p>
+
+    </div>
+
+</section>
+<!-- FOOTER -->
+<footer class="footer-section">
+
+    <div class="footer-container">
+
+        <!-- CỘT 1 -->
+        <div class="footer-col">
+            <h2 class="logo">TMDT</h2>
+            <p>Tổng đài CSKH: 0287306606</p>
+            <p>Email: cskh@tmdt.com</p>
+
+            <h4>Đăng ký tư vấn</h4>
+            <div class="subscribe">
+                <input type="text" placeholder="Email">
+                <button>Đăng ký</button>
+            </div>
+        </div>
+
+        <!-- CỘT 2 -->
+        <div class="footer-col">
+            <h4>Khám phá cửa hàng</h4>
+            <p>Thực đơn chay</p>
+            <p>Thực đơn kiêng</p>
+            <p>Lẩu chay</p>
+            <p>Lẩu chay</p>
+        </div>
+
+        <!-- CỘT 3 -->
+        <div class="footer-col">
+            <h4>Dịch vụ</h4>
+            <p>Giao hàng trực tuyến</p>
+            <p>Đặt lịch tư vấn</p>
+        </div>
+
+        <!-- CỘT 4 -->
+        <div class="footer-col">
+            <h4>Hệ thống cửa hàng</h4>
+            <p>Chi nhánh 1: ...</p>
+            <p>Chi nhánh 2: Số 70 Tô Ký, Q12</p>
+        </div>
+
+    </div>
+
+    <!-- DÒNG CUỐI -->
+    <div class="footer-bottom">
+        <p>© 2025. All rights reserved.</p>
+
+        <div class="social">
+            <span>f</span>
+            <span>t</span>
+            <span>ig</span>
+        </div>
+    </div>
+
+</footer>
+
+</body>
+</html>
+
+
+  
