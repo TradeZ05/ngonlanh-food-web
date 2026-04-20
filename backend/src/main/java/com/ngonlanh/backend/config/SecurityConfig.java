@@ -34,31 +34,29 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
             .csrf(csrf -> csrf.disable()) 
-            
-            // Tắt Session vì JWT tự mang theo thông tin
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             
-            // LUẬT BẢO MẬT
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/auth/**").permitAll() // Mở cửa cho đăng ký, đăng nhập
-                .requestMatchers("/error").permitAll() // BẮT BUỘC: Mở cửa cho route xử lý lỗi ngầm định của Spring Boot
+                // 1. NHÓM CÔNG CỘNG: Ai cũng vào được (Kể cả không có Token)
+                .requestMatchers("/api/auth/**", "/error").permitAll()
                 
-                // BẮT ĐẦU THÊM MỚI TẠI ĐÂY ---
-                // Mở cửa cho khách vãng lai xem Danh mục và Món ăn (Chỉ cho phép phương thức GET)
-                .requestMatchers(org.springframework.http.HttpMethod.GET, "/api/categories/**").permitAll()
-                .requestMatchers(org.springframework.http.HttpMethod.GET, "/api/products/**").permitAll()
-                .requestMatchers(org.springframework.http.HttpMethod.GET, "/api/product/**").permitAll() // Đề phòng member đặt tên thiếu 's'
-                .requestMatchers(org.springframework.http.HttpMethod.GET, "/api/addresses/**").permitAll() // Mở cửa cho tất cả xem địa chỉ (GET /api/addresses)
-                // KẾT THÚC THÊM MỚI ---
+                // 👉 TÔI ĐÃ THÊM DÒNG NÀY VÀO ĐÂY: Thẻ VIP cho Swagger qua cổng
+                .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
 
-                .requestMatchers("/api/reviews/product/**").permitAll() // Mở cửa cho tất cả xem review của món ăn (GET /api/reviews/product/{productId})   
+                .requestMatchers(org.springframework.http.HttpMethod.GET, 
+                    "/api/categories/**", 
+                    "/api/products/**", 
+                    "/api/reviews/product/**"
+                ).permitAll()
                 
-                .anyRequest().authenticated() // CÁC API KHÁC BẮT BUỘC PHẢI CÓ TOKEN
+                // 2. NHÓM ADMIN: Chỉ dành riêng cho chủ quán
+                .requestMatchers("/api/admin/**").hasRole("ADMIN")
+                
+                // 3. NHÓM USER: Các hành động cần đăng nhập (Review, Đặt hàng, Địa chỉ...)
+                .anyRequest().authenticated() 
             );
 
-        // Đặt JWT Filter đứng chặn ở cửa trước
         http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
-        
 
         return http.build();
     }

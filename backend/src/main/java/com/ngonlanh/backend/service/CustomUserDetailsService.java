@@ -28,7 +28,14 @@ public class CustomUserDetailsService implements UserDetailsService {
                 user.getUsername(),
                 user.getPassword(),
                 user.getRoles().stream()
-                        .map(role -> new SimpleGrantedAuthority(role.getName()))
+                        .map(role -> {
+                            String roleName = role.getName();
+                            // Tự động gắn thêm ROLE_ nếu trong DB thiếu
+                            if (!roleName.startsWith("ROLE_")) {
+                                roleName = "ROLE_" + roleName;
+                            }
+                            return new SimpleGrantedAuthority(roleName);
+                        })
                         .collect(Collectors.toList())
         );
     }

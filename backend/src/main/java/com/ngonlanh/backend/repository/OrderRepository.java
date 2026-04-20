@@ -14,7 +14,7 @@ import org.springframework.data.repository.query.Param;
 public interface OrderRepository extends JpaRepository<Order, Long> {
 
     // 1. Tính tổng doanh thu của những đơn hàng đã giao thành công (DELIVERED)
-    @Query("SELECT SUM(o.totalAmount) FROM Order o WHERE o.status = 'DELIVERED'")
+   @Query("SELECT SUM(o.totalPrice) FROM Order o WHERE o.status = 'DELIVERED'")
     Double calculateTotalRevenue();
 
     // 2. Đếm tổng số đơn hàng đang chờ xử lý (PENDING) để Admin biết mà duyệt
@@ -29,4 +29,19 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
 
     @Query("SELECT CASE WHEN COUNT(o) > 0 THEN true ELSE false END FROM Order o JOIN o.orderDetails od WHERE o.user = :user AND od.product = :product")
     boolean hasUserOrderedProduct(@Param("user") User user, @Param("product") Product product);
+
+    // 1. Đếm số đơn hàng theo trạng thái (VD: đếm đơn PENDING)
+    Long countByStatus(String status);
+
+    // 2. Tính tổng doanh thu trong 1 khoảng thời gian (Chỉ tính đơn đã thanh toán/hoàn thành)
+    @Query("SELECT SUM(o.totalPrice) FROM Order o WHERE o.status IN :statuses AND o.orderDate >= :startDate AND o.orderDate <= :endDate")
+    Double calculateRevenue(@Param("statuses") java.util.List<String> statuses, 
+                            @Param("startDate") java.time.LocalDateTime startDate, 
+                            @Param("endDate") java.time.LocalDateTime endDate);
+
+    // Sửa CreatedAt thành OrderDate (Nhớ viết hoa chữ O và D)
+    java.util.List<Order> findTop5ByOrderByOrderDateDesc();
+
+    List<Order> findByStatusOrderByOrderDateDesc(String status);
+    List<Order> findAllByOrderByOrderDateDesc();
 }

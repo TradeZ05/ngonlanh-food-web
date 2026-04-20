@@ -35,8 +35,8 @@ public class OrderService {
         // 3. Khởi tạo Đơn hàng (Order)
         Order order = new Order();
         order.setUser(user);
-        order.setAddress(request.getAddress());
-        order.setPhoneNumber(request.getPhoneNumber());
+        order.setShippingAddress(request.getAddress());
+        order.setReceiverPhone(request.getPhoneNumber());
         order.setNote(request.getNote());
         order.setStatus("PENDING"); // Trạng thái: Chờ xác nhận
         order.setPaymentMethod(request.getPaymentMethod() != null ? request.getPaymentMethod() : "COD");
@@ -78,5 +78,16 @@ public class OrderService {
         
         // Trả về danh sách đơn hàng
         return orderRepository.findByUserOrderByIdDesc(user);
+    }
+
+    // Hàm cập nhật trạng thái đơn hàng
+    public Order updateOrderStatus(Long orderId, String status) {
+        Order order = orderRepository.findById(orderId)
+                .orElseThrow(() -> new RuntimeException("Không tìm thấy đơn hàng id: " + orderId));
+        
+        // Cập nhật trạng thái mới (VD: DELIVERED, CANCELLED...)
+        order.setStatus(status);
+        
+        return orderRepository.save(order);
     }
 }
