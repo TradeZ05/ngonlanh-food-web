@@ -14,7 +14,7 @@
     <!-- HEADER -->
     <header class="top-bar">
         <div class="logo-small">
-            <img src="D:\Ngonlanh\ngonlanh-food-web\frontend\anh\LOGO_N.png" alt="Logo">
+            <img src="./anh/LOGO_N.png" alt="Logo">
         </div>
 
         <div class="search-bar">
@@ -25,10 +25,13 @@
         <div class="nav-actions">
             <span>⏳</span>
             <span>🕒</span>
+            <div class="user-icon-box">
+    <a href="D:\Ngonlanh\ngonlanh-food-web\frontend\thongtin1.html">
+        <img src="./anh/meme.png" alt="Tài khoản">
+    </a>
+</div>
             <a href="#" class="user-icon-link">
-    <div class="user-icon-box">
-        <img src="D:\Ngonlanh\ngonlanh-food-web\frontend\anh\meme.png" alt="Tài khoản">
-    </div>
+    
 </a>
            <button onclick="window.location.href='D:\\Ngonlanh\\ngonlanh-food-web\\frontend\\dangnhap.html'">
     Đăng nhập
@@ -50,8 +53,12 @@
     </ul>
     </nav>
     </header>
-    <main class="container">
-       <aside id="nl-account-sidebar" class="sidebar">
+    <main class="profile-page">
+    <div class="main-content">
+
+        <!-- ===== SIDEBAR ===== -->
+        <div class="sidebar">
+            <aside id="nl-account-sidebar" class="sidebar">
     <a href="D:\Ngonlanh\ngonlanh-food-web\frontend\thongtin1.html" class="menu-item active">
         Thông tin tài khoản
     </a>
@@ -68,32 +75,71 @@
         Đăng xuất
     </a>
 </aside>
+        </div>
 
-        <section class="profile-card">
-            <div class="profile-header">
-                <h2>HỒ SƠ CỦA TÔI</h2>
-            </div>
-            <div class="profile-body">
+        <!-- ===== PROFILE CARD ===== -->
+        <div class="profile-card">
+            <h2>HỒ SƠ CỦA TÔI</h2>
+
+            <div class="profile-layout">
+
+                <!-- AVATAR -->
                 <div class="avatar-section">
-                    <div class="avatar-wrapper">
-                        <img src="D:\Ngonlanh\ngonlanh-food-web\frontend\anh\Frame 360.png" alt="Avatar">
-                    </div>
+             <div class="avatar-wrapper">
+            <img src="anh/avatar.png">
+          </div>
+                   
                     <button class="btn-change-photo">Thay đổi ảnh</button>
                 </div>
-                <div class="info-section">
-                    <div class="info-row"><span class="label">Tên:</span> <span class="value">Nguyễn Văn A</span></div>
-                    <div class="info-row"><span class="label">Số điện thoại:</span> <span class="value">0908 882 795</span></div>
-                    <div class="info-row"><span class="label">Gmail:</span> <span class="value">nguyenvana@gmail.com</span></div>
-                    <div class="info-row"><span class="label">Địa chỉ:</span> <span class="value">Hồ Chí Minh</span></div>
-                    <div class="info-row"><span class="label">Ngày sinh:</span> <span class="value">27/03/2001</span></div>
-                    <div class="info-row"><span class="label">Giới tính:</span> <span class="value">Nam</span></div>
-                    
-                  <a href="D:\Ngonlanh\ngonlanh-food-web\frontend\thongtin2.html" class="btn-edit">Chỉnh sửa</a>
-                </div>
+
+                <!-- FORM -->
+                <form class="profile-form">
+
+                    <div class="form-group">
+                        <label>Tên:</label>
+                        <input type="text" placeholder="example@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Số điện thoại:</label>
+                        <input type="text" placeholder="+84 099-265-245">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Gmail:</label>
+                        <input type="email" placeholder="example@gmail.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Địa chỉ:</label>
+                        <select>
+                            <option>Tại quán</option>
+                            <option>Giao hàng</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Ngày sinh:</label>
+                        <input type="date">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Giới tính:</label>
+                        <select>
+                            <option>Nam</option>
+                            <option>Nữ</option>
+                        </select>
+                    </div>
+
+                    <!-- BUTTON -->
+                    <a href="D:\Ngonlanh\ngonlanh-food-web\frontend\thongtin1.html" class="btn-save">Lưu thay đổi</a>
+                </form>
             </div>
-        </section>
-    </main>
-<!-- FOOTER -->
+        </div>
+
+    </div>
+</main>
+    <!-- FOOTER -->
 <footer class="footer-section">
 
     <div class="footer-container">

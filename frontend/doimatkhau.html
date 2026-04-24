@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
@@ -14,7 +14,7 @@
     <!-- HEADER -->
     <header class="top-bar">
         <div class="logo-small">
-            <img src="D:\Ngonlanh\ngonlanh-food-web\frontend\anh\LOGO_N.png" alt="Logo">
+            <img src="./anh/LOGO_N.png" alt="Logo">
         </div>
 
         <div class="search-bar">
@@ -25,10 +25,11 @@
         <div class="nav-actions">
             <span>⏳</span>
             <span>🕒</span>
-            <a href="#" class="user-icon-link">
-    <div class="user-icon-box">
-        <img src="D:\Ngonlanh\ngonlanh-food-web\frontend\anh\meme.png" alt="Tài khoản">
-    </div>
+             <div class="user-icon-box">
+    <a href="D:\Ngonlanh\ngonlanh-food-web\frontend\thongtin1.html">
+        <img src="./anh/meme.png" alt="Tài khoản">
+    </a>
+</div>
 </a>
            <button onclick="window.location.href='D:\\Ngonlanh\\ngonlanh-food-web\\frontend\\dangnhap.html'">
     Đăng nhập
@@ -50,68 +51,59 @@
     </ul>
     </nav>
     </header>
-    <div class="order-history-section">
-    <div class="order-container">
-      <aside id="nl-exclusive-sidebar" class="order-sidebar">
-    <a href="D:\Ngonlanh\ngonlanh-food-web\frontend\thongtin1.html" class="order-menu-item">
+  <div class="security-settings-section">
+    <div class="account-container">
+        
+         <aside id="nl-unique-sidebar" class="promotions-sidebar">
+    <a href="D:\Ngonlanh\ngonlanh-food-web\frontend\thongtin1.html" class="promo-menu-item">
         <span class="icon">👤</span> Thông tin tài khoản
     </a>
-    <a href="D:\Ngonlanh\ngonlanh-food-web\frontend\lichsu.html" class="order-menu-item active">
+
+    <a href="D:\Ngonlanh\ngonlanh-food-web\frontend\lichsu.html" class="promo-menu-item">
         <span class="icon">📋</span> Lịch sử đơn hàng
     </a>
-    <a href="D:\Ngonlanh\ngonlanh-food-web\frontend\uudai.html" class="order-menu-item">
+
+    <a href="D:\Ngonlanh\ngonlanh-food-web\frontend\uudai.html" class="promo-menu-item active">
         <span class="icon">🎁</span> Ưu đãi của tôi
     </a>
-    <a href="D:\Ngonlanh\ngonlanh-food-web\frontend\doimk.html" class="order-menu-item">
+
+    <a href="D:\Ngonlanh\ngonlanh-food-web\frontend\doimatkhau.html" class="promo-menu-item">
         <span class="icon">🔒</span> Đổi mật khẩu
     </a>
-    <a href="D:\Ngonlanh\ngonlanh-food-web\frontend\dangxuat.html" class="order-menu-item logout-link">
+
+    <a href="D:\Ngonlanh\ngonlanh-food-web\frontend\dangnhap.html" class="promo-menu-item logout">
         <span class="icon">➡️</span> Đăng xuất
     </a>
 </aside>
-        <main class="order-main-card">
-            <h2 class="order-main-title">LỊCH SỬ ĐẶT HÀNG</h2>
-            
-            <div class="order-list">
-                <div class="order-card-item">
-                    <h3 class="order-id">Hóa đơn: 84681557</h3>
-                    <div class="order-details-grid">
-                        <div class="detail-col">
-                            <p>Số món: 8 <a href="#" class="view-link">(Xem chi tiết)</a></p>
-                            <p>Tổng/bàn: 1.250.000 VNĐ</p>
-                            <p>Tiền cọc/bàn: 634.500 VNĐ</p>
-                        </div>
-                        <div class="detail-col">
-                            <p>Số bàn: 5</p>
-                            <p>Tổng: 6.345.000 VNĐ</p>
-                            <p>Tổng tiền cọc: 3.172.500 VNĐ</p>
-                        </div>
-                    </div>
-                    <p class="order-note">* Lưu ý: bạn phải cọc trước 50%</p>
-                </div>
 
-                <div class="order-card-item">
-                    <h3 class="order-id">Hóa đơn: 84681557</h3>
-                    <div class="order-details-grid">
-                        <div class="detail-col">
-                            <p>Số món: 8 <a href="#" class="view-link">(Xem chi tiết)</a></p>
-                            <p>Tổng/bàn: 1.250.000 VNĐ</p>
-                            <p>Tiền cọc/bàn: 634.500 VNĐ</p>
-                        </div>
-                        <div class="detail-col">
-                            <p>Số bàn: 5</p>
-                            <p>Tổng: 6.345.000 VNĐ</p>
-                            <p>Tổng tiền cọc: 3.172.500 VNĐ</p>
-                        </div>
-                    </div>
-                    <p class="order-note">* Lưu ý: bạn phải cọc trước 50%</p>
+        <main class="security-main-card">
+            <h2 class="security-title">CÀI ĐẶT BẢO MẬT</h2>
+            
+            <div class="security-form-container">
+                <div class="security-form-group">
+                    <label>Tên đăng nhập</label>
+                    <input type="text" placeholder="123456">
                 </div>
+                
+                <div class="security-form-group">
+                    <label>Mật khẩu cũ</label>
+                    <input type="password" placeholder="123456">
+                </div>
+                
+                <div class="security-form-group">
+                    <label>Mật khẩu mới</label>
+                    <input type="password" placeholder="123456">
+                </div>
+            </div>
+
+            <div class="security-action">
+                <button class="btn-security-edit">Chỉnh sửa</button>
             </div>
         </main>
 
     </div>
 </div>
- <!-- FOOTER -->
+  <!-- FOOTER -->
 <footer class="footer-section">
 
     <div class="footer-container">

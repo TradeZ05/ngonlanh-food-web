@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hồ sơ của tôi - Ngon Lành</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="home-page">
+    
+    <header class="top-bar">
+        <div class="logo-small">
+            <img src="./anh/LOGO_N.png" alt="Logo Ngon Lành">
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm...">
+            <button> 🔍 </button>
+        </div>
+        <div class="nav-actions">
+            <span> ⏳ </span>
+            <span> 🕒 </span>
+            <div class="user-icon-box">
+                <a href="thongtin1.html">
+                    <img src="./anh/meme.png" alt="Tài khoản">
+                </a>
+            </div>
+            <button id="btn-login-logout">Đăng nhập</button>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="trangchu.html">Trang chủ</a></li>
+            <li><a href="thucdonchay.html">Thực đơn chay</a></li>
+            <li><a href="thucdonkieng.html">Thực đơn kiêng</a></li>
+            <li><a href="douong.html">Đồ uống</a></li>
+            <li><a href="tuyendung.html">Tuyển dụng</a></li>
+            <li><a href="lienhe.html">Liên hệ</a></li>
+        </ul>
+    </nav>
+
+    <main class="profile-page">
+        <div class="container profile-flex-container">
+            <aside id="nl-account-sidebar" class="sidebar">
+                <a href="thongtin1.html" class="menu-item active">Thông tin tài khoản</a>
+                <a href="lichsu.html" class="menu-item">Lịch sử đơn hàng</a>
+                <a href="uudai.html" class="menu-item">Ưu đãi của tôi</a>
+                <a href="doimatkhau.html" class="menu-item">Đổi mật khẩu</a>
+                <a href="#" id="btn-sidebar-logout" class="menu-item logout-red">Đăng xuất</a>
+            </aside>
+
+            <section class="profile-card">
+                <div class="profile-header">
+                    <h2>HỒ SƠ CỦA TÔI</h2>
+                </div>
+                <div class="profile-body">
+                    <div class="avatar-section">
+                        <div class="avatar-wrapper">
+                            <img src="anh/avatar.png" alt="Avatar">
+                        </div>
+                        <button class="btn-change-photo">Thay đổi ảnh</button>
+                    </div>
+                    
+                    <div class="info-section">
+                        <div class="info-row"><span>Tên:</span> <span id="profile-name">Đang tải...</span></div>
+                        <div class="info-row"><span>SĐT:</span> <span id="profile-phone">Đang tải...</span></div>
+                        <div class="info-row"><span>Email:</span> <span id="profile-email">Đang tải...</span></div>
+                        <div class="info-row"><span>Địa chỉ:</span> <span id="profile-address">Đang tải...</span></div>
+                        <div class="info-row"><span>Ngày sinh:</span> <span id="profile-dob">Đang tải...</span></div>
+                        <div class="info-row"><span>Giới tính:</span> <span id="profile-gender">Đang tải...</span></div>
+                        
+                        <a href="thongtin2.html" class="btn-edit">Chỉnh sửa</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer-section">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h2 class="logo">Ngon Lành</h2>
+                <p>Tổng đài CSKH: 0287 306 606</p>
+                <p>Email: cskh@ngonlanh.com</p>
+                <h4>Đăng ký tư vấn</h4>
+                <div class="subscribe">
+                    <input type="text" placeholder="Email">
+                    <button>Đăng ký</button>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Khám phá cửa hàng</h4>
+                <p>Thực đơn chay</p>
+                <p>Thực đơn kiêng</p>
+                <p>Đồ uống & Tráng miệng</p>
+            </div>
+            <div class="footer-col">
+                <h4>Dịch vụ</h4>
+                <p>Giao hàng trực tuyến</p>
+                <p>Đặt lịch tư vấn</p>
+            </div>
+            <div class="footer-col">
+                <h4>Hệ thống cửa hàng</h4>
+                <p>Chi nhánh 1: ĐH Hoa Sen</p>
+                <p>Chi nhánh 2: Số 70 Tô Ký, Q12</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Ngon Lành. All rights reserved.</p>
+            <div class="socials">
+                <span>f</span>
+                <span>t</span>
+                <span>ig</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/thongtin1.js"></script>
+</body>
+</html>

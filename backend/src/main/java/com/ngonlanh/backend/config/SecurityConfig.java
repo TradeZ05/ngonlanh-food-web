@@ -13,6 +13,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+// 👉 TÔI ĐÃ BỔ SUNG CÁC IMPORT THIẾU Ở ĐÂY
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import java.util.Arrays;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -31,8 +37,34 @@ public class SecurityConfig {
     }
 
     @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        
+        // CẤP VISA CHO CÁC NHÀ NÀY ĐƯỢC PHÉP VÀO:
+        configuration.setAllowedOrigins(Arrays.asList(
+            "http://localhost:5500", 
+            "http://127.0.0.1:5500",
+            "http://localhost:3000" 
+        ));
+        
+        // CÁC HÀNH ĐỘNG ĐƯỢC PHÉP LÀM:
+        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        
+        // CÁC LOẠI CHÌA KHÓA ĐƯỢC MANG THEO:
+        configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type"));
+        configuration.setAllowCredentials(true);
+        
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
+    }
+
+    @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
+            // 👉 TÔI ĐÃ BỔ SUNG LỆNH GỌI CORS Ở ĐÂY (VÔ CÙNG QUAN TRỌNG)
+            .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+            
             .csrf(csrf -> csrf.disable()) 
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             
@@ -40,7 +72,7 @@ public class SecurityConfig {
                 // 1. NHÓM CÔNG CỘNG: Ai cũng vào được (Kể cả không có Token)
                 .requestMatchers("/api/auth/**", "/error").permitAll()
                 
-                // 👉 TÔI ĐÃ THÊM DÒNG NÀY VÀO ĐÂY: Thẻ VIP cho Swagger qua cổng
+                // Thẻ VIP cho Swagger qua cổng
                 .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
 
                 .requestMatchers(org.springframework.http.HttpMethod.GET, 
