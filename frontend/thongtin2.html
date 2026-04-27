@@ -3,196 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ngon Lành - Trang chủ</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Chỉnh sửa hồ sơ - Ngon Lành</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tuyendung-style.css">
+    <link rel="stylesheet" href="lienhe-style.css">
+    <link rel="stylesheet" href="profile-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
-<body class="home-page">
-
-    <!-- HEADER -->
-    <header class="top-bar">
-        <div class="logo-small">
-            <img src="./anh/LOGO_N.png" alt="Logo">
-        </div>
-
-        <div class="search-bar">
-            <input type="text" placeholder="Tìm kiếm...">
-            <button>🔍</button>
-        </div>
-
-        <div class="nav-actions">
-            <span>⏳</span>
-            <span>🕒</span>
-            <div class="user-icon-box">
-    <a href="D:\Ngonlanh\ngonlanh-food-web\frontend\thongtin1.html">
-        <img src="./anh/meme.png" alt="Tài khoản">
-    </a>
-</div>
-            <a href="#" class="user-icon-link">
-    
-</a>
-           <button onclick="window.location.href='D:\\Ngonlanh\\ngonlanh-food-web\\frontend\\dangnhap.html'">
-    Đăng nhập
-</button>
+<body class="profile-page-bg">
+    <!-- Header -->
+    <header class="custom-header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="./anh/LOGO_N.png" alt="Ngon Lành Logo">
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Tìm kiếm...">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            </div>
+            <div class="header-actions">
+                <i class="fa-solid fa-filter action-icon"></i>
+                <i class="fa-regular fa-clock action-icon"></i>
+                <a href="thongtin1.html" class="user-action-link" style="color:inherit;"><i class="fa-regular fa-user action-icon" style="border: 1px solid #333; border-radius: 50%; padding: 4px;"></i></a>
+            </div>
         </div>
     </header>
-<body>
 
-    <nav class="main-nav">
-    <ul>
-        <li><a href="D:\Ngonlanh\ngonlanh-food-web\frontend\trangchu.html">Trang chủ</a></li>
-        
-        <li><a href="D:\Ngonlanh\ngonlanh-food-web\frontend\thucdonchay.html">Thực đơn chay</a></li>
-        
-        <li><a href="D:\Ngonlanh\ngonlanh-food-web\frontend\thucdonkieng.html">Thực đơn kiêng</a></li>
-        <li><a href="D:\Ngonlanh\ngonlanh-food-web\frontend\douong.html">Đồ uống</a></li>
-        <li><a href="D:\Ngonlanh\ngonlanh-food-web\frontend\tuyendung.html">Tuyển dụng</a></li>
-        <li><a href="D:\Ngonlanh\ngonlanh-food-web\frontend\lienhe.html">Liên hệ</a></li>
-    </ul>
+    <!-- Navigation -->
+    <nav class="custom-nav">
+        <ul>
+            <li><a href="trangchu.html">Trang chủ</a></li>
+            <li><a href="thucdonchay.html">Thực đơn chay</a></li>
+            <li><a href="thucdonkieng.html">Thực đơn kiêng</a></li>
+            <li><a href="douong.html">Đồ uống</a></li>
+            <li><a href="tuyendung.html">Tuyển dụng</a></li>
+            <li><a href="lienhe.html">Liên hệ</a></li>
+        </ul>
     </nav>
-    </header>
-    <main class="profile-page">
-    <div class="main-content">
 
-        <!-- ===== SIDEBAR ===== -->
-        <div class="sidebar">
-            <aside id="nl-account-sidebar" class="sidebar">
-    <a href="D:\Ngonlanh\ngonlanh-food-web\frontend\thongtin1.html" class="menu-item active">
-        Thông tin tài khoản
-    </a>
-    <a href="D:\Ngonlanh\ngonlanh-food-web\frontend\lichsu.html" class="menu-item">
-        Lịch sử đơn hàng
-    </a>
-    <a href="D:\Ngonlanh\ngonlanh-food-web\frontend\uudai.html" class="menu-item">
-        Ưu đãi của tôi
-    </a>
-    <a href="D:\Ngonlanh\ngonlanh-food-web\frontend\doimatkhau.html" class="menu-item">
-        Đổi mật khẩu
-    </a>
-    <a href="D:\Ngonlanh\ngonlanh-food-web\frontend\dangnhap.html" class="menu-item logout-red">
-        Đăng xuất
-    </a>
-</aside>
+    <!-- Main Content -->
+    <main class="profile-main-container">
+        <div class="profile-sidebar">
+            <a href="thongtin1.html" class="sidebar-item active">
+                <i class="fa-regular fa-circle-user"></i> Thông tin tài khoản
+            </a>
+            <a href="lichsu.html" class="sidebar-item">
+                <i class="fa-solid fa-clock-rotate-left"></i> Lịch sử đơn hàng
+            </a>
+            <a href="uudai.html" class="sidebar-item">
+                <i class="fa-solid fa-gift"></i> Ưu đãi của tôi
+            </a>
+            <a href="doimatkhau.html" class="sidebar-item">
+                <i class="fa-solid fa-lock"></i> Đổi mật khẩu
+            </a>
+            <a href="dangnhap.html" class="sidebar-item logout-item">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i> Đăng xuất
+            </a>
         </div>
 
-        <!-- ===== PROFILE CARD ===== -->
-        <div class="profile-card">
-            <h2>HỒ SƠ CỦA TÔI</h2>
-
-            <div class="profile-layout">
-
-                <!-- AVATAR -->
-                <div class="avatar-section">
-             <div class="avatar-wrapper">
-            <img src="anh/avatar.png">
-          </div>
-                   
-                    <button class="btn-change-photo">Thay đổi ảnh</button>
+        <div class="profile-content-area">
+            <h2 class="profile-title">HỒ SƠ CỦA TÔI</h2>
+            <form id="edit-profile-form">
+                <div class="profile-grid">
+                    <div class="profile-avatar-section">
+                        <div class="avatar-circle">
+                            <img src="./anh/avatar.png" alt="Avatar" id="edit-avatar" onerror="this.src='./anh/LOGO_N.png'">
+                        </div>
+                        <button type="button" class="btn-change-avatar">Thay đổi ảnh</button>
+                    </div>
+                    <div class="profile-info-section edit-mode">
+                        <div class="form-group-row">
+                            <label class="info-label">Tên:</label>
+                            <input type="text" id="input-name" placeholder="Họ và tên" required>
+                        </div>
+                        <div class="form-group-row">
+                            <label class="info-label">Số điện thoại:</label>
+                            <div class="phone-input-group">
+                                <select id="input-country-code" class="country-code-select">
+                                    <option value="+84">🇻🇳 +84</option>
+                                    <option value="+1">🇺🇸 +1</option>
+                                </select>
+                                <input type="text" id="input-phone" placeholder="099-265-245" required>
+                            </div>
+                        </div>
+                        <div class="form-group-row">
+                            <label class="info-label">Gmail:</label>
+                            <input type="email" id="input-email" placeholder="example@gmail.com" required>
+                        </div>
+                        <div class="form-group-row">
+                            <label class="info-label">Địa chỉ:</label>
+                            <select id="input-address">
+                                <option value="Hồ Chí Minh">Hồ Chí Minh</option>
+                                <option value="Hà Nội">Hà Nội</option>
+                                <option value="Tại quán">Tại quán</option>
+                                <option value="Giao hàng">Giao hàng</option>
+                            </select>
+                        </div>
+                        <div class="form-group-row">
+                            <label class="info-label">Ngày sinh:</label>
+                            <input type="date" id="input-dob" required>
+                        </div>
+                        <div class="form-group-row">
+                            <label class="info-label">Giới tính:</label>
+                            <select id="input-gender">
+                                <option value="Nam">Nam</option>
+                                <option value="Nữ">Nữ</option>
+                                <option value="Khác">Khác</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
+                <div class="profile-action-bottom">
+                    <button type="submit" class="btn-save-profile">Lưu thay đổi</button>
+                </div>
+            </form>
+        </div>
+    </main>
 
-                <!-- FORM -->
-                <form class="profile-form">
-
-                    <div class="form-group">
-                        <label>Tên:</label>
-                        <input type="text" placeholder="example@email.com">
+    <!-- Custom Footer -->
+    <footer class="custom-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-col brand-col">
+                    <h2 class="brand-title">TMDT</h2>
+                    <p>Tổng đài CSKH: 0287306606</p>
+                    <p>Email: cskh@tmdt.com</p>
+                    <div class="subscribe-form">
+                        <h3>Đăng ký tư vấn</h3>
+                        <div class="input-group">
+                            <input type="email" placeholder="Email">
+                            <button>Đăng ký</button>
+                        </div>
                     </div>
-
-                    <div class="form-group">
-                        <label>Số điện thoại:</label>
-                        <input type="text" placeholder="+84 099-265-245">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Gmail:</label>
-                        <input type="email" placeholder="example@gmail.com">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Địa chỉ:</label>
-                        <select>
-                            <option>Tại quán</option>
-                            <option>Giao hàng</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Ngày sinh:</label>
-                        <input type="date">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Giới tính:</label>
-                        <select>
-                            <option>Nam</option>
-                            <option>Nữ</option>
-                        </select>
-                    </div>
-
-                    <!-- BUTTON -->
-                    <a href="D:\Ngonlanh\ngonlanh-food-web\frontend\thongtin1.html" class="btn-save">Lưu thay đổi</a>
-                </form>
+                </div>
+                <div class="footer-col">
+                    <h3>Khám phá cửa hàng</h3>
+                    <ul>
+                        <li><a href="#">Thực đơn chay</a></li>
+                        <li><a href="#">Thực đơn kiêng</a></li>
+                        <li><a href="#">Lẩu chay</a></li>
+                        <li><a href="#">Lẩu chay</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Dịch vụ cửa hàng</h3>
+                    <ul>
+                        <li><a href="#">Giao hàng trực tuyến</a></li>
+                        <li><a href="#">Đặt lịch tư vấn</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col system-col">
+                    <h3>Hệ thống cửa hàng</h3>
+                    <p>CH1: Số 2, Đường Võ Oanh, P.25, Q. Bình Thạnh, TP.HCM</p>
+                    <p>CH2: Số 70, Đường Tô Ký, P.Tân Chánh Hiệp, Q.12, TP.HCM</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025. All rights reserved.</p>
+                <div class="social-links">
+                    <span>Theo dõi chúng tôi</span>
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </div>
             </div>
         </div>
-
-    </div>
-</main>
-    <!-- FOOTER -->
-<footer class="footer-section">
-
-    <div class="footer-container">
-
-        <!-- CỘT 1 -->
-        <div class="footer-col">
-            <h2 class="logo">TMDT</h2>
-            <p>Tổng đài CSKH: 0287306606</p>
-            <p>Email: cskh@tmdt.com</p>
-
-            <h4>Đăng ký tư vấn</h4>
-            <div class="subscribe">
-                <input type="text" placeholder="Email">
-                <button>Đăng ký</button>
-            </div>
-        </div>
-
-        <!-- CỘT 2 -->
-        <div class="footer-col">
-            <h4>Khám phá cửa hàng</h4>
-            <p>Thực đơn chay</p>
-            <p>Thực đơn kiêng</p>
-            <p>Lẩu chay</p>
-            <p>Lẩu chay</p>
-        </div>
-
-        <!-- CỘT 3 -->
-        <div class="footer-col">
-            <h4>Dịch vụ</h4>
-            <p>Giao hàng trực tuyến</p>
-            <p>Đặt lịch tư vấn</p>
-        </div>
-
-        <!-- CỘT 4 -->
-        <div class="footer-col">
-            <h4>Hệ thống cửa hàng</h4>
-            <p>Chi nhánh 1: ...</p>
-            <p>Chi nhánh 2: Số 70 Tô Ký, Q12</p>
-        </div>
-
-    </div>
-
-    <!-- DÒNG CUỐI -->
-    <div class="footer-bottom">
-        <p>© 2025. All rights reserved.</p>
-
-        <div class="social">
-            <span>f</span>
-            <span>t</span>
-            <span>ig</span>
-        </div>
-    </div>
-
-</footer>
+    </footer>
+    <script src="js/profile.js"></script>
 </body>
 </html>

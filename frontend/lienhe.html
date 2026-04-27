@@ -1,34 +1,38 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liên hệ - Ngon Lành</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tuyendung-style.css">
+    <link rel="stylesheet" href="lienhe-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="home-page">
-    <header class="top-bar">
-        <div class="logo-small">
-            <img src="./anh/LOGO_N.png" alt="Logo Ngon Lành">
-        </div>
-        <div class="search-bar">
-            <input type="text" placeholder="Tìm kiếm...">
-            <button> 🔍 </button>
-        </div>
-        <div class="nav-actions">
-            <span> ⏳ </span>
-            <span> 🕒 </span>
-            <a href="thongtin1.html" class="user-icon-link">
-                <div class="user-icon-box">
-                    <img src="./anh/meme.png" alt="Tài khoản">
-                </div>
-            </a>
-            <button id="btn-login-logout">Đăng nhập</button>
+
+<body class="recruitment-page-custom">
+    <!-- Header -->
+    <header class="custom-header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="./anh/LOGO_N.png" alt="Ngon Lành Logo">
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Tìm kiếm...">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            </div>
+            <div class="header-actions">
+                <i class="fa-solid fa-filter action-icon"></i>
+                <i class="fa-regular fa-clock action-icon"></i>
+                <button class="btn-login" onclick="window.location.href='dangnhap.html'">Đăng nhập</button>
+            </div>
         </div>
     </header>
 
-    <nav class="main-nav">
+    <!-- Navigation -->
+    <nav class="custom-nav">
         <ul>
             <li><a href="trangchu.html">Trang chủ</a></li>
             <li><a href="thucdonchay.html">Thực đơn chay</a></li>
@@ -39,116 +43,157 @@
         </ul>
     </nav>
 
-    <main class="contact-wrapper">
-        <div id="ngonlanh-unique-contact">
-            <section class="nl-banner">
-                <div class="nl-container">
-                    <div class="nl-banner-text">
-                        <h1 class="nl-h1">LIÊN HỆ VỚI CHÚNG TÔI</h1>
-                        <p class="nl-p">Chúng tôi luôn sẵn sàng lắng nghe bạn.<br>Hãy kết nối với Ngon Lành ngay!</p>
-                    </div>
-                    <div class="nl-banner-img">
-                        <img src="./anh/SS.png" alt="Ngon Lành Support">
-                    </div>
+    <!-- Main Content -->
+    <main class="contact-main">
+        <div class="container contact-container">
+            <!-- Banner Section -->
+            <section class="contact-banner-card">
+                <div class="banner-text">
+                    <h1>LIÊN HỆ VỚI CHÚNG<br>TÔI</h1>
+                    <p>Chúng tôi luôn sẵn sàng lắng nghe bạn.<br>Hãy kết nối với Ngon Lành ngay!</p>
+                </div>
+                <div class="banner-image">
+                    <img src="./anh/SS.png" alt="Support Team">
                 </div>
             </section>
-            <section class="nl-body">
-                <div class="nl-container">
-                    <div class="nl-main-grid">
-                        <div class="nl-col-form">
-                            <h2 class="nl-h2">Gửi Yêu Cầu Cho Chúng Tôi</h2>
-                            <form class="nl-form" id="contact-form">
-                                <div class="nl-row">
-                                    <input type="text" id="contact-name" placeholder="Họ và Tên" required>
-                                    <input type="text" id="contact-topic" placeholder="Vấn đề quan tâm" required>
-                                </div>
-                                <div class="nl-row">
-                                    <input type="email" id="contact-email" placeholder="Email" required>
-                                    <input type="text" id="contact-solution" placeholder="Tiêu đề">
-                                </div>
-                                <span class="nl-label">Nội dung chi tiết</span>
-                                <textarea id="contact-message" placeholder="Nhập nội dung bạn muốn gửi..." required></textarea>
-                                <button type="submit" class="nl-btn">Gửi Yêu Cầu</button>
-                            </form>
-                        </div>
-                        <div class="nl-col-map">
-                            <h2 class="nl-h2">Tìm Ngon Lành trên Bản Đồ</h2>
-                            <div class="nl-map-box">
-                                <img src="anh/BD.png" alt="Bản đồ Ngon Lành">
+
+            <!-- Content Section -->
+            <section class="contact-content-card">
+                <div class="content-grid">
+                    <!-- Left: Form -->
+                    <div class="form-side">
+                        <h2>Gửi Yêu Cầu Cho Chúng Tôi</h2>
+                        <form class="contact-form">
+                            <div class="form-row">
+                                <input type="text" placeholder="Họ và Tên">
+                                <input type="text" placeholder="Vấn đề quan tâm">
                             </div>
-                        </div>
-                        <div class="nl-col-social">
-                            <h2 class="nl-h2">Theo Dõi Chúng Tôi</h2>
-                            <div class="nl-socials">
-                                <a href="#" class="nl-icon ig">IG</a>
-                                <a href="#" class="nl-icon fb">FB</a>
-                                <a href="#" class="nl-icon tt">TK</a>
+                            <div class="form-row">
+                                <input type="email" placeholder="Email">
+                                <input type="text" placeholder="Hướng giải quyết">
                             </div>
+                            <div class="form-group">
+                                <label>Support</label>
+                                <input type="text" placeholder="Nội dung">
+                            </div>
+                            <button type="button" class="btn-submit">Gửi Yêu Cầu</button>
+                        </form>
+                    </div>
+
+                    <!-- Right: Map & Socials -->
+                    <div class="info-side">
+                        <h2>Tìm Ngon Lành trên Bản Đồ</h2>
+                        <div class="map-container">
+                            <img src="./anh/BD.png" alt="Ngon Lành Map">
+                        </div>
+                        <h2>Theo Dõi Chúng Tôi</h2>
+                        <div class="social-circles">
+                            <a href="#" class="circle-icon instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" class="circle-icon facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#" class="circle-icon tiktok"><i class="fa-brands fa-tiktok"></i></a>
                         </div>
                     </div>
-                    
-                    <div class="nl-card-grid">
-                        <div class="nl-card">
-                            <strong> 📍 Địa chỉ</strong>
-                            <p>Số 70, Đường Tô Ký, P.Tân Chánh Hiệp, Q.12, TP.HCM</p>
+                </div>
+
+                <!-- Info Cards -->
+                <div class="info-cards">
+                    <div class="info-card">
+                        <div class="card-title">
+                            <i class="fa-solid fa-location-dot"></i> Địa chỉ
                         </div>
-                        <div class="nl-card">
-                            <strong> 📞 Số điện thoại</strong>
-                            <p>0287 306 606</p>
+                        <p>Số 123, Đường X, Quận<br>Bình Thạnh,</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="card-title">
+                            <i class="fa-solid fa-phone"></i> Số điện thoại
                         </div>
-                        <div class="nl-card">
-                            <strong> ✉ ️ Mail</strong>
-                            <p>cskh@ngonlanh.com</p>
+                        <p>0. 123. 456. 789</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="card-title">
+                            <i class="fa-solid fa-envelope"></i> Mail
                         </div>
-                        <div class="nl-card">
-                            <strong> 🕒 Thời gian hoạt động</strong>
-                            <p>Hằng ngày: 10:00 – 14:30 & 16:00 – 22:00</p>
+                        <p>happypaws@gmail.com</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="card-title">
+                            <i class="fa-solid fa-clock"></i> Thời gian làm
                         </div>
+                        <p>Thứ 2 đến CN: 7h30 -<br>23h00</p>
                     </div>
                 </div>
             </section>
         </div>
     </main>
 
-    <footer class="footer-section">
-        <div class="footer-container">
-            <div class="footer-col">
-                <h2 class="logo">Ngon Lành</h2>
-                <p>Tổng đài CSKH: 0287 306 606</p>
-                <p>Email: cskh@ngonlanh.com</p>
-                <h4>Đăng ký tư vấn</h4>
-                <div class="subscribe">
-                    <input type="email" placeholder="Email">
-                    <button>Đăng ký</button>
+    <!-- Custom Footer -->
+    <footer class="custom-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-col brand-col">
+                    <h2 class="brand-title">TMDT</h2>
+                    <p>Tổng đài CSKH: 0287306606</p>
+                    <p>Email: cskh@tmdt.com</p>
+                    <div class="subscribe-form">
+                        <h3>Đăng ký tư vấn</h3>
+                        <div class="input-group">
+                            <input type="email" placeholder="Email">
+                            <button>Đăng ký</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Khám phá cửa hàng</h3>
+                    <ul>
+                        <li><a href="#">Thực đơn chay</a></li>
+                        <li><a href="#">Thực đơn kiêng</a></li>
+                        <li><a href="#">Lẩu chay</a></li>
+                        <li><a href="#">Lẩu chay</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Dịch vụ cửa hàng</h3>
+                    <ul>
+                        <li><a href="#">Giao hàng trực tuyến</a></li>
+                        <li><a href="#">Đặt lịch tư vấn</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col system-col">
+                    <h3>Hệ thống cửa hàng</h3>
+                    <p>CH1: Số 2, Đường Võ Oanh, P.25, Q. Bình Thạnh, TP.HCM</p>
+                    <p>CH2: Số 70, Đường Tô Ký, P.Tân Chánh Hiệp, Q.12, TP.HCM</p>
                 </div>
             </div>
-            <div class="footer-col">
-                <h4>Khám phá cửa hàng</h4>
-                <p>Thực đơn chay</p>
-                <p>Thực đơn kiêng</p>
-                <p>Đồ uống & Tráng miệng</p>
-            </div>
-            <div class="footer-col">
-                <h4>Dịch vụ</h4>
-                <p>Giao hàng trực tuyến</p>
-                <p>Đặt lịch tư vấn</p>
-            </div>
-            <div class="footer-col">
-                <h4>Hệ thống cửa hàng</h4>
-                <p>Chi nhánh 1: ĐH Hoa Sen</p>
-                <p>Chi nhánh 2: Số 70 Tô Ký, Q12</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2026 Ngon Lành. All rights reserved.</p>
-            <div class="social">
-                <span>f</span>
-                <span>t</span>
-                <span>ig</span>
+
+            <div class="footer-bottom">
+                <p>© 2025. All rights reserved.</p>
+                <div class="social-links">
+                    <span>Theo dõi chúng tôi</span>
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </div>
             </div>
         </div>
     </footer>
+    <!-- Success Modal -->
+    <div class="success-modal" id="successModal">
+        <div class="modal-content">
+            <h2>🎀 Cảm ơn quý khách 🎀</h2>
+            <p class="subtitle">Cảm ơn bạn đã liên hệ với chúng tôi</p>
+            <p class="body-text">Góp ý của bạn đã được gửi thành công. Chúng tôi sẽ xem xét và liên hệ với bạn trong 7 -
+                10 ngày kể từ ngày gửi.</p>
+            <div class="success-icon">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <button class="btn-home" onclick="window.location.href='trangchu.html'">Quay về trang chủ</button>
+        </div>
+    </div>
 
     <script src="js/lienhe.js"></script>
 </body>
+
 </html>
