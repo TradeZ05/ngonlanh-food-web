@@ -1,0 +1,447 @@
+/* Reset riêng cho phần tuyển dụng để không ảnh hưởng các page khác */
+.recruitment-page-custom {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #FDFBEA; /* Màu nền kem nhạt */
+    color: #2D3748;
+}
+
+.recruitment-page-custom * {
+    box-sizing: inherit;
+}
+
+/* Biến màu */
+:root {
+    --primary-brown: #8C6239;
+    --light-brown: #CD9575;
+    --card-bg-brown: #C48464;
+    --text-dark: #333333;
+    --text-light: #FFFFFF;
+    --border-color: #8C6239;
+}
+
+/* Header Custom */
+.custom-header {
+    background-color: #FDFBEA;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding: 15px 0;
+}
+
+.custom-header .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.custom-header .logo img {
+    height: 60px;
+}
+
+.custom-header .search-bar {
+    position: relative;
+    width: 400px;
+}
+
+.custom-header .search-bar input {
+    width: 100%;
+    padding: 10px 40px 10px 20px;
+    border-radius: 30px;
+    border: 1px solid #E2E8F0;
+    outline: none;
+    background-color: #FFFFFF;
+}
+
+.custom-header .search-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #A0AEC0;
+}
+
+.custom-header .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.custom-header .action-icon {
+    font-size: 1.2rem;
+    color: var(--primary-brown);
+    cursor: pointer;
+}
+
+.custom-header .btn-login {
+    background-color: #E2A67D;
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Nav Custom */
+.custom-nav {
+    background-color: #FDFBEA;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.custom-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+.custom-nav a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 16px;
+    padding-bottom: 5px;
+}
+
+.custom-nav a.active {
+    border-bottom: 3px solid var(--primary-brown);
+}
+
+/* Banner */
+.custom-banner {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.custom-banner .banner-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.custom-banner .banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(62, 39, 35, 0.9) 0%, rgba(62, 39, 35, 0) 100%);
+}
+
+.custom-banner .banner-content {
+    position: relative;
+    z-index: 2;
+    padding-left: 10%;
+    color: white;
+}
+
+.custom-banner h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    line-height: 1.2;
+}
+
+.custom-banner p {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+/* Sections Common */
+.custom-section {
+    padding: 60px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.custom-section h2 {
+    font-size: 1.8rem;
+    color: var(--text-dark);
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+
+/* Section 1: Why Choose */
+.why-choose .feature-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.why-choose .card {
+    border: 2px solid var(--primary-brown);
+    border-radius: 12px;
+    padding: 30px 20px;
+    text-align: center;
+    background-color: #FFFFFF;
+    transition: transform 0.3s ease;
+}
+
+.why-choose .card:hover {
+    transform: translateY(-5px);
+}
+
+.why-choose .icon-wrap {
+    font-size: 2.5rem;
+    color: var(--primary-brown);
+    margin-bottom: 20px;
+}
+
+.why-choose h3 {
+    font-size: 1.1rem;
+    color: var(--primary-brown);
+    margin: 0 0 15px 0;
+    text-transform: uppercase;
+}
+
+.why-choose p {
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Section 2: Hiring Process */
+.hiring-process {
+    background-color: #FDFBEA;
+}
+
+.process-steps {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.process-steps .step {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.process-steps .circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid var(--light-brown);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-brown);
+    background-color: transparent;
+}
+
+.process-steps .circle.heart {
+    background-color: var(--primary-brown);
+    color: white;
+    border-color: var(--primary-brown);
+}
+
+.process-steps span {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+}
+
+.process-steps .arrow {
+    color: #A0AEC0;
+    font-size: 1.5rem;
+}
+
+/* Section 3: Current Positions */
+.current-positions .positions-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.positions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    flex: 1;
+}
+
+.current-positions .job-card {
+    background-color: var(--card-bg-brown);
+    border-radius: 12px;
+    padding: 30px;
+    color: white;
+}
+
+.current-positions h3 {
+    font-size: 1.3rem;
+    margin: 0 0 20px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding-bottom: 15px;
+}
+
+.current-positions ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.current-positions li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.current-positions li::before {
+    content: "○";
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.slider-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
+    border: 1px solid #E2E8F0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    color: var(--primary-brown);
+}
+
+/* Footer */
+.custom-footer {
+    border-top: 1px solid rgba(0,0,0,0.1);
+    padding-top: 60px;
+    background-color: #FDFBEA;
+    color: var(--text-dark);
+}
+
+.footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-col h3 {
+    font-size: 1.1rem;
+    margin: 0 0 20px 0;
+    font-weight: 700;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col li {
+    margin-bottom: 12px;
+}
+
+.footer-col a {
+    text-decoration: none;
+    color: var(--text-dark);
+}
+
+.footer-col p {
+    margin: 0 0 12px 0;
+    line-height: 1.5;
+}
+
+.brand-col .brand-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 15px 0;
+}
+
+.subscribe-form {
+    margin-top: 30px;
+}
+
+.subscribe-form h3 {
+    margin-bottom: 15px;
+}
+
+.input-group {
+    display: flex;
+    border-radius: 30px;
+    overflow: hidden;
+    background-color: #E2E8F0;
+    width: 100%;
+    max-width: 300px;
+}
+
+.input-group input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    padding: 10px 15px;
+    background-color: #E2E8F0;
+    outline: none;
+}
+
+.input-group button {
+    background-color: #C48464;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 30px;
+    margin: 2px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(0,0,0,0.1);
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.social-links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.social-links span {
+    font-size: 0.9rem;
+}
+
+.social-links a {
+    color: var(--text-dark);
+    font-size: 1.2rem;
+}

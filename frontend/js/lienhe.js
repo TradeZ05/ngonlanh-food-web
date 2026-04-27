@@ -25,24 +25,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================
-    // 2. XỬ LÝ GỬI FORM LIÊN HỆ
+    // 2. XỬ LÝ GỬI FORM LIÊN HỆ & SHOW MODAL
     // ==========================================
-    const contactForm = document.getElementById('contact-form');
+    const btnSubmit = document.querySelector('.btn-submit');
+    const contactForm = document.querySelector('.contact-form');
+    const successModal = document.getElementById('successModal');
     
-    if (contactForm) {
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault(); // Chặn việc trang bị reload khi bấm submit
+    if (btnSubmit && successModal) {
+        btnSubmit.addEventListener('click', async (e) => {
+            e.preventDefault();
 
-            // Lấy dữ liệu từ form
-            const name = document.getElementById('contact-name').value;
-            const email = document.getElementById('contact-email').value;
-            const message = document.getElementById('contact-message').value;
+            // Nếu muốn validate form thì check ở đây (ví dụ kiểm tra rỗng)
+            const inputs = contactForm.querySelectorAll('input');
+            let isValid = true;
+            inputs.forEach(input => {
+                if(input.value.trim() === '') isValid = false;
+            });
 
-            // Chỗ này sau này có API thì ní dùng fetch() để POST data lên Spring Boot nhé
-            // Ví dụ: await fetch('http://localhost:8080/api/contact', { ... })
+            if (!isValid) {
+                alert("Vui lòng nhập đầy đủ thông tin!");
+                return;
+            }
 
-            // Giả lập gửi thành công
-            alert(`✅ Cảm ơn ${name}! Yêu cầu của bạn đã được gửi đến hệ thống Ngon Lành. Chúng tôi sẽ phản hồi qua email ${email} sớm nhất có thể!`);
+            // Hiển thị modal thành công
+            successModal.classList.add('show');
             
             // Xóa trắng form sau khi gửi
             contactForm.reset();
