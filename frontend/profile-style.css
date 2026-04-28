@@ -1,0 +1,486 @@
+/* Custom Profile Page Styles */
+.profile-page-bg {
+    background-color: #f6f5ea;
+    font-family: 'Montserrat', 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.profile-main-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    display: flex;
+    gap: 40px;
+    padding: 0 20px;
+}
+
+/* Sidebar styling */
+.profile-sidebar {
+    width: 260px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 16px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.sidebar-item i {
+    font-size: 20px;
+    color: #92533c;
+    width: 24px;
+    text-align: center;
+}
+
+.sidebar-item:hover {
+    background-color: rgba(146, 83, 60, 0.05);
+}
+
+.sidebar-item.active {
+    background-color: #a86c53;
+    color: white;
+}
+
+.sidebar-item.active i {
+    color: white;
+}
+
+.sidebar-item.logout-item {
+    margin-top: 20px;
+}
+
+.sidebar-item.logout-item i {
+    color: #a86c53; 
+}
+.sidebar-item.logout-item:hover {
+    background-color: rgba(168, 108, 83, 0.1);
+}
+
+/* Content Area styling */
+.profile-content-area {
+    flex: 1;
+    background-color: #a86c53; 
+    border-radius: 20px;
+    padding: 50px 40px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    min-height: 500px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.profile-title {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 50px;
+    margin-top: 0;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.profile-grid {
+    display: flex;
+    gap: 60px;
+    align-items: stretch;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.profile-avatar-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.avatar-circle {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 3px solid rgba(255,255,255,0.8);
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.avatar-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.btn-change-avatar {
+    background-color: white;
+    color: #a86c53;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.btn-change-avatar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.profile-info-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    justify-content: center;
+}
+
+.info-row {
+    display: flex;
+    font-size: 16px;
+    align-items: center;
+}
+
+.info-label {
+    width: 140px;
+    font-weight: 600;
+}
+
+.info-value {
+    flex: 1;
+    font-weight: 400;
+}
+
+.profile-action-bottom {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.btn-edit-profile, .btn-save-profile {
+    background-color: white;
+    color: #a86c53;
+    border: none;
+    padding: 12px 40px;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.btn-edit-profile:hover, .btn-save-profile:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* Edit Mode Styles */
+.form-group-row {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+.form-group-row .info-label {
+    width: 140px;
+}
+
+.form-group-row input, 
+.form-group-row select {
+    flex: 1;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: #555;
+    background-color: white;
+}
+
+.phone-input-group {
+    flex: 1;
+    display: flex;
+    gap: 10px;
+}
+
+.phone-input-group select {
+    flex: 0 0 100px;
+}
+
+.phone-input-group input {
+    flex: 1;
+}
+
+/* Make inputs look a bit nicer */
+.form-group-row input:focus, 
+.form-group-row select:focus {
+    box-shadow: 0 0 0 3px rgba(255,255,255,0.3);
+}
+
+/* Background image handling */
+.profile-content-area {
+    /* To mimic the reference design we use background-color. If there is a pattern in 'anh/' that matches we can use it */
+    background-image: url('./anh/rau-cu-bg.png'); /* A placeholder if the user has an image for it */
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: soft-light;
+}
+
+/* L?ch s? d?t hàng */
+.order-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+.order-card {
+    background-color: #fcfbf6;
+    border-radius: 12px;
+    width: 85%;
+    max-width: 600px;
+    padding: 20px 30px;
+    color: #333;
+    font-family: 'Inter', sans-serif;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.order-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 15px 0;
+}
+
+.order-grid {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.order-detail-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.order-detail-label {
+    color: #333;
+}
+
+.order-detail-value {
+    font-weight: 500;
+}
+
+.view-detail-link {
+    color: #555;
+    text-decoration: underline;
+    font-size: 13px;
+    margin-left: 10px;
+}
+
+.order-note-wrapper {
+    text-align: center;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.order-note {
+    color: #527181;
+    font-size: 13px;
+}
+
+/* Uu dãi c?a tôi */
+.promo-area {
+    position: relative;
+}
+
+.promo-cards-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    padding: 0 40px;
+}
+
+.promo-card {
+    background-color: #eaf1f7;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 320px;
+    color: #333;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.promo-img-wrapper {
+    position: relative;
+    height: 180px;
+}
+
+.promo-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.promo-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 8px 15px;
+    font-weight: 700;
+    font-size: 18px;
+    color: white;
+    border-radius: 0 0 0 15px;
+}
+
+.badge-yellow {
+    background-color: #fdbb2d;
+}
+
+.badge-orange {
+    background-color: #f39c12;
+}
+
+.promo-details {
+    padding: 15px 20px;
+    background-color: #edf1f5;
+}
+
+.promo-details h3 {
+    margin: 0 0 5px 0;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.promo-details p {
+    margin: 0 0 15px 0;
+    font-size: 13px;
+    color: #666;
+}
+
+.promo-action-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.promo-expiry {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.text-red {
+    color: #d32f2f;
+}
+
+.btn-promo-coin {
+    background: transparent;
+    border: 1px solid #a86c53;
+    color: #a86c53;
+    border-radius: 20px;
+    padding: 6px 15px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-promo-coin:hover {
+    background-color: #a86c53;
+    color: white;
+}
+
+/* Carousel Arrows */
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 25px;
+    height: 60px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #a86c53;
+    z-index: 10;
+}
+
+.carousel-arrow.prev {
+    left: 0;
+    border-radius: 0 30px 30px 0;
+    justify-content: flex-end;
+    padding-right: 5px;
+}
+
+.carousel-arrow.next {
+    right: 0;
+    border-radius: 30px 0 0 30px;
+    justify-content: flex-start;
+    padding-left: 5px;
+}
+
+/* Cài d?t b?o m?t */
+.security-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.security-card {
+    background-color: #f3efe6;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 550px;
+    padding: 40px 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    color: #333;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.security-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.security-label {
+    width: 140px;
+    font-size: 15px;
+}
+
+.security-input {
+    flex: 1;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background-color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #555;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.security-input:disabled {
+    background-color: #f9f9f9;
+    color: #888;
+    cursor: not-allowed;
+}
