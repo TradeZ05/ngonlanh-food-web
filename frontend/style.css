@@ -5469,3 +5469,588 @@ dangky
     margin-left: 10px;
     cursor: pointer;
 }
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Be Vietnam Pro',sans-serif;
+}
+
+:root{
+  --brown:#8B5E3C;
+  --light:#F4EBDD;
+  --border:#E7DCCB;
+}
+
+/* ===== OVERLAY ===== */
+.overlay{
+  position:fixed;
+  inset:0;
+  backdrop-filter:blur(6px);
+  background:rgba(0,0,0,0.3);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* ===== MODAL ===== */
+.modal{
+  width:940px;
+  background:#fff;
+  border-radius:24px;
+  padding:24px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.25);
+}
+
+/* TOP */
+.top{
+  display:flex;
+  gap:24px;
+}
+
+/* IMAGE */
+.img img{
+  width:380px;
+  height:260px;
+  object-fit:cover;
+  border-radius:16px;
+}
+
+/* CONTENT */
+.title{
+  font-size:22px;
+  color:var(--brown);
+  font-weight:600;
+}
+
+.rating{
+  margin:8px 0;
+  color:#F6B400;
+}
+
+.price{
+  font-size:22px;
+  font-weight:700;
+  color:var(--brown);
+}
+
+/* QTY */
+.qty{
+  display:flex;
+  gap:10px;
+  margin:12px 0;
+}
+
+.qty button{
+  width:32px;
+  height:32px;
+  border:1px solid var(--border);
+  border-radius:8px;
+  background:#fff;
+}
+
+/* BUTTON */
+.actions{
+  display:flex;
+  gap:10px;
+}
+
+.btn-light{
+  flex:1;
+  background:#EFE3C3;
+  border:1px solid var(--brown);
+  border-radius:12px;
+  padding:10px;
+}
+
+.btn-dark{
+  flex:1;
+  background:var(--brown);
+  color:#fff;
+  border:none;
+  border-radius:12px;
+  padding:10px;
+}
+
+/* DESC */
+.desc{
+  font-size:13px;
+  margin-top:10px;
+}
+
+/* ===== REVIEW ===== */
+.cards{
+  display:flex;
+  gap:16px;
+  margin-top:15px;
+}
+
+.card{
+  width:180px;
+  padding:16px;
+  border-radius:14px;
+  background:var(--brown);
+  color:#fff;
+  transform:rotate(-2deg);
+  position:relative;
+}
+
+.card:nth-child(2){
+  background:#EFE3C3;
+  color:#333;
+  transform:rotate(2deg);
+}
+
+.avatar{
+  position:absolute;
+  top:-18px;
+  left:16px;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  overflow:hidden;
+  border:3px solid #fff;
+}
+
+.avatar img{
+  width:100%;
+  height:100%;
+}
+
+/* ===== ORDER ===== */
+.box{
+  max-width:900px;
+  margin:40px auto;
+  background:var(--light);
+  border-radius:20px;
+  padding:30px;
+}
+
+h1{
+  text-align:center;
+  margin-bottom:20px;
+}
+
+table{
+  width:100%;
+}
+
+th,td{
+  padding:10px 0;
+}
+
+.total{
+  display:flex;
+  justify-content:space-between;
+  margin-top:20px;
+  font-weight:700;
+}
+
+.checkout{
+  text-align:right;
+  margin-top:20px;
+}
+
+.checkout button{
+  background:var(--brown);
+  color:#fff;
+  padding:12px 25px;
+  border-radius:12px;
+  border:none;
+}
+/* ==========================================================
+   TÍCH HỢP GIAO DIỆN ĐẶT HÀNG (MENU & THANH TOÁN)
+========================================================== */
+
+/* --- LAYOUT TRANG MENU (dathang.html) --- */
+.menu-page-wrapper {
+    background-color: #F5F5DC; /* Đồng bộ nền kem */
+    font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+.menu-layout-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+/* Sidebar Menu */
+.menu-sidebar {
+    flex: 0 0 250px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 20px;
+}
+
+.menu-sidebar h3 {
+    color: var(--brown);
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.menu-category-list {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-category-list li {
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.3s;
+    color: #555;
+}
+
+.menu-category-list li:hover {
+    background: var(--light);
+}
+
+.menu-category-list li.active {
+    background: var(--brown);
+    color: #fff;
+}
+
+/* Lưới Sản phẩm */
+.menu-products-area {
+    flex: 1;
+}
+
+.category-title {
+    font-size: 24px;
+    color: var(--brown);
+    margin-bottom: 25px;
+}
+
+.menu-product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.menu-product-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-product-card:hover {
+    transform: translateY(-5px);
+}
+
+.menu-product-card .product-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 15px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-info h4 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.product-desc {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 15px;
+    line-height: 1.4;
+    flex: 1;
+}
+
+.product-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-price {
+    font-weight: 700;
+    color: var(--brown);
+    font-size: 18px;
+}
+
+.btn-add-cart {
+    background: var(--brown);
+    color: white;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- LAYOUT TRANG THANH TOÁN (order.html) --- */
+.checkout-page-wrapper {
+    background-color: #F5F5DC;
+    font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+.checkout-layout-container {
+    display: flex;
+    max-width: 1100px;
+    margin: 40px auto;
+    gap: 40px;
+    padding: 0 20px;
+    align-items: flex-start;
+}
+
+/* Cột Form Thông tin */
+.checkout-form-area {
+    flex: 1.5;
+    background: #fff;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.checkout-form-area h2 {
+    color: var(--brown);
+    font-size: 22px;
+    margin-bottom: 25px;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 10px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group.full-width {
+    grid-column: span 2;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    color: #555;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--brown);
+}
+
+/* Phương thức thanh toán */
+.payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.payment-method {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.payment-method input[type="radio"] {
+    accent-color: var(--brown);
+    width: 18px;
+    height: 18px;
+}
+
+/* Cột Giỏ hàng bên phải (sử dụng class .box của bạn) */
+.checkout-summary-area {
+    flex: 1;
+}
+
+.checkout-summary-area .box {
+    margin: 0; /* Ghi đè margin trong CSS gốc của bạn */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .menu-layout-container,
+    .checkout-layout-container {
+        flex-direction: column;
+    }
+    .menu-sidebar {
+        width: 100%;
+        position: static;
+    }
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    .form-group.full-width {
+        grid-column: span 1;
+    }
+}
+/* RESET & CHUNG */
+:root {
+    --brown: #8B5E3C;
+    --light: #FDF5E6;
+    --border: #E7DCCB;
+    --primary: #965A3E;
+}
+
+.menu-page-wrapper { background-color: #F5F5DC; }
+
+.menu-layout-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 30px auto;
+    gap: 30px;
+    padding: 0 15px;
+}
+
+/* SIDEBAR */
+.menu-sidebar {
+    flex: 0 0 250px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+}
+
+.menu-category-list { list-style: none; margin-top: 15px; }
+.menu-category-list li a {
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.menu-category-list li.active a,
+.menu-category-list li a:hover {
+    background: var(--primary);
+    color: white;
+}
+
+/* PRODUCT CARDS */
+.menu-product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.menu-product-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.product-img { width: 100%; height: 180px; object-fit: cover; }
+.product-info { padding: 15px; }
+.product-price { font-weight: 700; color: var(--primary); font-size: 18px; }
+.btn-add-cart {
+    background: var(--primary);
+    color: white;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* MODAL (FIGMA) */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal {
+    background: white;
+    width: 900px;
+    padding: 30px;
+    border-radius: 25px;
+    position: relative;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #eee;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+
+.modal .top { display: flex; gap: 30px; }
+.modal .img { flex: 1; }
+.modal .img img { width: 100%; border-radius: 15px; height: 300px; object-fit: cover; }
+.modal .content { flex: 1.2; }
+
+.modal .qty { display: flex; align-items: center; gap: 15px; margin: 15px 0; }
+.modal .qty button { width: 35px; height: 35px; border-radius: 10px; border: 1px solid #ddd; background: white; cursor: pointer;}
+
+.modal .actions { display: flex; gap: 15px; }
+.btn-light { flex: 1; background: var(--light); border: 1px solid var(--primary); color: var(--primary); padding: 12px; border-radius: 12px; cursor: pointer; font-weight: bold;}
+.btn-dark { flex: 1; background: var(--primary); color: white; border: none; padding: 12px; border-radius: 12px; cursor: pointer; font-weight: bold;}
+
+/* REVIEW CARDS */
+.cards { display: flex; gap: 15px; margin-top: 30px; }
+.card {
+    flex: 1;
+    background: var(--primary);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    transform: rotate(-2deg);
+    position: relative;
+}
+.card:nth-child(2) { background: var(--light); color: #333; transform: rotate(2deg); }
+.card .avatar { width: 40px; height: 40px; border-radius: 50%; overflow: hidden; border: 2px solid white; position: absolute; top: -15px; left: 15px;}
+.card .avatar img { width: 100%; }
