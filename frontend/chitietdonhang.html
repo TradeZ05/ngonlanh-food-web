@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ Hàng - Ngon Lành</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #F5F5DC; /* Màu nền kem gốc */
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* ========================================================
+           HIỆU ỨNG ẢNH NỀN PHỦ KÍN 2 BÊN TỪ TRÊN XUỐNG DƯỚI
+        ======================================================== */
+        .bg-full-left, .bg-full-right {
+            position: fixed;     /* Giữ cố định khi cuộn trang */
+            top: 0;
+            height: 100vh;       /* Phủ kín 100% chiều dọc từ trên xuống dưới */
+            width: 28vw;         /* Độ rộng mỗi ảnh chiếm khoảng 28% màn hình */
+            object-fit: cover;   /* Phóng to các chi tiết để lấp đầy không gian */
+            z-index: 0;          /* Chìm xuống dưới cùng (cùng lớp với nền) */
+            pointer-events: none;/* Đảm bảo ảnh nền không cản trở việc click chuột */
+        }
+
+        .bg-full-left {
+            left: 0;
+            object-position: right center; /* Canh để hiển thị chi tiết sát mép nội dung */
+        }
+
+        .bg-full-right {
+            right: 0;
+            object-position: left center;
+        }
+
+        /* Ẩn ảnh 2 bên khi dùng màn hình nhỏ (iPad/Điện thoại) để không che nội dung */
+        @media (max-width: 1200px) {
+            .bg-full-left, .bg-full-right { display: none; }
+        }
+
+        /* ========================================================
+           LỚP NỘI DUNG CHÍNH (NỔI LÊN TRÊN ẢNH NỀN)
+        ======================================================== */
+        .main-content-layer {
+            position: relative;
+            z-index: 2; /* Đảm bảo khung giỏ hàng luôn nổi lên trên 2 ảnh trang trí */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* --- HEADER --- */
+        .home-page {
+            background-color: #F5F5DC;
+            border-bottom: 1px solid #eaddcc;
+        }
+        .top-bar {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        /* --- BỐ CỤC GIỎ HÀNG CHÍNH --- */
+        .cart-layout {
+            max-width: 950px; /* Độ rộng vừa phải để lộ 2 ảnh nền 2 bên */
+            margin: 40px auto 20px;
+            display: flex;
+            flex-direction: row;
+            gap: 25px;
+            padding: 0 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .cart-left-col { flex: 1.6; display: flex; flex-direction: column; gap: 15px; }
+        .cart-item-card {
+            background: #fff; border-radius: 16px; padding: 20px;
+            display: flex; align-items: center; gap: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        }
+        .cart-item-img { width: 100px; height: 100px; border-radius: 10px; object-fit: cover; }
+        .cart-item-info { flex: 1; }
+        .cart-item-name { font-size: 18px; font-weight: 700; color: #333; margin-bottom: 5px; }
+        .cart-item-desc { font-size: 14px; color: #777; margin-bottom: 10px; }
+        .cart-item-price { font-size: 18px; font-weight: 700; color: #965A3E; }
+
+        .cart-item-actions { display: flex; flex-direction: column; align-items: flex-end; justify-content: space-between; height: 90px; }
+        .btn-trash { background: none; border: none; font-size: 20px; cursor: pointer; color: #ccc; transition: 0.2s;}
+        .btn-trash:hover { color: #e52b38; transform: scale(1.1); }
+
+        .qty-box { display: flex; align-items: center; border: 1px solid #ddd; border-radius: 8px; background: #fafafa; }
+        .qty-box button { background: none; border: none; padding: 8px 12px; cursor: pointer; font-weight: bold; color: #555; }
+        .qty-box button:hover { background: #eee; }
+        .qty-box span { font-weight: 600; width: 30px; text-align: center; }
+
+        .cart-right-col {
+            flex: 1; background: #fff; border-radius: 16px; padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06); height: fit-content;
+            position: sticky; top: 20px;
+        }
+
+        .promo-box { display: flex; margin-bottom: 20px; }
+        .promo-box input { flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 8px 0 0 8px; outline: none; font-family: 'Inter', sans-serif;}
+        .promo-box button { background: #333; color: #fff; border: none; padding: 0 15px; border-radius: 0 8px 8px 0; font-weight: bold; cursor: pointer; }
+
+        .btn-checkout-primary {
+            width: 100%; padding: 16px; background: #965A3E; color: #fff;
+            border: none; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer;
+            margin-top: 15px; transition: 0.3s;
+        }
+        .btn-checkout-primary:hover { background: #7a4830; transform: translateY(-2px); }
+        .btn-checkout-primary:disabled { background: #ccc; cursor: not-allowed; transform: none; }
+
+        /* --- ĐIỀU HƯỚNG TÀI KHOẢN --- */
+        .account-nav-section {
+            max-width: 900px;
+            margin: 20px auto 50px;
+            padding: 0 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .account-nav-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+        .account-nav-card { background: #fff; padding: 20px 10px; border-radius: 16px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.06); cursor: pointer; transition: 0.3s; border: 1px solid transparent; }
+        .account-nav-card:hover { transform: translateY(-5px); border-color: #965A3E; }
+        .account-nav-card img { width: 60px; height: 60px; object-fit: contain; margin-bottom: 10px; }
+        .account-nav-card h3 { font-size: 14px; color: #333; font-weight: 700; margin: 0; }
+
+        @media (max-width: 900px) {
+            .cart-layout { flex-direction: column; }
+            .cart-right-col { position: static; }
+            .account-nav-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+<img src="anh/chitietdonhang1.png" alt="Decor Left" class="bg-full-left">
+<img src="anh/chitietdonhang2.png" alt="Decor Right" class="bg-full-right">
+
+<div class="main-content-layer">
+
+    <header class="home-page">
+        <div class="top-bar">
+            <div class="logo-small" onclick="window.location.href='dathang.html'" style="cursor:pointer">
+                <img src="anh/LOGO_N.png" alt="Logo">
+            </div>
+            <h2 style="color: #965A3E; margin-right: auto; margin-left: 20px; font-weight: 700;">Giỏ hàng của bạn</h2>
+            <div class="nav-actions">
+                <button class="login-btn" onclick="window.location.href='dathang.html'" style="background: transparent; color: #965A3E; border: 2px solid #965A3E; border-radius: 8px; padding: 8px 16px; font-weight: 600; cursor: pointer;">
+                    Tiếp tục chọn món
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="cart-layout">
+
+        <div class="cart-left-col" id="cart-container">
+            <h2 style="font-size: 20px; font-weight: 700; color: #965A3E; margin-bottom: 5px;" id="cart-count-display">Sản phẩm trong giỏ</h2>
+
+            <div class="cart-item-card" data-price="65000">
+                <img src="anh/1.png" alt="Món chay" class="cart-item-img">
+                <div class="cart-item-info">
+                    <h3 class="cart-item-name">Combo Chay Thanh Đạm</h3>
+                    <p class="cart-item-desc">Cơm gạo lứt + Đậu hũ sốt nấm + Canh rong biển</p>
+                    <div class="cart-item-price">65.000đ</div>
+                </div>
+                <div class="cart-item-actions">
+                    <button class="btn-trash" onclick="removeItem(this)">🗑️</button>
+                    <div class="qty-box">
+                        <button onclick="updateQty(this, -1)">-</button>
+                        <span class="item-qty">1</span>
+                        <button onclick="updateQty(this, 1)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cart-item-card" data-price="40000">
+                <img src="anh/6.png" alt="Nước ép" class="cart-item-img">
+                <div class="cart-item-info">
+                    <h3 class="cart-item-name">Nước Ép Táo Cần Tây</h3>
+                    <p class="cart-item-desc">Nước ép chậm nguyên chất, không thêm đường.</p>
+                    <div class="cart-item-price">40.000đ</div>
+                </div>
+                <div class="cart-item-actions">
+                    <button class="btn-trash" onclick="removeItem(this)">🗑️</button>
+                    <div class="qty-box">
+                        <button onclick="updateQty(this, -1)">-</button>
+                        <span class="item-qty">1</span>
+                        <button onclick="updateQty(this, 1)">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cart-right-col">
+            <h3 style="font-size: 18px; margin-bottom: 20px; color: #333; font-weight: 700; border-bottom: 1px solid #f0f0f0; padding-bottom: 15px;">Tóm tắt đơn hàng</h3>
+
+            <div class="promo-box">
+                <input type="text" placeholder="Nhập mã giảm giá...">
+                <button>Áp dụng</button>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 15px; color: #555;">
+                <span>Tạm tính:</span>
+                <span id="subtotal-display" style="font-weight: 600; color: #333;">105.000đ</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 15px; color: #555;">
+                <span>Phí giao hàng:</span>
+                <span id="shipping-display" style="font-weight: 600; color: #333;">15.000đ</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; border-top: 1px dashed #ddd; padding-top: 20px; margin-top: 10px; align-items: center;">
+                <span style="font-weight: 700; color: #333;">TỔNG CỘNG:</span>
+                <span id="grandtotal-display" style="font-size: 24px; font-weight: 800; color: #965A3E;">120.000đ</span>
+            </div>
+            <button id="btn-checkout" class="btn-checkout-primary" onclick="window.location.href='thanhtoan.html'">TIẾN HÀNH THANH TOÁN</button>
+        </div>
+    </div>
+
+    <section class="account-nav-section">
+        <div class="account-nav-grid">
+            <div class="account-nav-card" onclick="window.location.href='uudai.html'">
+                <img src="anh/Tài khoản ưu đãi.png" alt="Ưu đãi">
+                <h3>Tài khoản ưu đãi</h3>
+            </div>
+            <div class="account-nav-card" onclick="window.location.href='thongtin2.html'">
+                <img src="anh/Thông tin của quý khách.png" alt="Thông tin">
+                <h3>Thông tin của quý khách</h3>
+            </div>
+            <div class="account-nav-card" onclick="window.location.href='doimatkhau.html'">
+                <img src="anh/USER.png" alt="Đổi mật khẩu">
+                <h3>Đổi mật khẩu</h3>
+            </div>
+            <div class="account-nav-card" onclick="window.location.href='lichsu.html'">
+                <img src="anh/Frame 606.png" alt="Lịch sử">
+                <h3>Lịch sử đơn hàng</h3>
+            </div>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 20px 0 30px; color: #965A3E; font-size: 14px; font-weight: 500; margin-top: auto;">
+        &copy; 2026 Ngon Lành - Ăn Sạch Sống Khỏe
+    </footer>
+</div>
+
+<script>
+    function formatCurrency(number) { return number.toLocaleString('vi-VN') + 'đ'; }
+    function updateCartTotals() {
+        const items = document.querySelectorAll('.cart-item-card');
+        let sub = 0;
+        let count = 0;
+        items.forEach(i => {
+            let qty = parseInt(i.querySelector('.item-qty').innerText);
+            sub += parseInt(i.getAttribute('data-price')) * qty;
+            count += qty;
+        });
+
+        document.getElementById('cart-count-display').innerText = `Sản phẩm trong giỏ (${count})`;
+        document.getElementById('subtotal-display').innerText = formatCurrency(sub);
+
+        let shipping = (sub > 0) ? 15000 : 0;
+        document.getElementById('shipping-display').innerText = formatCurrency(shipping);
+        document.getElementById('grandtotal-display').innerText = formatCurrency(sub + shipping);
+
+        const btnCheckout = document.getElementById('btn-checkout');
+        if (sub === 0) {
+            btnCheckout.disabled = true;
+            btnCheckout.innerText = "GIỎ HÀNG TRỐNG";
+        } else {
+            btnCheckout.disabled = false;
+            btnCheckout.innerText = "TIẾN HÀNH THANH TOÁN";
+        }
+    }
+    function updateQty(btn, val) {
+        const span = btn.parentElement.querySelector('.item-qty');
+        let n = parseInt(span.innerText) + val;
+        if (n >= 1) { span.innerText = n; updateCartTotals(); }
+    }
+    function removeItem(btn) {
+        if(confirm("Xóa món này khỏi giỏ hàng?")) {
+            btn.closest('.cart-item-card').remove();
+            updateCartTotals();
+        }
+    }
+    window.onload = updateCartTotals;
+</script>
+
+</body>
+</html>

@@ -3,6 +3,7 @@ package com.ngonlanh.backend.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "order_details")
@@ -15,6 +16,7 @@ public class OrderDetail {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id")
+    @JsonIgnore
     private Order order;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -25,4 +27,7 @@ public class OrderDetail {
     
     // BẮT BUỘC: Phải lưu giá tiền tại thời điểm mua (phòng trường hợp sau này món ăn tăng/giảm giá)
     private Double unitPrice; 
+
+    @Column(name = "price")
+    private Double price;
 }

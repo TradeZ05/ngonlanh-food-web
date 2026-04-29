@@ -20,18 +20,36 @@ public class Order {
     @JoinColumn(name = "user_id")
     private User user;
 
-    // Thông tin giao hàng lưu cứng vào đơn (phòng trường hợp sau này user đổi địa chỉ thì đơn cũ không bị ảnh hưởng)
+    // --- THÔNG TIN GIAO HÀNG (Lưu cứng vào đơn) ---
+    @Column(name = "receiver_name")
     private String receiverName;
+
+    @Column(name = "receiver_phone")
     private String receiverPhone;
+
+    @Column(name = "shipping_address", columnDefinition = "TEXT")
     private String shippingAddress;
-    
-    private Double totalAmount; // Tổng tiền
-    
+
+    @Column(name = "note", columnDefinition = "TEXT")
+    private String note;
+
+    // --- THÔNG TIN THANH TOÁN & TRẠNG THÁI ---
+    @Column(name = "payment_method")
+    private String paymentMethod;
+
+    // Dùng totalPrice (Đã fix để khớp với OrderRepository)
+    @Column(name = "total_price")
+    private Double totalPrice; 
+
     // Trạng thái đơn: PENDING, PROCESSING, SHIPPED, DELIVERED, CANCELLED
+    @Column(name = "status")
     private String status = "PENDING"; 
-    
+
+    // Dùng orderDate (Đã fix để khớp với OrderRepository)
+    @Column(name = "order_date")
     private LocalDateTime orderDate = LocalDateTime.now();
 
+    // --- CHI TIẾT ĐƠN HÀNG ---
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderDetail> orderDetails = new ArrayList<>();
 }

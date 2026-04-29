@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theo Dõi Đơn Hàng - Ngon Lành</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #F5F5DC;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* --- 2 ẢNH NỀN PHỦ KÍN 2 MÉP (CÙNG LỚP VỚI NỀN) --- */
+        .bg-full-left, .bg-full-right {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            height: 100vh;
+            width: 25vw; /* Độ rộng phủ 2 bên */
+            object-fit: cover;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .bg-full-left { left: 0; }
+        .bg-full-right { right: 0; }
+
+        @media (max-width: 1200px) {
+            .bg-full-left, .bg-full-right { display: none; }
+        }
+
+        /* --- LỚP NỘI DUNG --- */
+        .main-content-layer {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 50px;
+        }
+
+        /* --- STEPPER (THANH TRẠNG THÁI) --- */
+        .tracking-stepper {
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin: 60px 0;
+        }
+        .stepper-line {
+            position: absolute;
+            top: 15px;
+            left: 5%;
+            right: 5%;
+            height: 2px;
+            background: #D3C4B1;
+            z-index: -1;
+        }
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            text-align: center;
+        }
+        .step-dot {
+            width: 30px;
+            height: 30px;
+            background: #fff;
+            border: 3px solid #965A3E;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        .step.active .step-dot { background: #965A3E; }
+        .step-label { font-size: 14px; font-weight: 600; color: #555; }
+        .step.active .step-label { color: #965A3E; font-weight: 700; }
+
+        /* --- CARDS --- */
+        .tracking-card {
+            width: 90%;
+            max-width: 800px;
+            background: #E9D9BF; /* Màu nền beige đậm hơn theo mẫu */
+            border-radius: 25px;
+            padding: 35px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .card-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .info-grid {
+            display: flex;
+            justify-content: space-between;
+            line-height: 2;
+            color: #333;
+        }
+        .info-label { font-weight: 600; }
+
+        /* --- ADDRESS SECTION --- */
+        .address-box {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        .address-img {
+            width: 220px;
+            height: 140px;
+            background: #F5F5DC;
+            border-radius: 15px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .address-img img { width: 100%; height: 100%; object-fit: cover; }
+        .address-text { font-size: 16px; color: #333; line-height: 1.6; }
+
+        footer { margin-top: auto; padding: 30px 0; color: #965A3E; text-align: center; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+<img src="anh/chitietdonhang1.png" alt="Decor Left" class="bg-full-left">
+<img src="anh/chitietdonhang2.png" alt="Decor Right" class="bg-full-right">
+
+<div class="main-content-layer">
+    <header class="home-page" style="width: 100%; background: #F5F5DC; border-bottom: 1px solid #eaddcc;">
+        <div class="top-bar" style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; padding: 15px 20px;">
+            <div class="logo-small" onclick="window.location.href='trangchu.html'" style="cursor:pointer">
+                <img src="anh/LOGO_N.png" alt="Logo">
+            </div>
+            <h2 style="color: #965A3E; margin-right: auto; margin-left: 20px; font-weight: 700;">Theo dõi đơn hàng</h2>
+            <button class="login-btn" onclick="window.location.href='dathang.html'" style="background: transparent; color: #965A3E; border: 2px solid #965A3E; border-radius: 8px; padding: 8px 16px; font-weight: 600; cursor: pointer;">
+                Quay lại thực đơn
+            </button>
+        </div>
+    </header>
+
+    <div class="tracking-stepper">
+        <div class="stepper-line"></div>
+        <div class="step active">
+            <div class="step-dot"></div>
+            <div class="step-label">Đơn hàng đã đặt</div>
+        </div>
+        <div class="step active">
+            <div class="step-dot"></div>
+            <div class="step-label">Đang chuẩn bị</div>
+        </div>
+        <div class="step">
+            <div class="step-dot"></div>
+            <div class="step-label">Đang giao hàng</div>
+        </div>
+        <div class="step">
+            <div class="step-dot"></div>
+            <div class="step-label">Đã nhận hàng</div>
+        </div>
+    </div>
+
+    <div class="tracking-card">
+        <h2 class="card-title">Chi tiết đơn hàng</h2>
+        <div class="info-grid">
+            <div>
+                <p><span class="info-label">Mã đơn hàng:</span> #NL290426</p>
+                <p><span class="info-label">Thời gian đặt:</span> 09:45, 29/04/2026</p>
+            </div>
+            <div style="text-align: right;">
+                <p><span class="info-label">Tổng tiền thanh toán:</span></p>
+                <p style="font-size: 24px; font-weight: 800; color: #965A3E;">120.000đ</p>
+            </div>
+        </div>
+        <p style="margin-top: 15px; font-style: italic; font-size: 13px; color: #666; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 10px;">
+            Lưu ý: Quý khách vui lòng kiểm tra kỹ đơn hàng khi nhận.
+        </p>
+    </div>
+
+    <div class="tracking-card">
+        <h2 class="card-title">Địa chỉ nhận hàng</h2>
+        <div class="address-box">
+            <div class="address-img">
+                <img src="anh/image 10.png" alt="Map">
+            </div>
+            <div class="address-text">
+                <p><strong>Người nhận:</strong> Nguyễn Đình Nguyên</p>
+                <p><strong>SĐT:</strong> 090 123 4567</p>
+                <p><strong>Địa chỉ:</strong> 123 Đường Võ Xu, Đức Linh, Bình Thuận</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="tracking-card">
+        <h2 class="card-title">Thông tin khác</h2>
+        <p style="color: #333; line-height: 1.6;"><strong>Ghi chú:</strong> Không cho hành tây, thêm tương ớt giúp mình nhé. Giao hàng trước 11h trưa.</p>
+    </div>
+
+    <footer>
+        &copy; 2026 Ngon Lành - Ăn Sạch Sống Khỏe
+    </footer>
+</div>
+
+</body>
+</html>
