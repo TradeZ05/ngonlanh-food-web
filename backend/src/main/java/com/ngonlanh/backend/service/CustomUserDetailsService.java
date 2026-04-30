@@ -1,7 +1,7 @@
-package com.ngonlimage.backend.service;
+package com.ngonlanh.backend.service;
 
-import com.ngonlimage.backend.entity.User;
-import com.ngonlimage.backend.repository.UserRepository;
+import com.ngonlanh.backend.entity.User;
+import com.ngonlanh.backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

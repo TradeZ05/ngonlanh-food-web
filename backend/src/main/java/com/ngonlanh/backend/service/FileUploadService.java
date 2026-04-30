@@ -1,4 +1,4 @@
-package com.ngonlimage.backend.service;
+package com.ngonlanh.backend.service;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;

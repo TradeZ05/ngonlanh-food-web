@@ -1,7 +1,7 @@
-package com.ngonlimage.backend.controller;
+package com.ngonlanh.backend.controller;
 
-import com.ngonlimage.backend.entity.Category;
-import com.ngonlimage.backend.repository.CategoryRepository;
+import com.ngonlanh.backend.entity.Category;
+import com.ngonlanh.backend.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

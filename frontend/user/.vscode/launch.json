@@ -5,109 +5,109 @@
       "type": "chrome",
       "request": "launch",
       "name": "Open trangchu.html",
-      "file": "D:\\Ngonlimage\\ngonlimage-food-web\\frontend\\trangchu.html"
+      "file": "D:\\ngonlanh\\ngonlanh-food-web\\frontend\\trangchu.html"
     },
     {
       "type": "chrome",
       "request": "launch",
       "name": "Open thucdonchay.html",
-      "file": "D:\\Ngonlimage\\ngonlimage-food-web\\frontend\\thucdonchay.html"
+      "file": "D:\\ngonlanh\\ngonlanh-food-web\\frontend\\thucdonchay.html"
     },
     {
       "type": "chrome",
       "request": "launch",
       "name": "Open thucdonkieng.html",
-      "file": "D:\\Ngonlimage\\ngonlimage-food-web\\frontend\\thucdonkieng.html"
+      "file": "D:\\ngonlanh\\ngonlanh-food-web\\frontend\\thucdonkieng.html"
     },
     {
       "type": "chrome",
       "request": "launch",
       "name": "Open douong.html",
-      "file": "D:\\Ngonlimage\\ngonlimage-food-web\\frontend\\douong.html"
+      "file": "D:\\ngonlanh\\ngonlanh-food-web\\frontend\\douong.html"
     },
     {
       "type": "chrome",
       "request": "launch",
       "name": "Open tuyendung.html",
-      "file": "D:\\Ngonlimage\\ngonlimage-food-web\\frontend\\tuyendung.html"
+      "file": "D:\\ngonlanh\\ngonlanh-food-web\\frontend\\tuyendung.html"
     },
     {
       "type": "chrome",
       "request": "launch",
       "name": "Open lienhe.html",
-      "file": "D:\\Ngonlimage\\ngonlimage-food-web\\frontend\\lienhe.html"
+      "file": "D:\\ngonlanh\\ngonlanh-food-web\\frontend\\lienhe.html"
     },
     {
       "type": "chrome",
       "request": "launch",
       "name": "Open chitietdonhang.html",
-      "file": "D:\\Ngonlimage\\ngonlimage-food-web\\frontend\\chitietdonhang.html"
+      "file": "D:\\ngonlanh\\ngonlanh-food-web\\frontend\\chitietdonhang.html"
     },
     {
       "type": "chrome",
       "request": "launch",
       "name": "Open dangki.html",
-      "file": "D:\\Ngonlimage\\ngonlimage-food-web\\frontend\\dangki.html"
+      "file": "D:\\ngonlanh\\ngonlanh-food-web\\frontend\\dangki.html"
     },
     {
       "type": "chrome",
       "request": "launch",
       "name": "Open dangnhap.html",
-      "file": "D:\\Ngonlimage\\ngonlimage-food-web\\frontend\\dangnhap.html"
+      "file": "D:\\ngonlanh\\ngonlanh-food-web\\frontend\\dangnhap.html"
     },
     {
       "type": "chrome",
       "request": "launch",
       "name": "Open datmon.html",
-      "file": "D:\\Ngonlimage\\ngonlimage-food-web\\frontend\\datmon.html"
+      "file": "D:\\ngonlanh\\ngonlanh-food-web\\frontend\\datmon.html"
     },
     {
       "type": "chrome",
       "request": "launch",
       "name": "Open doimatkhau.html",
-      "file": "D:\\Ngonlimage\\ngonlimage-food-web\\frontend\\doimatkhau.html"
+      "file": "D:\\ngonlanh\\ngonlanh-food-web\\frontend\\doimatkhau.html"
     },
     {
       "type": "chrome",
       "request": "launch",
       "name": "Open lichsu.html",
-      "file": "D:\\Ngonlimage\\ngonlimage-food-web\\frontend\\lichsu.html"
+      "file": "D:\\ngonlanh\\ngonlanh-food-web\\frontend\\lichsu.html"
     },
     {
       "type": "chrome",
       "request": "launch",
       "name": "Open matkhau.html",
-      "file": "D:\\Ngonlimage\\ngonlimage-food-web\\frontend\\matkhau.html"
+      "file": "D:\\ngonlanh\\ngonlanh-food-web\\frontend\\matkhau.html"
     },
     {
       "type": "chrome",
       "request": "launch",
       "name": "Open thimagetoan.html",
-      "file": "D:\\Ngonlimage\\ngonlimage-food-web\\frontend\\thimagetoan.html"
+      "file": "D:\\ngonlanh\\ngonlanh-food-web\\frontend\\thimagetoan.html"
     },
     {
       "type": "chrome",
       "request": "launch",
       "name": "Open theodoi.html",
-      "file": "D:\\Ngonlimage\\ngonlimage-food-web\\frontend\\theodoi.html"
+      "file": "D:\\ngonlanh\\ngonlanh-food-web\\frontend\\theodoi.html"
     },
     {
       "type": "chrome",
       "request": "launch",
       "name": "Open thongtin1.html",
-      "file": "D:\\Ngonlimage\\ngonlimage-food-web\\frontend\\thongtin1.html"
+      "file": "D:\\ngonlanh\\ngonlanh-food-web\\frontend\\thongtin1.html"
     },
     {
       "type": "chrome",
       "request": "launch",
       "name": "Open thongtin2.html",
-      "file": "D:\\Ngonlimage\\ngonlimage-food-web\\frontend\\thongtin2.html"
+      "file": "D:\\ngonlanh\\ngonlanh-food-web\\frontend\\thongtin2.html"
     },
     {
       "type": "chrome",
       "request": "launch",
       "name": "Open uudai.html",
-      "file": "D:\\Ngonlimage\\ngonlimage-food-web\\frontend\\uudai.html"
+      "file": "D:\\ngonlanh\\ngonlanh-food-web\\frontend\\uudai.html"
     }
   ]
 }

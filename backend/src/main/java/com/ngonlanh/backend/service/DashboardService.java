@@ -1,9 +1,9 @@
-package com.ngonlimage.backend.service;
+package com.ngonlanh.backend.service;
 
-import com.ngonlimage.backend.dto.DashboardResponse;
-import com.ngonlimage.backend.entity.Order;
-import com.ngonlimage.backend.repository.OrderRepository;
-import com.ngonlimage.backend.repository.ProductRepository;
+import com.ngonlanh.backend.dto.DashboardResponse;
+import com.ngonlanh.backend.entity.Order;
+import com.ngonlanh.backend.repository.OrderRepository;
+import com.ngonlanh.backend.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

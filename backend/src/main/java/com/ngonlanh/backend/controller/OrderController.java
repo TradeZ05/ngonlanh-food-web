@@ -1,8 +1,8 @@
-package com.ngonlimage.backend.controller;
+package com.ngonlanh.backend.controller;
 
-import com.ngonlimage.backend.dto.CheckoutRequest;
-import com.ngonlimage.backend.entity.Order;
-import com.ngonlimage.backend.service.OrderService;
+import com.ngonlanh.backend.dto.CheckoutRequest;
+import com.ngonlanh.backend.entity.Order;
+import com.ngonlanh.backend.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;

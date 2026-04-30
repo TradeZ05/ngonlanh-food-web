@@ -10,10 +10,10 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
     // Retrieve or initialize from localStorage
-    let profileData = JSON.parse(localStorage.getItem('ngonlimage_profile'));
+    let profileData = JSON.parse(localStorage.getItem('ngonlanh_profile'));
     if (!profileData) {
         profileData = defaultProfile;
-        localStorage.setItem('ngonlimage_profile', JSON.stringify(profileData));
+        localStorage.setItem('ngonlanh_profile', JSON.stringify(profileData));
     }
 
     // Page 1: Display Mode (thongtin1.html)
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function() {
             profileData.gender = document.getElementById('input-gender').value;
 
             // Save back to localStorage
-            localStorage.setItem('ngonlimage_profile', JSON.stringify(profileData));
+            localStorage.setItem('ngonlanh_profile', JSON.stringify(profileData));
             
             // Navigate back to thongtin1.html to show changes
             window.location.href = 'thongtin1.html';

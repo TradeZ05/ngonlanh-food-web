@@ -1,4 +1,4 @@
-package com.ngonlimage.backend;
+package com.ngonlanh.backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

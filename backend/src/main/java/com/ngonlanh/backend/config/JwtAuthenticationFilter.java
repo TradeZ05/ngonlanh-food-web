@@ -1,6 +1,6 @@
-package com.ngonlimage.backend.config;
+package com.ngonlanh.backend.config;
 
-import com.ngonlimage.backend.service.CustomUserDetailsService;
+import com.ngonlanh.backend.service.CustomUserDetailsService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

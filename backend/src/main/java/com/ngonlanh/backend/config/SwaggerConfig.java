@@ -1,4 +1,4 @@
-package com.ngonlimage.backend.config;
+package com.ngonlanh.backend.config;
 
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
@@ -19,7 +19,7 @@ public class SwaggerConfig {
                         .title("API Tài liệu - Ngon Lành Food")
                         .version("1.0")
                         .description("Hệ thống Backend quản lý bán đồ ăn trực tuyến.")
-                        .contact(new Contact().name("Admin").email("admin@ngonlimage.com")))
+                        .contact(new Contact().name("Admin").email("admin@ngonlanh.com")))
                 // Cấu hình nút Authorize để nhập Token
                 .addSecurityItem(new SecurityRequirement().addList("Bearer Authentication"))
                 .components(new Components().addSecuritySchemes("Bearer Authentication", createAPIKeyScheme()));

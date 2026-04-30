@@ -1,20 +1,20 @@
-package com.ngonlimage.backend.controller;
+package com.ngonlanh.backend.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.ngonlimage.backend.entity.Category;
-import com.ngonlimage.backend.entity.Order;
-import com.ngonlimage.backend.entity.Product;
-import com.ngonlimage.backend.repository.CategoryRepository;
-import com.ngonlimage.backend.repository.OrderRepository;
-import com.ngonlimage.backend.repository.ProductRepository;
-import com.ngonlimage.backend.service.DashboardService;
-import com.ngonlimage.backend.service.FileUploadService;
-import com.ngonlimage.backend.service.OrderService;
+import com.ngonlanh.backend.entity.Category;
+import com.ngonlanh.backend.entity.Order;
+import com.ngonlanh.backend.entity.Product;
+import com.ngonlanh.backend.repository.CategoryRepository;
+import com.ngonlanh.backend.repository.OrderRepository;
+import com.ngonlanh.backend.repository.ProductRepository;
+import com.ngonlanh.backend.service.DashboardService;
+import com.ngonlanh.backend.service.FileUploadService;
+import com.ngonlanh.backend.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import com.ngonlimage.backend.repository.UserRepository;
+import com.ngonlanh.backend.repository.UserRepository;
 
 import java.util.List;
 import java.util.Map;
@@ -159,7 +159,7 @@ public class AdminController {
     }
 
     // Nhớ kéo lên đầu file AdminController.java và dán dòng import này vào nhé:
-    // import com.ngonlimage.backend.repository.UserRepository;
+    // import com.ngonlanh.backend.repository.UserRepository;
 
     @Autowired
     private UserRepository userRepository;

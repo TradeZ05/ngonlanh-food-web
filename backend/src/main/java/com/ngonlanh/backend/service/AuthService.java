@@ -1,10 +1,10 @@
-package com.ngonlimage.backend.service;
+package com.ngonlanh.backend.service;
 
-import com.ngonlimage.backend.dto.RegisterRequest;
-import com.ngonlimage.backend.entity.Role;
-import com.ngonlimage.backend.entity.User;
-import com.ngonlimage.backend.repository.RoleRepository;
-import com.ngonlimage.backend.repository.UserRepository;
+import com.ngonlanh.backend.dto.RegisterRequest;
+import com.ngonlanh.backend.entity.Role;
+import com.ngonlanh.backend.entity.User;
+import com.ngonlanh.backend.repository.RoleRepository;
+import com.ngonlanh.backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

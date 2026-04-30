@@ -1,6 +1,6 @@
-package com.ngonlimage.backend.repository;
+package com.ngonlanh.backend.repository;
 
-import com.ngonlimage.backend.entity.Role;
+import com.ngonlanh.backend.entity.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import java.util.Optional;

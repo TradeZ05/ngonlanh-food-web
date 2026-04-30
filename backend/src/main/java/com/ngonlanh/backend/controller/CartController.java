@@ -1,14 +1,14 @@
-package com.ngonlimage.backend.controller;
+package com.ngonlanh.backend.controller;
 
-import com.ngonlimage.backend.dto.AddToCartRequest;
-import com.ngonlimage.backend.entity.Cart;
-import com.ngonlimage.backend.entity.CartItem;
-import com.ngonlimage.backend.entity.Product;
-import com.ngonlimage.backend.entity.User;
-import com.ngonlimage.backend.repository.CartRepository;
-import com.ngonlimage.backend.repository.CartItemRepository;
-import com.ngonlimage.backend.repository.ProductRepository;
-import com.ngonlimage.backend.repository.UserRepository;
+import com.ngonlanh.backend.dto.AddToCartRequest;
+import com.ngonlanh.backend.entity.Cart;
+import com.ngonlanh.backend.entity.CartItem;
+import com.ngonlanh.backend.entity.Product;
+import com.ngonlanh.backend.entity.User;
+import com.ngonlanh.backend.repository.CartRepository;
+import com.ngonlanh.backend.repository.CartItemRepository;
+import com.ngonlanh.backend.repository.ProductRepository;
+import com.ngonlanh.backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -78,8 +78,8 @@ public class CartController {
         }
 
         // 3. Đóng gói dữ liệu sang DTO để trả về cho Frontend
-        java.util.List<com.ngonlimage.backend.dto.CartItemResponse> responses = cart.getCartItems().stream().map(item -> {
-            com.ngonlimage.backend.dto.CartItemResponse dto = new com.ngonlimage.backend.dto.CartItemResponse();
+        java.util.List<com.ngonlanh.backend.dto.CartItemResponse> responses = cart.getCartItems().stream().map(item -> {
+            com.ngonlanh.backend.dto.CartItemResponse dto = new com.ngonlanh.backend.dto.CartItemResponse();
             dto.setCartItemId(item.getId());
             dto.setProductId(item.getProduct().getId().intValue()); // Ép kiểu cẩn thận
             dto.setProductName(item.getProduct().getName());

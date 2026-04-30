@@ -1,8 +1,8 @@
-package com.ngonlimage.backend.repository;
+package com.ngonlanh.backend.repository;
 
-import com.ngonlimage.backend.entity.Cart;
-import com.ngonlimage.backend.entity.CartItem;
-import com.ngonlimage.backend.entity.Product;
+import com.ngonlanh.backend.entity.Cart;
+import com.ngonlanh.backend.entity.CartItem;
+import com.ngonlanh.backend.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

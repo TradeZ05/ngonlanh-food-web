@@ -1,8 +1,8 @@
-package com.ngonlimage.backend.controller;
+package com.ngonlanh.backend.controller;
 
-import com.ngonlimage.backend.entity.User;
-import com.ngonlimage.backend.repository.UserRepository;
-import com.ngonlimage.backend.service.EmailService;
+import com.ngonlanh.backend.entity.User;
+import com.ngonlanh.backend.repository.UserRepository;
+import com.ngonlanh.backend.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -25,7 +25,7 @@ public class AuthController {
     private org.springframework.security.authentication.AuthenticationManager authenticationManager;
 
     @Autowired
-    private com.ngonlimage.backend.config.JwtTokenProvider tokenProvider;
+    private com.ngonlanh.backend.config.JwtTokenProvider tokenProvider;
 
     @Autowired
     private EmailService emailService; // Gọi tổng đài gửi mail
@@ -43,14 +43,14 @@ public class AuthController {
             org.springframework.security.core.context.SecurityContextHolder.getContext().setAuthentication(authentication);
             String jwt = tokenProvider.generateToken(authentication);
             
-            com.ngonlimage.backend.entity.User user = userRepository.findByUsername(loginRequest.get("username"))
+            com.ngonlanh.backend.entity.User user = userRepository.findByUsername(loginRequest.get("username"))
                     .orElseThrow(() -> new RuntimeException("User not found"));
 
             if (!user.getIsActive()) {
                 return ResponseEntity.status(org.springframework.http.HttpStatus.FORBIDDEN).body("Tài khoản chưa kích hoạt OTP!");
             }
             
-            return ResponseEntity.ok(new com.ngonlimage.backend.dto.JwtAuthResponse(jwt, user.getUsername(), user.getEmail()));
+            return ResponseEntity.ok(new com.ngonlanh.backend.dto.JwtAuthResponse(jwt, user.getUsername(), user.getEmail()));
             
         } catch (Exception e) {
             return ResponseEntity.status(org.springframework.http.HttpStatus.UNAUTHORIZED).body("Sai tài khoản hoặc mật khẩu!");

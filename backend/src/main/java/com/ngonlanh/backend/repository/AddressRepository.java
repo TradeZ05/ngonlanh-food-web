@@ -1,7 +1,7 @@
-package com.ngonlimage.backend.repository;
+package com.ngonlanh.backend.repository;
 
-import com.ngonlimage.backend.entity.Address;
-import com.ngonlimage.backend.entity.User;
+import com.ngonlanh.backend.entity.Address;
+import com.ngonlanh.backend.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

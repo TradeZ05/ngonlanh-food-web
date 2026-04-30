@@ -1,4 +1,4 @@
-package com.ngonlimage.backend.dto;
+package com.ngonlanh.backend.dto;
 
 import lombok.Getter;
 import lombok.Setter;
