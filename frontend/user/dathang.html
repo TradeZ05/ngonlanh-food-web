@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặt Hàng - Ngon Lành</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="menu-page-wrapper">
+<header class="home-page">
+    <div class="top-bar">
+        <div class="logo-small"><img src="image/LOGO_N.png" alt="Logo"></div>
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm thực đơn chay & healthy...">
+        </div>
+        <div class="nav-actions">
+            <div class="user-icon-box" onclick="window.location.href='chitietdonhang.html'" style="cursor: pointer; position: relative;">
+                <img src="image/Frame 114.png" alt="Cart">
+            </div>
+            <button class="login-btn" onclick="window.location.href='dangnhap.html'">Đăng nhập</button>
+        </div>
+    </div>
+</header>
+
+<div class="menu-layout-container">
+    <aside class="menu-sidebar">
+        <h3>Dimage mục</h3>
+        <ul class="menu-category-list">
+            <li class="active"><a href="#muc-chay">🥗 Thực đơn chay</a></li>
+            <li><a href="#muc-kieng">🥑 Thực đơn kiêng (Diet)</a></li>
+            <li><a href="#muc-nuoc">🍹 Thức uống dưỡng sinh</a></li>
+            <li><a href="#muc-trangmieng">🍮 Tráng miệng healthy</a></li>
+            <li style="margin-top: 20px; border-top: 1px solid #eee; padding-top: 10px;">
+                <a href="chitietdonhang.html" style="color: var(--primary);">🛒 Xem giỏ hàng</a>
+            </li>
+        </ul>
+    </aside>
+
+    <main class="menu-products-area">
+        <h2 class="category-title" id="muc-chay">🥗 Thực đơn chay</h2>
+        <div class="menu-product-grid">
+            <div class="menu-product-card">
+                <img src="image/1.png" alt="Món chay" class="product-img">
+                <div class="product-info">
+                    <h4>Combo Chay Thimage Đạm</h4>
+                    <p class="product-desc">Cơm gạo lứt + Đậu hũ sốt nấm + Cimage rong biển</p>
+                    <div class="product-bottom">
+                        <span class="product-price">65.000đ</span>
+                        <button class="btn-add-cart" onclick="openModal('Combo Chay Thimage Đạm', '65.000đ', 'image/1.png', 'Cung cấp đầy đủ protein thực vật và chất xơ từ gạo lứt.')">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-product-card">
+                <img src="image/2.png" alt="Bún trộn" class="product-img">
+                <div class="product-info">
+                    <h4>Bún Trộn Chay</h4>
+                    <p class="product-desc">Bún tươi, chả lụa chay, nấm xào, rau sống tươi mát.</p>
+                    <div class="product-bottom">
+                        <span class="product-price">45.000đ</span>
+                        <button class="btn-add-cart" onclick="openModal('Bún Trộn Chay', '45.000đ', 'image/2.png', 'Vị nước tương chua ngọt hòa quyện cùng bún tươi và rau sạch.')">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="category-title" id="muc-kieng" style="margin-top: 40px;">🥑 Thực đơn kiêng</h2>
+        <div class="menu-product-grid">
+            <div class="menu-product-card">
+                <img src="image/3.png" alt="Salad" class="product-img">
+                <div class="product-info">
+                    <h4>Salad Quinoa Bơ Sáp</h4>
+                    <p class="product-desc">Hạt Quinoa, bơ sáp, cà chua bi, sốt dầu giấm Keto.</p>
+                    <div class="product-bottom">
+                        <span class="product-price">75.000đ</span>
+                        <button class="btn-add-cart" onclick="openModal('Salad Quinoa Bơ Sáp', '75.000đ', 'image/3.png', 'Giàu omega-3 và chất chống oxy hóa cho làn da và vóc dáng.')">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="category-title" id="muc-nuoc" style="margin-top: 40px;">🍹 Thức uống dưỡng sinh</h2>
+        <div class="menu-product-grid">
+            <div class="menu-product-card">
+                <img src="image/5.png" alt="Trà" class="product-img">
+                <div class="product-info">
+                    <h4>Trà Gạo Lứt Đậu Đen</h4>
+                    <p class="product-desc">Thimage lọc cơ thể, hỗ trợ giảm cân, không đường.</p>
+                    <div class="product-bottom">
+                        <span class="product-price">25.000đ</span>
+                        <button class="btn-add-cart" onclick="openModal('Trà Gạo Lứt', '25.000đ', 'image/5.png', 'Thức uống thimage mát giúp giải nhiệt và hỗ trợ hệ tiêu hóa.')">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="category-title" id="muc-trangmieng" style="margin-top: 40px;">🍮 Tráng miệng healthy</h2>
+        <div class="menu-product-grid">
+            <div class="menu-product-card">
+                <img src="image/7.png" alt="Sữa chua" class="product-img">
+                <div class="product-info">
+                    <h4>Sữa Chua Hy Lạp</h4>
+                    <p class="product-desc">Sữa chua dẻo, hạt chia và trái cây tươi theo mùa.</p>
+                    <div class="product-bottom">
+                        <span class="product-price">35.000đ</span>
+                        <button class="btn-add-cart" onclick="openModal('Sữa Chua Hy Lạp', '35.000đ', 'image/7.png', 'Món tráng miệng ít béo, giàu lợi khuẩn cho hệ miễn dịch.')">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<div class="overlay" id="product-modal" style="display: none;">
+    <div class="modal">
+        <button class="close-modal" onclick="closeModal()">✕</button>
+        <div class="top">
+            <div class="img">
+                <img id="modal-img" src="" alt="Sản phẩm">
+            </div>
+            <div class="content">
+                <div class="title" id="modal-title">Tên món ăn</div>
+                <div class="rating">★★★★★ (128 đánh giá)</div>
+                <div class="price" id="modal-price">0đ</div>
+
+                <div class="qty">
+                    <button onclick="updateQty(-1)">-</button>
+                    <span id="modal-qty">1</span>
+                    <button onclick="updateQty(1)">+</button>
+                </div>
+
+                <div class="actions">
+                    <button class="btn-light" onclick="addToCart()">Thêm vào giỏ</button>
+                    <button class="btn-dark" onclick="window.location.href='chitietdonhang.html'">Mua ngay</button>
+                </div>
+
+                <div class="desc" id="modal-desc">Mô tả sản phẩm...</div>
+            </div>
+        </div>
+
+        <div class="cards">
+            <div class="card"><div class="avatar"><img src="image/user1.png" onerror="this.src='https://via.placeholder.com/42'"></div><p>"Giao hàng nhimage, đồ ăn rất vừa miệng!"</p></div>
+            <div class="card"><div class="avatar"><img src="image/user2.png" onerror="this.src='https://via.placeholder.com/42'"></div><p>"Món salad bơ cực kỳ tươi, đáng đồng tiền."</p></div>
+            <div class="card"><div class="avatar"><img src="image/user1.png" onerror="this.src='https://via.placeholder.com/42'"></div><p>"Sẽ quay lại ủng hộ quán nhiều lần nữa."</p></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openModal(title, price, img, desc) {
+        document.getElementById('modal-title').innerText = title;
+        document.getElementById('modal-price').innerText = price;
+        document.getElementById('modal-img').src = img;
+        document.getElementById('modal-desc').innerText = desc;
+        document.getElementById('modal-qty').innerText = 1;
+        document.getElementById('product-modal').style.display = 'flex';
+    }
+
+    function closeModal() {
+        document.getElementById('product-modal').style.display = 'none';
+    }
+
+    function updateQty(val) {
+        let qty = document.getElementById('modal-qty');
+        let res = parseInt(qty.innerText) + val;
+        if (res >= 1) qty.innerText = res;
+    }
+
+    function addToCart() {
+        alert("Đã thêm món ăn vào giỏ hàng!");
+        closeModal();
+    }
+</script>
+</body>
+</html>

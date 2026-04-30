@@ -1,4 +1,4 @@
-package com.ngonlanh.backend.config;
+package com.ngonlimage.backend.config;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
@@ -12,7 +12,7 @@ import java.util.Date;
 public class JwtTokenProvider {
 
     // Khóa bí mật để mã hóa (Thực tế nên dài ít nhất 32 ký tự và để trong application.properties)
-    private final String JWT_SECRET = "ngonlanh_food_web_secret_key_must_be_very_long_1234567890";
+    private final String JWT_SECRET = "ngonlimage_food_web_secret_key_must_be_very_long_1234567890";
     
     // Thời gian sống của token (Ví dụ: 24 giờ = 86400000 milliseconds)
     private final long JWT_EXPIRATION = 86400000L;

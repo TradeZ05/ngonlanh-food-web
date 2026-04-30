@@ -1,20 +1,20 @@
-package com.ngonlanh.backend.controller;
+package com.ngonlimage.backend.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.ngonlanh.backend.entity.Category;
-import com.ngonlanh.backend.entity.Order;
-import com.ngonlanh.backend.entity.Product;
-import com.ngonlanh.backend.repository.CategoryRepository;
-import com.ngonlanh.backend.repository.OrderRepository;
-import com.ngonlanh.backend.repository.ProductRepository;
-import com.ngonlanh.backend.service.DashboardService;
-import com.ngonlanh.backend.service.FileUploadService;
-import com.ngonlanh.backend.service.OrderService;
+import com.ngonlimage.backend.entity.Category;
+import com.ngonlimage.backend.entity.Order;
+import com.ngonlimage.backend.entity.Product;
+import com.ngonlimage.backend.repository.CategoryRepository;
+import com.ngonlimage.backend.repository.OrderRepository;
+import com.ngonlimage.backend.repository.ProductRepository;
+import com.ngonlimage.backend.service.DashboardService;
+import com.ngonlimage.backend.service.FileUploadService;
+import com.ngonlimage.backend.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import com.ngonlanh.backend.repository.UserRepository;
+import com.ngonlimage.backend.repository.UserRepository;
 
 import java.util.List;
 import java.util.Map;
@@ -119,30 +119,30 @@ public class AdminController {
         }
     }
 
-    // API 7: Lấy danh sách tất cả danh mục
+    // API 7: Lấy dimage sách tất cả dimage mục
     @GetMapping("/categories")
     public ResponseEntity<?> getAllCategories() {
         return ResponseEntity.ok(categoryRepository.findAll());
     }
 
-    // API 8: Thêm danh mục mới
+    // API 8: Thêm dimage mục mới
     @PostMapping("/categories")
     public ResponseEntity<?> addCategory(@RequestBody Category category) {
         return ResponseEntity.ok(categoryRepository.save(category));
     }
 
-    // API 9: Xóa danh mục
+    // API 9: Xóa dimage mục
     @DeleteMapping("/categories/{id}")
     public ResponseEntity<?> deleteCategory(@PathVariable Integer id) {
         try {
             categoryRepository.deleteById(id);
-            return ResponseEntity.ok("Đã xóa danh mục!");
+            return ResponseEntity.ok("Đã xóa dimage mục!");
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Không thể xóa danh mục đang có sản phẩm!");
+            return ResponseEntity.badRequest().body("Không thể xóa dimage mục đang có sản phẩm!");
         }
     }
 
-    // API 10: Lấy danh sách đơn hàng (Có thể lọc theo status)
+    // API 10: Lấy dimage sách đơn hàng (Có thể lọc theo status)
     @GetMapping("/orders")
     public ResponseEntity<?> getAllOrders(@RequestParam(required = false) String status) {
         try {
@@ -154,23 +154,23 @@ public class AdminController {
             }
             return ResponseEntity.ok(orders);
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Lỗi lấy danh sách đơn hàng: " + e.getMessage());
+            return ResponseEntity.badRequest().body("Lỗi lấy dimage sách đơn hàng: " + e.getMessage());
         }
     }
 
     // Nhớ kéo lên đầu file AdminController.java và dán dòng import này vào nhé:
-    // import com.ngonlanh.backend.repository.UserRepository;
+    // import com.ngonlimage.backend.repository.UserRepository;
 
     @Autowired
     private UserRepository userRepository;
 
-    // API 11: Lấy danh sách tất cả Người dùng
+    // API 11: Lấy dimage sách tất cả Người dùng
     @GetMapping("/users")
     public ResponseEntity<?> getAllUsers() {
         try {
             return ResponseEntity.ok(userRepository.findAll());
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Lỗi lấy danh sách User: " + e.getMessage());
+            return ResponseEntity.badRequest().body("Lỗi lấy dimage sách User: " + e.getMessage());
         }
     }
 

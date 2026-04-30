@@ -1,9 +1,9 @@
-package com.ngonlanh.backend.service;
+package com.ngonlimage.backend.service;
 
-import com.ngonlanh.backend.dto.DashboardResponse;
-import com.ngonlanh.backend.entity.Order;
-import com.ngonlanh.backend.repository.OrderRepository;
-import com.ngonlanh.backend.repository.ProductRepository;
+import com.ngonlimage.backend.dto.DashboardResponse;
+import com.ngonlimage.backend.entity.Order;
+import com.ngonlimage.backend.repository.OrderRepository;
+import com.ngonlimage.backend.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -45,7 +45,7 @@ public class DashboardService {
         response.setTotalProducts(productRepository.count());
 
         // ==========================================================
-        // 🚀 TÍNH TOÁN DỮ LIỆU BIỂU ĐỒ DOANH THU 7 NGÀY QUA
+        // 🚀 TÍNH TOÁN DỮ LIỆU BIỂU ĐỒ DOimage THU 7 NGÀY QUA
         // ==========================================================
         List<Double> revenueLast7Days = new ArrayList<>();
         List<String> labelsLast7Days = new ArrayList<>();
@@ -57,7 +57,7 @@ public class DashboardService {
             LocalDate targetDate = today.minusDays(i);
             labelsLast7Days.add(targetDate.format(formatter));
 
-            // Tính doanh thu của từng ngày một
+            // Tính doimage thu của từng ngày một
             LocalDateTime start = targetDate.atStartOfDay();
             LocalDateTime end = targetDate.atTime(LocalTime.MAX);
             Double dailyRev = orderRepository.calculateRevenue(paidStatuses, start, end);

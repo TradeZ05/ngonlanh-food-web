@@ -1,8 +1,8 @@
-package com.ngonlanh.backend.controller;
+package com.ngonlimage.backend.controller;
 
-import com.ngonlanh.backend.dto.CheckoutRequest;
-import com.ngonlanh.backend.entity.Order;
-import com.ngonlanh.backend.service.OrderService;
+import com.ngonlimage.backend.dto.CheckoutRequest;
+import com.ngonlimage.backend.entity.Order;
+import com.ngonlimage.backend.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -41,7 +41,7 @@ public class OrderController {
             Authentication auth = SecurityContextHolder.getContext().getAuthentication();
             String username = auth.getName();
 
-            // Gọi Service lấy danh sách đơn
+            // Gọi Service lấy dimage sách đơn
             List<Order> history = orderService.getOrderHistory(username);
             
             return ResponseEntity.ok(history);

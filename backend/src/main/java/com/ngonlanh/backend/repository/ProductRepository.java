@@ -1,6 +1,6 @@
-package com.ngonlanh.backend.repository;
+package com.ngonlimage.backend.repository;
 
-import com.ngonlanh.backend.entity.Product;
+import com.ngonlimage.backend.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Tổng Quan</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<div class="sidebar">
+    <h2>NGON LÀNH</h2>
+    <ul>
+        <li><a href="tongquan.html" class="active">Tổng Quan</a></li>
+        <li><a href="donhang.html">Đơn Hàng</a></li>
+        <li><a href="thucdon.html">Thực Đơn</a></li>
+        <li><a href="khachhang.html">Khách Hàng</a></li>
+        <li><a href="caidat.html">Cài Đặt</a></li>
+        <li><a href="#" onclick="logout()">Đăng Xuất</a></li>
+    </ul>
+</div>
+
+<div class="main-content">
+    <div class="header">
+        <h2>Bảng Điều Khiển Hệ Thống</h2>
+        <div id="admin-name">Xin chào, Admin</div>
+    </div>
+
+    <div class="dashboard-cards">
+        <div class="card">
+            <h3>TỔNG DOimage THU</h3>
+            <div class="value" id="total-revenue">0đ</div>
+        </div>
+        <div class="card">
+            <h3>TỔNG ĐƠN HÀNG</h3>
+            <div class="value" id="total-orders">0</div>
+        </div>
+        <div class="card">
+            <h3>ĐƠN CHỜ DUYỆT</h3>
+            <div class="value" id="pending-count" style="color: #e74c3c;">0</div>
+        </div>
+        <div class="card">
+            <h3>KHÁCH HÀNG</h3>
+            <div class="value" id="total-customers">0</div>
+        </div>
+    </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

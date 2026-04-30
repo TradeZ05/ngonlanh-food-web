@@ -1,19 +1,19 @@
-package com.ngonlanh.backend.repository;
+package com.ngonlimage.backend.repository;
 
-import com.ngonlanh.backend.entity.Order;
-import com.ngonlanh.backend.entity.User;
+import com.ngonlimage.backend.entity.Order;
+import com.ngonlimage.backend.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import java.util.List;
-import com.ngonlanh.backend.entity.Product;
+import com.ngonlimage.backend.entity.Product;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 @Repository
 public interface OrderRepository extends JpaRepository<Order, Long> {
 
-    // 1. Tính tổng doanh thu của những đơn hàng đã giao thành công (DELIVERED)
+    // 1. Tính tổng doimage thu của những đơn hàng đã giao thành công (DELIVERED)
    @Query("SELECT SUM(o.totalPrice) FROM Order o WHERE o.status = 'DELIVERED'")
     Double calculateTotalRevenue();
 
@@ -21,7 +21,7 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     @Query("SELECT COUNT(o) FROM Order o WHERE o.status = 'PENDING'")
     Long countPendingOrders();
 
-    // 3. Tính tổng doanh thu theo một tháng và năm cụ thể (Dùng Native SQL cho dễ xử lý ngày tháng)
+    // 3. Tính tổng doimage thu theo một tháng và năm cụ thể (Dùng Native SQL cho dễ xử lý ngày tháng)
     @Query(value = "SELECT SUM(total_amount) FROM orders WHERE status = 'DELIVERED' AND MONTH(order_date) = :month AND YEAR(order_date) = :year", nativeQuery = true)
     Double calculateRevenueByMonth(int month, int year);
 
@@ -33,7 +33,7 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     // 1. Đếm số đơn hàng theo trạng thái (VD: đếm đơn PENDING)
     Long countByStatus(String status);
 
-    // 2. Tính tổng doanh thu trong 1 khoảng thời gian (Chỉ tính đơn đã thanh toán/hoàn thành)
+    // 2. Tính tổng doimage thu trong 1 khoảng thời gian (Chỉ tính đơn đã thimage toán/hoàn thành)
     @Query("SELECT SUM(o.totalPrice) FROM Order o WHERE o.status IN :statuses AND o.orderDate >= :startDate AND o.orderDate <= :endDate")
     Double calculateRevenue(@Param("statuses") java.util.List<String> statuses, 
                             @Param("startDate") java.time.LocalDateTime startDate, 

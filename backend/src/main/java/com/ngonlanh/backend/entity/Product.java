@@ -1,4 +1,4 @@
-package com.ngonlanh.backend.entity;
+package com.ngonlimage.backend.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -26,7 +26,7 @@ public class Product {
     @Column(columnDefinition = "TEXT")
     private String description;
 
-    // Khai báo mối quan hệ: Nhiều Sản phẩm thuộc về 1 Danh mục
+    // Khai báo mối quan hệ: Nhiều Sản phẩm thuộc về 1 Dimage mục
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;

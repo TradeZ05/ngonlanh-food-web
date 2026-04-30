@@ -1,4 +1,4 @@
-package com.ngonlanh.backend.service;
+package com.ngonlimage.backend.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;

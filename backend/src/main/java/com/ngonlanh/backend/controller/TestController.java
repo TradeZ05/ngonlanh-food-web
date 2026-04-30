@@ -1,4 +1,4 @@
-package com.ngonlanh.backend.controller;
+package com.ngonlimage.backend.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

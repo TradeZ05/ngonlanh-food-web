@@ -1,4 +1,4 @@
-package com.ngonlanh.backend.entity;
+package com.ngonlimage.backend.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -33,7 +33,7 @@ public class Order {
     @Column(name = "note", columnDefinition = "TEXT")
     private String note;
 
-    // --- THÔNG TIN THANH TOÁN & TRẠNG THÁI ---
+    // --- THÔNG TIN THimage TOÁN & TRẠNG THÁI ---
     @Column(name = "payment_method")
     private String paymentMethod;
 

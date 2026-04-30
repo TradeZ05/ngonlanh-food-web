@@ -1,4 +1,4 @@
-package com.ngonlanh.backend.dto;
+package com.ngonlimage.backend.dto;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -9,5 +9,5 @@ public class CheckoutRequest {
     private String address;
     private String phoneNumber;
     private String note;
-    private String paymentMethod; // VD: "COD" (Thanh toán khi nhận hàng)
+    private String paymentMethod; // VD: "COD" (Thimage toán khi nhận hàng)
 }

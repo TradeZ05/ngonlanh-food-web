@@ -1,4 +1,4 @@
-package com.ngonlanh.backend.entity;
+package com.ngonlimage.backend.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

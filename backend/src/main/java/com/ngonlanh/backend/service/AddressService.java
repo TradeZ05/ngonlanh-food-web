@@ -1,9 +1,9 @@
-package com.ngonlanh.backend.service;
+package com.ngonlimage.backend.service;
 
-import com.ngonlanh.backend.entity.Address;
-import com.ngonlanh.backend.entity.User;
-import com.ngonlanh.backend.repository.AddressRepository;
-import com.ngonlanh.backend.repository.UserRepository;
+import com.ngonlimage.backend.entity.Address;
+import com.ngonlimage.backend.entity.User;
+import com.ngonlimage.backend.repository.AddressRepository;
+import com.ngonlimage.backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

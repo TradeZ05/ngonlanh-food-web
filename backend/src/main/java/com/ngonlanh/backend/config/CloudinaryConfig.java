@@ -1,4 +1,4 @@
-package com.ngonlanh.backend.config;
+package com.ngonlimage.backend.config;
 
 import com.cloudinary.Cloudinary;
 import org.springframework.context.annotation.Bean;

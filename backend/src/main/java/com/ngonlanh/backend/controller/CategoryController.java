@@ -1,7 +1,7 @@
-package com.ngonlanh.backend.controller;
+package com.ngonlimage.backend.controller;
 
-import com.ngonlanh.backend.entity.Category;
-import com.ngonlanh.backend.repository.CategoryRepository;
+import com.ngonlimage.backend.entity.Category;
+import com.ngonlimage.backend.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +15,7 @@ public class CategoryController {
     @Autowired
     private CategoryRepository categoryRepository;
 
-    // 1. Cửa GET: Lấy toàn bộ danh mục trả về cho Frontend
+    // 1. Cửa GET: Lấy toàn bộ dimage mục trả về cho Frontend
     @GetMapping
     public List<Category> getAllCategories() {
         return categoryRepository.findAll();
@@ -28,18 +28,18 @@ public class CategoryController {
         return categoryRepository.save(category);
     }
 
-    // Xóa danh mục theo ID
+    // Xóa dimage mục theo ID
     @DeleteMapping("/{id}")
     public void deleteCategory(@PathVariable Integer id) {
         categoryRepository.deleteById(id);
     }
 
-    // Cập nhật danh mục theo ID
+    // Cập nhật dimage mục theo ID
     @PutMapping("/{id}")
     public Category updateCategory(@PathVariable Integer id, @RequestBody Category categoryDetails) {
-        // 1. Tìm danh mục cũ trong DB
+        // 1. Tìm dimage mục cũ trong DB
         Category category = categoryRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Không tìm thấy danh mục này!"));
+                .orElseThrow(() -> new RuntimeException("Không tìm thấy dimage mục này!"));
         
         // 2. Ghi đè thông tin mới
         category.setName(categoryDetails.getName());

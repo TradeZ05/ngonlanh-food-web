@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Thêm Món</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<div class="sidebar">
+    <h2>NGON LÀNH</h2>
+    <ul>
+        <li><a href="tongquan.html">Tổng Quan</a></li>
+        <li><a href="donhang.html">Đơn Hàng</a></li>
+        <li><a href="thucdon.html">Thực Đơn</a></li>
+        <li><a href="khachhang.html">Khách Hàng</a></li>
+        <li><a href="caidat.html">Cài Đặt</a></li>
+        <li><a href="#" onclick="logout()">Đăng Xuất</a></li>
+    </ul>
+</div>
+
+<div class="main-content">
+    <div class="header">
+        <h2>Thêm Món Ăn Mới</h2>
+        <a href="thucdon.html" class="btn btn-danger">Hủy</a>
+    </div>
+
+    <div class="form-container">
+        <form id="add-product-form">
+            <div class="form-group">
+                <label for="product-name">Tên món ăn</label>
+                <input type="text" id="product-name" required>
+            </div>
+            <div class="form-group">
+                <label for="product-price">Giá bán (VND)</label>
+                <input type="number" id="product-price" required>
+            </div>
+            <div class="form-group">
+                <label for="category-select">Dimage mục</label>
+                <select id="category-select" required>
+                    <option value="">Đang tải...</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="product-desc">Mô tả</label>
+                <textarea id="product-desc" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="product-image">Hình ảnh</label>
+                <input type="file" id="product-image" accept="image/*" required>
+            </div>
+            <button type="submit" id="btn-submit-product" class="btn">Lưu Sản Phẩm</button>
+        </form>
+    </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/product.js"></script>
+</body>
+</html>

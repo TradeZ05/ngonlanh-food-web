@@ -1,4 +1,4 @@
-package com.ngonlanh.backend.config;
+package com.ngonlimage.backend.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

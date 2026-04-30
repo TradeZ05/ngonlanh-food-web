@@ -1,13 +1,13 @@
-package com.ngonlanh.backend.service;
+package com.ngonlimage.backend.service;
 
-import com.ngonlanh.backend.dto.ReviewRequest;
-import com.ngonlanh.backend.entity.Product;
-import com.ngonlanh.backend.entity.Review;
-import com.ngonlanh.backend.entity.User;
-import com.ngonlanh.backend.repository.OrderRepository;
-import com.ngonlanh.backend.repository.ProductRepository;
-import com.ngonlanh.backend.repository.ReviewRepository;
-import com.ngonlanh.backend.repository.UserRepository;
+import com.ngonlimage.backend.dto.ReviewRequest;
+import com.ngonlimage.backend.entity.Product;
+import com.ngonlimage.backend.entity.Review;
+import com.ngonlimage.backend.entity.User;
+import com.ngonlimage.backend.repository.OrderRepository;
+import com.ngonlimage.backend.repository.ProductRepository;
+import com.ngonlimage.backend.repository.ReviewRepository;
+import com.ngonlimage.backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +21,7 @@ public class ReviewService {
     @Autowired private ProductRepository productRepository;
     @Autowired private OrderRepository orderRepository;
 
-    // 1. Trả về danh sách review của 1 món ăn
+    // 1. Trả về dimage sách review của 1 món ăn
     public List<Review> getReviewsByProduct(Integer productId) {
         Product product = productRepository.findById(productId)
                 .orElseThrow(() -> new RuntimeException("Không tìm thấy món ăn"));

@@ -1,7 +1,7 @@
-package com.ngonlanh.backend.controller;
+package com.ngonlimage.backend.controller;
 
-import com.ngonlanh.backend.entity.Product;
-import com.ngonlanh.backend.repository.ProductRepository;
+import com.ngonlimage.backend.entity.Product;
+import com.ngonlimage.backend.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +15,7 @@ public class ProductController {
     @Autowired
     private ProductRepository productRepository;
 
-    // Lấy danh sách toàn bộ sản phẩm
+    // Lấy dimage sách toàn bộ sản phẩm
     @GetMapping
     public List<Product> getAllProducts() {
         return productRepository.findAll();

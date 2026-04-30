@@ -1,7 +1,7 @@
-package com.ngonlanh.backend.controller;
+package com.ngonlimage.backend.controller;
 
-import com.ngonlanh.backend.dto.ReviewRequest;
-import com.ngonlanh.backend.service.ReviewService;
+import com.ngonlimage.backend.dto.ReviewRequest;
+import com.ngonlimage.backend.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;

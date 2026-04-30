@@ -1,8 +1,8 @@
-package com.ngonlanh.backend.service;
+package com.ngonlimage.backend.service;
 
-import com.ngonlanh.backend.dto.CheckoutRequest;
-import com.ngonlanh.backend.entity.*;
-import com.ngonlanh.backend.repository.*;
+import com.ngonlimage.backend.dto.CheckoutRequest;
+import com.ngonlimage.backend.entity.*;
+import com.ngonlimage.backend.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,7 +29,7 @@ public class OrderService {
                 .orElseThrow(() -> new RuntimeException("Giỏ hàng trống!"));
                 
         if (cart.getCartItems().isEmpty()) {
-            throw new RuntimeException("Không có món ăn nào trong giỏ để thanh toán!");
+            throw new RuntimeException("Không có món ăn nào trong giỏ để thimage toán!");
         }
 
         // 3. Khởi tạo Đơn hàng (Order)
@@ -76,7 +76,7 @@ public class OrderService {
         User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new RuntimeException("Không tìm thấy User"));
         
-        // Trả về danh sách đơn hàng
+        // Trả về dimage sách đơn hàng
         return orderRepository.findByUserOrderByIdDesc(user);
     }
 

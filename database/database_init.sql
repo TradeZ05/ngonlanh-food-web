@@ -1,8 +1,8 @@
 -- ==========================================
 -- KHỞI TẠO DATABASE & SET TIẾNG VIỆT
 -- ==========================================
-CREATE DATABASE IF NOT EXISTS ngonlanh_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE ngonlanh_db;
+CREATE DATABASE IF NOT EXISTS ngonlimage_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE ngonlimage_db;
 
 -- ==========================================
 -- XÓA BẢNG CŨ (Hỗ trợ Backend chạy lại nhiều lần không lỗi)
@@ -33,7 +33,7 @@ CREATE TABLE Users (
 );
 
 -- ==========================================
--- 2. BẢNG DANH MỤC 
+-- 2. BẢNG Dimage MỤC 
 -- ==========================================
 CREATE TABLE Categories (
     category_id INT AUTO_INCREMENT PRIMARY KEY,
