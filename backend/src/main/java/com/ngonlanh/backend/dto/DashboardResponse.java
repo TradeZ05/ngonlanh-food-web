@@ -11,10 +11,13 @@ public class DashboardResponse {
     private Long newOrdersCount;
     private Double monthlyRevenue;
     private Long totalProducts;
+    
+    // Thêm 2 biến này để đếm chính xác nha ní
+    private Long totalOrders; 
+    private Long totalCustomers; 
 
     private List<Double> revenueLast7Days; 
     private List<String> labelsLast7Days; 
-
     private List<OrderSummaryDTO> recentOrders;
 
     @Getter

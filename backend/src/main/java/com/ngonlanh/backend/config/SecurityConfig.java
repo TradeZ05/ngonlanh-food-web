@@ -44,7 +44,11 @@ public class SecurityConfig {
         configuration.setAllowedOrigins(Arrays.asList(
             "http://localhost:5500", 
             "http://127.0.0.1:5500",
-            "http://localhost:3000" 
+            "http://localhost:3000",
+
+            "http://localhost:5501", 
+            "http://127.0.0.1:5501",
+            "https://jnkrr5jc-5501.asse.devtunnels.ms"
         ));
         
         // CÁC HÀNH ĐỘNG ĐƯỢC PHÉP LÀM:
@@ -78,7 +82,10 @@ public class SecurityConfig {
                 .requestMatchers(org.springframework.http.HttpMethod.GET, 
                     "/api/categories/**", 
                     "/api/products/**", 
-                    "/api/reviews/product/**"
+                    "/api/reviews/product/**",
+                    "/api/foods/**",
+                    "/api/orders/**", 
+                    "/api/dashboard/**" //////////////////////////////////////////////////////////////
                 ).permitAll()
                 
                 // 2. NHÓM ADMIN: Chỉ dành riêng cho chủ quán

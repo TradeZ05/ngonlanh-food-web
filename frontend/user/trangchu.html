@@ -3,248 +3,261 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ngon Lành - Trang chủ</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body class="home-page">
+    <title>Ngon Lành - Quán Chay Thanh Tịnh</title>
 
-    <header class="top-bar">
-        <div class="logo-small">
-            <img src="./image/LOGO_N.png" alt="Logo">
-        </div>
-        <div class="search-bar">
-            <input type="text" placeholder="Tìm kiếm...">
-            <button> 🔍 </button>
-        </div>
-        <div class="nav-actions">
-            <span> ⏳ </span>
-            <span> 🕒 </span>
-            <div class="user-icon-box">
-                <a href="thongtin1.html">
-                    <img src="./image/meme.png" alt="Tài khoản">
+    <!-- Vì trangchu.html nằm trong assets/js nên phải đi lùi ra ../css -->
+    <link rel="stylesheet" href="css/trangchu.css">
+</head>
+<body>
+
+    
+   <!-- ============== HEADER ============== -->
+    <header>
+        <div class="container navbar">
+
+            <div class="logo-container">
+                <a href="trangchu.html">
+                    <img src="image/logo.png" alt="Logo Ngon Lành">
                 </a>
             </div>
-            <button id="btn-login-logout">Đăng nhập</button>
+
+            <ul class="nav-links">
+                <li><a href="trangchu.html">Trang<br>chủ</a></li>
+                <li><a href="thucdonchay.html">Thực đơn<br>chay</a></li>
+                <li><a href="thucdonkieng.html">Thực đơn<br>kiêng</a></li>
+                <li><a href="douong.html">Đồ<br>uống</a></li>
+                <li><a href="tuyendung.html">Tuyển<br>dụng</a></li>
+                <li><a href="lienhe.html">Liên<br>hệ</a></li>
+            </ul>
+
+            <a href="dangnhap.html" class="btn-login">
+    <img src="image/imagenguoi.png" alt="Đăng nhập">
+</a>
         </div>
     </header>
 
-    <div class="hero-section">
-        <div class="hero-background"></div>
-        <div class="home-page">
-            <div class="hero">
-                <img class="hero-img" src="./image/000.png" alt="">
-                <div class="hero-logo">
-                    <img src="./image/LOGO_L.png" alt="">
-                </div>
-            </div>
-        </div>
+    <!-- ============== HERO BANNER ============== -->
+    <section class="hero-banner">
+        <img src="image/banner.jpg" alt="Banner Quán Chay" class="full-banner-img">
+    </section>
 
-        <div id="popup" class="popup-overlay">
-            <div class="popup-box">
-                <button class="close-btn" id="btn-close-popup">×</button>
-                <img src="./image/image 10.png" alt="Khuyến mãi">
-                <div class="popup-actions">
-                    <button onclick="window.location.href='thucdonchay.html'">Đặt món</button>
-                    <button onclick="window.location.href='thucdonchay.html'">Xem chi tiết</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <nav class="main-nav">
-        <ul>
-            <li><a href="trangchu.html" class="active">Trang chủ</a></li>
-            <li><a href="thucdonchay.html">Thực đơn chay</a></li>
-            <li><a href="thucdonkieng.html">Thực đơn kiêng</a></li>
-            <li><a href="douong.html">Đồ uống</a></li>
-            <li><a href="tuyendung.html">Tuyển dụng</a></li>
-            <li><a href="lienhe.html">Liên hệ</a></li>
-        </ul>
-    </nav>
-
+    <!-- ============== ƯU ĐÃI ============== -->
     <section class="promo-section">
-        <div class="promo-container">
-            <h2 class="promo-title">Ưu đãi</h2>
-            
-            <div class="voucher-grid">
-                <div class="voucher-card">
-                    <div class="card-media">
-                        <img src="./image/1.1.png">
-                        <span class="badge">-10%</span>
-                        <div class="punch left"></div>
-                        <div class="punch right"></div>
+        <div class="container">
+            <h2 class="section-title-left">Ưu đãi</h2>
+
+            <div class="promo-grid">
+
+                <div class="promo-card">
+                    <div class="promo-card-img">
+                        <img src="image/anh3.jpg" alt="Khuyến mãi mùng 1">
+                        <span class="promo-badge">-10%</span>
                     </div>
-                    <div class="card-content">
-                        <h3>Khuyến mãi “Mùng 1”</h3>
-                        <p>Giảm 10% trên tổng hóa đơn khi dùng tại nhà hàng.</p>
-                        <div class="card-footer">
-                            <span class="expire">Sắp hết hạn</span>
-                            <span class="coin">1000 xu</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="voucher-card">
-                    <div class="card-media">
-                        <img src="./image/1.2.png">
-                        <span class="badge">-500K</span>
-                        <div class="punch left"></div>
-                        <div class="punch right"></div>
-                    </div>
-                    <div class="card-content">
-                        <h3>Ưu đãi khách VIP</h3>
-                        <p>Giảm ngay 500.000đ cho hóa đơn từ 2.000.000đ.</p>
-                        <div class="card-footer">
-                            <span class="expire">01/03 - 15/03</span>
-                            <span class="coin">1000 xu</span>
+
+                    <div class="promo-card-body">
+                        <h3>Khuyến mãi "Mùng 1"</h3>
+                        <p>Giảm 10% trên tổng hóa đơn</p>
+
+                        <div class="promo-card-foot">
+                            <span class="promo-status">Sắp hết hạn</span>
+                            <span class="promo-coin">1000 xu</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="voucher-card">
-                    <div class="card-media">
-                        <img src="./image/1.3.png">
-                        <div class="punch left"></div>
-                        <div class="punch right"></div>
+                <div class="promo-card">
+                    <div class="promo-card-img">
+                        <img src="image/anh2.jpg" alt="Ưu đãi VIP">
+                        <span class="promo-badge">-500</span>
                     </div>
-                    <div class="card-content">
+
+                    <div class="promo-card-body">
+                        <h3>Ưu đãi khách Vip</h3>
+                        <p>Giảm 500.000đ với hóa đơn từ 5 triệu<br>09/03/2026 - 15/03/2026</p>
+
+                        <div class="promo-card-foot">
+                            <span class="promo-status promo-status-active">Còn hiệu lực</span>
+                            <span class="promo-coin">1000 xu</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="promo-card">
+                    <div class="promo-card-img">
+                        <img src="image/anh1.jpg" alt="Ra mắt món mới">
+                        <span class="promo-badge">-15%</span>
+                    </div>
+
+                    <div class="promo-card-body">
                         <h3>Ra mắt món mới</h3>
-                        <p>Giảm 50% khi trải nghiệm món chay mới.</p>
-                        <div class="card-footer">
-                            <span class="expire">Sắp hết hạn</span>
+                        <p>Giảm 15% món ăn mới ra mắt trong tháng</p>
+
+                        <div class="promo-card-foot">
+                            <span class="promo-status">Sắp hết hạn</span>
+                            <span class="promo-coin">1000 xu</span>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="feature-grid">
+            </div>
+        </div>
+    </section>
+
+    <!-- ============== DỊCH VỤ NỔI BẬT ============== -->
+    <section class="features-section">
+        <div class="container">
+            <div class="features-grid">
+
                 <div class="feature-card">
-                    <div class="icon"> 🎁 </div>
+                    <div class="feature-icon">🎁</div>
                     <h4>ƯU ĐÃI TÍCH ĐIỂM</h4>
-                    <p>Với mỗi hóa đơn từ 100.000đ, bạn sẽ tích lũy 1 điểm để đổi ưu đãi hấp dẫn.</p>
+                    <p>Ưu đãi khi dùng bữa tại Ngon Lành. Với mỗi 100.000 hóa đơn quý khách tích được 1 điểm. 10 điểm quý khách nhận được voucher 100.000.</p>
                 </div>
+
                 <div class="feature-card">
-                    <div class="icon"> 🥣 </div>
-                    <h4>KHÔNG GIAN TIỆC</h4>
-                    <p>Không gian chay yên tĩnh, ấm cúng, phù hợp tổ chức tiệc từ 20 đến 70 khách.</p>
+                    <div class="feature-icon">🍲</div>
+                    <h4>TIỆC CHAY ẤM CÚNG</h4>
+                    <p>Tiệc chay ấm cúng trong không gian an yên với giá cả phải chăng, với sức chứa từ 20 - 70 khách.</p>
                 </div>
+
                 <div class="feature-card">
-                    <div class="icon"> 🛎️ </div>
+                    <div class="feature-icon">🛎️</div>
                     <h4>GIAO TẬN NƠI</h4>
-                    <p>Đặt món online nhimage chóng, giao tận nơi tiện lợi, phục vụ mọi lúc bạn cần.</p>
+                    <p>Bạn chỉ cần lựa chọn món chay yêu thích theo thực đơn online. Việc còn lại hãy để Ngon Lành phục vụ bạn.</p>
                 </div>
+
                 <div class="feature-card">
-                    <div class="icon"> 🌿 </div>
+                    <div class="feature-icon">🌿</div>
                     <h4>THỰC PHẨM SẠCH</h4>
-                    <p>Nguyên liệu tươi sạch, nguồn gốc rõ ràng, đảm bảo an toàn cho sức khỏe.</p>
+                    <p>Thực phẩm tươi mới mỗi ngày, có nguồn gốc rõ ràng. Đảm bảo tiêu chuẩn vệ sinh và an toàn cho sức khỏe.</p>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <div class="menu-page">
-        <section class="menu-hero">
-            <div class="menu-bg"><img src="./image/00.png" alt=""></div>
-            <div class="menu-overlay"></div>
-            <div class="menu-box">
-                <h1>KHÁM PHÁ THỰC ĐƠN NGON LÀNH</h1>
-                <div class="menu-buttons">
-                    <button class="btn-primary" onclick="window.location.href='thucdonchay.html'">Thực đơn chay</button>
-                    <button class="btn-outline" onclick="window.location.href='thucdonkieng.html'">Thực đơn kiêng</button>
-                </div>
-                <p>Bước vào không gian của Ngon Lành, mỗi món chay phục vụ đều được chuẩn bị chu đáo mang trong mình những ý nghĩa riêng biệt.</p>
-                <p>Có khi là lời gửi gắm sức khỏe qua những nguyên liệu tinh khiết, mát lành và giàu dinh dưỡng; có khi là thông điệp sâu lắng về tâm an và sự nhẹ nhàng trong từng bữa cơm chay hằng ngày.</p>
-                <p>Trên tất cả, đó là sự tỉ mỉ, thấu hiểu và lòng biết ơn sâu sắc mà chúng tôi dành cho quý khách – những người đã tin tưởng lựa chọn không gian an lành và đồng hành cùng thực đơn chay – kiêng của Ngon Lành.</p>
-            </div>
-        </section>
-    </div>
+    <!-- ============== KHÁM PHÁ THỰC ĐƠN ============== -->
+    <section class="explore-section">
+        <div class="container explore-wrap">
 
-    <section class="about">
-        <img class="about-bg" src="./image/01.png" alt="">
-        <div class="about-content">
-            <h2>DÀNH CHO CHÚNG TA</h2>
-            <p>Những người đang tìm kiếm sự nhẹ nhàng, thuần khiết trong cuộc sống thường nhật.</p>
-            <p>Ngon Lành không chỉ là món ăn, mà còn là cách ta trân trọng sức khỏe và những giá trị tự nhiên.</p>
-            <p>Mỗi bữa ăn là một hành trình nuôi dưỡng cả cơ thể và tâm hồn.</p>
+            <div class="explore-text">
+                <h2>KHÁM PHÁ THỰC ĐƠN<br>NGON LÀNH</h2>
+
+                <div class="explore-tabs">
+                    <a href="thucdonchay.html" class="tab-btn active">Thực đơn chay</a>
+                    <a href="thucdonkieng.html" class="tab-btn">Thực đơn kiêng</a>
+                </div>
+
+                <div class="explore-desc">
+                    <p>Được xem là linh hồn của Ngon Lành, mỗi món chay phục vụ đến thực khách đều mang trong mình những ý nghĩa riêng biệt.</p>
+                    <p>Có khi là lời gửi gắm sức khỏe qua những nguyên liệu tinh khiết, mát lành và giàu dinh dưỡng; có khi lại là thông điệp xoa dịu tâm hồn, mang đến sự nhẹ nhàng và thanh tịnh trong từng bữa cơm chay hàng ngày.</p>
+                    <p>Trên tất cả là sự tỉ mỉ, thấu hiểu và lòng biết ơn sâu sắc mà chúng tôi dành cho quý khách – những người đã tin tưởng lựa chọn lối sống lành mạnh và đồng hành cùng thực đơn chay – kiêng của Ngon Lành.</p>
+                </div>
+            </div>
+
+            <div class="explore-image">
+                <img src="image/anh5.jpg" alt="Thực đơn ngon lành">
+            </div>
+
         </div>
     </section>
 
-    <div class="contact-page">
-        <div class="bg"><img src="./image/0000.png" alt=""></div>
-        <div class="contact-container">
-            <div class="left">
-                <h1>Thông tin<br>liên hệ</h1>
-            </div>
-            <div class="card info-card">
-                <div class="item">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span>Số 70, Đường Tô Ký, P.Tân Chánh Hiệp, Q.12, TP.HCM</span>
-                </div>
-                <div class="item">
-                    <i class="fa-solid fa-phone"></i>
-                    <span>0287 306 606</span>
-                </div>
-                <div class="item">
-                    <i class="fa-regular fa-envelope"></i>
-                    <span>cskh@ngonlanh.com</span>
-                </div>
-                <div class="item">
-                    <i class="fa-solid fa-globe"></i>
-                    <span>ngonlanh.com</span>
-                </div>
-            </div>
-            <div class="card time-card">
-                <div class="title">
-                    <i class="fa-regular fa-clock"></i>
-                    <span>Thời gian hoạt động</span>
-                </div>
-                <p>Hằng ngày (nghỉ trưa 14:30 – 16:00)</p>
-                <p class="time">10:00 – 14:30 & 16:00 – 22:00</p>
+    <!-- ============== DÀNH CHO CHÚNG TA ============== -->
+    <section class="about-section">
+        <div class="container">
+            <h2 class="section-title-center">DÀNH CHO CHÚNG TA</h2>
+
+            <div class="about-content">
+                <p>Những người đang tìm kiếm sự nhẹ nhàng, thuần khiết trong cuộc sống. Ngon Lành có thể là những điều giản đơn mà bấy lâu ta vô tình lướt qua.</p>
+                <p>Ngon Lành không chỉ là món ăn, mà còn là cách ta đối đãi tử tế với bản thân và thiên nhiên, trân trọng những giá trị xanh mà mỗi ngày chúng ta thầm biết ơn.</p>
             </div>
         </div>
-    </div>
+    </section>
 
-    <footer class="footer-section">
-        <div class="footer-container">
+    <!-- ============== THÔNG TIN LIÊN HỆ ============== -->
+    <section class="contact-section" id="lien-he">
+        <div class="contact-overlay">
+            <div class="container contact-wrap">
+
+                <h2 class="contact-title">Thông tin<br>liên hệ</h2>
+
+                <div class="contact-cards">
+                    <div class="contact-card">
+                        <ul>
+                            <li>📍 Số 70, Đường Tô Ký, P.Tân Chánh Hiệp, Q.12, TP.HCM</li>
+                            <li>📞 0287306606</li>
+                            <li>✉️ cskh@tmdt.com</li>
+                            <li>🌐 ngonlanh.com</li>
+                        </ul>
+                    </div>
+
+                    <div class="contact-card contact-card-orange">
+                        <h4>⏰ Thời gian hoạt động</h4>
+                        <p>Hằng ngày nghỉ trưa 2h30 PM - 4PM</p>
+                        <p><strong>10:00 - 14:30 &amp; 16:00 - 22:00</strong></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============== FOOTER ============== -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+
             <div class="footer-col">
-                <h2 class="logo">Ngon Lành</h2>
+                <h3 class="footer-brand">Ngon Lành</h3>
                 <p>Tổng đài CSKH: 0287306606</p>
-                <p>Email: cskh@ngonlanh.com</p>
-                <h4>Đăng ký tư vấn</h4>
-                <div class="subscribe">
-                    <input type="text" placeholder="Email">
-                    <button>Đăng ký</button>
-                </div>
+                <p>Email: cskh@tmdt.com</p>
+
+                <h5>Đăng ký tư vấn</h5>
+                <form class="newsletter" onsubmit="event.preventDefault();">
+                    <input type="email" placeholder="Email" required>
+                    <button type="submit">Đăng ký</button>
+                </form>
             </div>
+
             <div class="footer-col">
-                <h4>Khám phá cửa hàng</h4>
-                <p>Thực đơn chay</p>
-                <p>Thực đơn kiêng</p>
-                <p>Đồ uống & Tráng miệng</p>
+                <h4>Khám phá<br>cửa hàng</h4>
+                <ul>
+                    <li><a href="thucdonchay.html">Thực đơn chay</a></li>
+                    <li><a href="thucdonkieng.html">Thực đơn kiêng</a></li>
+                    <li><a href="douong.html">Đồ uống</a></li>
+                </ul>
             </div>
+
             <div class="footer-col">
-                <h4>Dịch vụ</h4>
-                <p>Giao hàng trực tuyến</p>
-                <p>Đặt lịch tư vấn</p>
+                <h4>Dịch vụ<br>cửa hàng</h4>
+                <ul>
+                    <li><a href="dangnhap.html">Giao hàng trực tuyến</a></li>
+                    <li><a href="lienhe.html">Đặt lịch tư vấn</a></li>
+                </ul>
             </div>
+
             <div class="footer-col">
-                <h4>Hệ thống cửa hàng</h4>
-                <p>Chi nhánh 1: ĐH Hoa Sen</p>
-                <p>Chi nhánh 2: Số 70 Tô Ký, Q12</p>
+                <h4>Hệ thống<br>cửa hàng</h4>
+                <p>CN1: Số 2, đường Võ Oanh, P.25, Q. Bình Thạnh, TP.HCM</p>
+                <p>CN2: Số 70, Đường Tô Ký, P.Tân Chánh Hiệp, Q.12, TP.HCM</p>
             </div>
+
         </div>
+
         <div class="footer-bottom">
-            <p>© 2026 Ngon Lành. All rights reserved.</p>
-            <div class="social">
-                <span>f</span>
-                <span>t</span>
-                <span>ig</span>
+            <div class="container footer-bottom-inner">
+                <span>© 2025. All rights reserved.</span>
+
+                <div class="socials">
+                    <span>Theo dõi chúng tôi</span>
+                    <a href="#" aria-label="Facebook">📘</a>
+                    <a href="#" aria-label="TikTok">🎵</a>
+                    <a href="#" aria-label="Instagram">📷</a>
+                </div>
             </div>
         </div>
     </footer>
 
+    <!-- script.js nằm chung thư mục với trangchu.html -->
     <script src="js/trangchu.js"></script>
 </body>
 </html>

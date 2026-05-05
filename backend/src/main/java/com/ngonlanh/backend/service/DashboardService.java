@@ -4,6 +4,7 @@ import com.ngonlanh.backend.dto.DashboardResponse;
 import com.ngonlanh.backend.entity.Order;
 import com.ngonlanh.backend.repository.OrderRepository;
 import com.ngonlanh.backend.repository.ProductRepository;
+import com.ngonlanh.backend.repository.UserRepository; // Import thêm cái này
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,9 +20,9 @@ import java.util.stream.Collectors;
 
 @Service
 public class DashboardService {
-
     @Autowired private OrderRepository orderRepository;
     @Autowired private ProductRepository productRepository;
+    @Autowired private UserRepository userRepository; // Tiêm UserRepository vào đây
 
     public DashboardResponse getDashboardStats() {
         DashboardResponse response = new DashboardResponse();
@@ -43,9 +44,13 @@ public class DashboardService {
 
         response.setNewOrdersCount(orderRepository.countByStatus("PENDING"));
         response.setTotalProducts(productRepository.count());
+        
+        // 🚀 CẬP NHẬT CHÍNH XÁC SỐ ĐƠN VÀ SỐ KHÁCH VÀO ĐÂY
+        response.setTotalOrders(orderRepository.count());
+        response.setTotalCustomers(userRepository.count());
 
         // ==========================================================
-        // 🚀 TÍNH TOÁN DỮ LIỆU BIỂU ĐỒ DOimage THU 7 NGÀY QUA
+        // 🚀 TÍNH TOÁN DỮ LIỆU BIỂU ĐỒ DOANH THU 7 NGÀY QUA
         // ==========================================================
         List<Double> revenueLast7Days = new ArrayList<>();
         List<String> labelsLast7Days = new ArrayList<>();
@@ -57,7 +62,7 @@ public class DashboardService {
             LocalDate targetDate = today.minusDays(i);
             labelsLast7Days.add(targetDate.format(formatter));
 
-            // Tính doimage thu của từng ngày một
+            // Tính doanh thu của từng ngày một
             LocalDateTime start = targetDate.atStartOfDay();
             LocalDateTime end = targetDate.atTime(LocalTime.MAX);
             Double dailyRev = orderRepository.calculateRevenue(paidStatuses, start, end);

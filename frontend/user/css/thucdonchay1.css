@@ -1,0 +1,380 @@
+/* =========================================
+   FILE: frame1.css
+   Mô tả: Nội dung riêng của trang Trang chủ
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #F5F5DC; 
+    color: #333;
+}
+
+/* =========================================
+   HERO BANNER
+========================================= */
+.hero-banner {
+    background-color: #9A5738; /* Nền nâu đất */
+    color: #FFFFFF;
+    padding: 100px 20px; 
+    text-align: center;
+    
+    /* GẮN 2 ẢNH VÀO 2 BÊN */
+    background-image: url('../image/image16.png'), url('../image/image15.png');
+    
+    /* Vị trí: Ảnh 1 dán kịch lề trái, Ảnh 2 dán kịch lề phải. Cả 2 đều căn giữa theo chiều dọc */
+    background-position: left center, right center; 
+    
+    /* Không cho ảnh lặp lại */
+    background-repeat: no-repeat, no-repeat;
+    
+    /* Kích thước: Chiều ngang tự động, chiều cao bằng 100% khung banner để họa tiết kéo dài từ trên xuống dưới */
+    background-size: auto 160%, auto 160%; 
+}
+
+/* Ép cụm chữ nổi lên trên để không bị họa tiết đè vào */
+.banner-content {
+    max-width: 950px; 
+    margin: 0 auto;
+    position: relative; 
+    z-index: 1;         
+}
+
+.banner-content h1 {
+    font-size: 3.5rem; 
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+.banner-content p {
+    font-size: 1.2rem; 
+    line-height: 1.8;
+    margin-bottom: 25px;
+    opacity: 0.95;
+    font-weight: 400;
+    text-align: left; 
+}
+
+/* =========================================
+   FRAME 2: SET MENU
+========================================= */
+.set-menu-section {
+    padding: 15px 0; 
+    background-color: #F5F5DC; 
+}
+
+/* 1. VỎ NGOÀI: CHỨA 2 ẢNH NỀN GỐC */
+.menu-outer-wrapper {
+    width: 96%;           /* TUYỆT CHIÊU: Bung rộng ra chiếm 92% màn hình, chừa lại 4% lề mỗi bên cho thoáng */
+    max-width: 1920px;    /* Tăng giới hạn tối đa lên 1600px để màn hình cực to cũng không bị vỡ */
+    margin: 0 auto;
+    position: relative;
+    
+    /* Nhớ thay đúng tên 2 file ảnh của ní vào đây */
+    background-image: url('../image/image22.png'), url('../image/image24.png'); 
+    background-position: left center, right center;
+    background-repeat: no-repeat, no-repeat;
+    
+    /* Mỗi ảnh chiếm đúng 50% chiều ngang */
+    background-size: 50% 100%, 50% 100%; 
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    
+    /* Tạo viền background lòi ra xung quanh */
+    padding: 25px 60px; 
+}
+
+/* 2. Ô CHỮ NHẬT MÀU BE Ở GIỮA */
+.menu-inner-board {
+    /* Đã chuyển mã #EBE2D3 sang RGBA. 
+       Số 0.9 ở cuối là độ trong suốt (1 là đặc hoàn toàn, 0 là tàng hình). 
+       Ní có thể giảm xuống 0.85, 0.8 hoặc 0.75 để thấy nền đồ ăn lờ mờ phía sau */
+    background-color: rgba(235, 226, 211, 0.95); 
+    
+    /* TUYỆT CHIÊU NÂNG CAO (Nên thử): 
+       Nếu nền phía sau quá rườm rà làm khó đọc chữ, ní quất thêm dòng này. 
+       Nó sẽ làm mờ (blur) cái ảnh nền đằng sau đi giống như ní đang nhìn qua 1 tấm kính sương mù (Frosted Glass). 
+       Vừa xịn xò, sang trọng lại không bị chìm chữ! */
+    backdrop-filter: blur(4px); 
+
+    width: 100%;
+    height: 100%;
+    border-radius: 8px; 
+    padding: 30px 70px; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+    position: relative;
+}
+
+/* --- TEXT DỌC 2 BÊN --- */
+.vertical-text {
+    position: absolute;
+    top: 50%;
+    font-size: 11px;
+    color: #555; 
+    letter-spacing: 2px;
+    writing-mode: vertical-rl;
+    z-index: 2; 
+}
+
+.text-left {
+    left: 20px; 
+    transform: translateY(-50%) rotate(180deg); 
+}
+
+.text-right {
+    right: 20px; 
+    transform: translateY(-50%);
+}
+
+/* --- LƯỚI 4 CỘT NỘI DUNG --- */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px; /* Tăng từ 40px lên 60px hoặc 80px để các cột đứng xa nhau ra, nhìn thoáng hơn */
+    padding: 0 50px;
+}
+
+.menu-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.set-block {
+    margin-bottom: 20px;
+}
+
+.set-title {
+    font-size: 19px;
+    font-weight: 600;
+    color: #A0522D; 
+    margin-bottom: 12px;
+}
+
+.set-list {
+    list-style: none;
+    padding: 0;
+}
+
+.set-list li {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8px; 
+}
+
+.set-list .vi {
+    font-size: 18px;
+    font-weight: 600;
+    color: #111; 
+}
+
+.set-list .en {
+    font-size: 12px;
+    color: #666; 
+    margin-top: 4px;
+}
+
+/* --- CHỮ SET MENU --- */
+.big-set-text {
+    font-family: 'Prata', serif; 
+    font-size: 72px;
+    line-height: 1.1;
+    font-weight: 400; 
+    color: #111;
+    margin-top: 70px; 
+    text-align: center;
+    width: fit-content;
+}
+
+.mt-20 {
+    margin-top: 0px;
+}
+
+/* =========================================
+   FRAME 3: APPETIZER SECTION
+========================================= */
+.appetizer-section {
+    background-color: #965A3E; /* Màu nâu đỏ nền Frame 3 */
+    padding: 60px 0;
+    color: #111;
+}
+
+.menu-container {
+    width: 96%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* --- BỐ CỤC TỔNG: TRÁI & PHẢI --- */
+.category-layout {
+    display: flex;
+    gap: 40px; /* Khoảng cách giữa thẻ to và lưới thẻ nhỏ */
+    align-items: start; 
+}
+
+/* --- THẺ LỚN BÊN TRÁI --- */
+.category-card-large {
+    flex: 0 0 35%; /* Ép cứng chiếm 35% chiều ngang màn hình */
+    background-color: #FDF9E6; /* Màu giấy nền thẻ lớn */
+    padding: 15px;
+    border-radius: 4px;
+    
+    /* Sticky: Giúp thẻ to đứng im khi user cuộn danh sách món ăn bên phải (rất hữu ích khi data trả về nhiều) */
+    position: sticky; 
+    top: 20px; 
+}
+
+.inner-border {
+    border: 1px solid rgba(154, 87, 56, 0.3); 
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.inner-border img {
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.inner-border h2 {
+    text-align: center;
+    color: #B24A28;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* --- KHU VỰC LƯỚI THẺ NHỎ BÊN PHẢI --- */
+.food-list {
+    flex: 1; /* Chiếm toàn bộ không gian còn lại (65%) */
+    display: grid;
+    
+    /* 
+      CÔNG THỨC AUTO-FIT:
+      - Trình duyệt sẽ cố gắng nhét nhiều cột nhất có thể.
+      - Mỗi cột không được nhỏ hơn 240px.
+      - Phần dư sẽ chia đều (1fr).
+      => Nếu màn hình rộng, tự động dàn 3-4 cột. Có thêm data tự rớt xuống hàng.
+    */
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 30px; 
+    align-content: start;
+}
+
+/* --- THẺ MÓN ĂN THƯỜNG --- */
+.food-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.img-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/3; 
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.hover-overlay {
+    position: absolute;
+    inset: 0; 
+    background-color: rgba(0, 0, 0, 0.4); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+}
+
+.food-card:hover .hover-overlay {
+    opacity: 1; 
+}
+
+.food-card:hover .img-wrapper img {
+    transform: scale(1.05); 
+}
+
+.btn-choose {
+    background-color: #F5F5DC;
+    color: #333;
+    border: none;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* --- THÔNG TIN MÓN ĂN --- */
+.food-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.title-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.vi-title {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.price {
+    white-space: nowrap;
+}
+
+.en-title {
+    font-size: 13px;
+    color: #333;
+    font-weight: 500;
+}
+
+.desc {
+    font-size: 12px;
+    color: #111; 
+    margin: 8px 0;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}
+
+.meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.read-more {
+    color: #111;
+    text-decoration: none;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,120 @@
+/* =========================================
+   FILE: header.css
+   Mô tả: CSS dùng chung cho Top Bar và Navbar 
+========================================= */
+
+/* Vệt viền nâu trên cùng trình duyệt */
+body {
+    border-top: 8px solid #965A3E; 
+}
+
+.main-header {
+    background-color: #F5F5DC;
+}
+
+/* =========================================
+   1. HEADER & TOP BAR
+========================================= */
+.top-bar {
+    width: 100%;
+    max-width: 1280px;   /* Giới hạn khung chuẩn Figma */
+    height: 106px;
+    margin: 0 auto;      /* Căn giữa màn hình */
+    padding: 0 34px;     /* Lề trái phải 34px */
+    display: flex;
+    justify-content: flex-start; /* Xếp hàng từ trái sang phải */
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img {
+    width: 84px;
+    height: 84px;
+    object-fit: contain;
+}
+
+/* --- SEARCH BAR --- */
+.search-box {
+    width: 402px;
+    height: 40px;
+    border-radius: 12px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    padding: 0 16px;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    /* Khoảng cách tuyệt đối theo thiết kế */
+    margin-left: 199px;
+    margin-right: 199px;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    color: #333;
+    padding-right: 10px;
+}
+
+.search-box input::placeholder {
+    color: #A0A0A0;
+}
+
+.icon-search {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/* --- KHU VỰC ICON & BUTTON --- */
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+}
+
+.icon-funnel {
+    width: 36px;
+    height: 33px;
+    color: #965A3E;
+    cursor: pointer;
+}
+
+.icon-clock {
+    width: 38.25px;
+    height: 38.25px;
+    color: #965A3E;
+    cursor: pointer;
+}
+
+.btn-login {
+    width: 159px;
+    height: 57px;
+    border-radius: 12px;
+    background-color: #E39C7B;
+    color: #333;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-login:hover {
+    background-color: #d18766;
+}
+
+/* =========================================
+   2. NAVBAR (TEXT ĐIỀU HƯỚNG)
+========================================= */

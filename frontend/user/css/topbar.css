@@ -1,0 +1,106 @@
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 10px 5%;
+    background: #F5F5DC;
+    box-sizing: border-box;
+}
+
+/* LOGO */
+.logo img {
+    height: 100px;
+}
+
+/* SEARCH */
+.search-box {
+    width: 402px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 16px;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    background: #fff;
+    margin: 0 20px;
+    flex-grow: 1;
+    max-width: 500px;
+}
+
+/* INPUT */
+.search-box input {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 14px;
+    background: transparent;
+}
+
+/* ICON */
+.search-box .icon {
+    width: 18px;
+    height: 18px;
+}
+
+/* ACTIONS */
+.actions {
+    display: flex;
+    align-items: center;
+  
+    gap: 25px;
+     margin-left: auto;
+}
+
+/* icon thường */
+.actions img {
+    height: 25px;
+}
+
+/* 🔥 RIÊNG ảnh đăng nhập (Frame 92) */
+.actions img:last-child {
+    height: 40px;   /* to hơn */
+    width: auto;
+}
+
+/* =========================================
+   2. NAVBAR (TEXT ĐIỀU HƯỚNG)
+========================================= */
+
+.navbar {
+    width: 100%;
+    max-width: 1280px;   /* Cùng khung giới hạn với Top bar */
+    margin: 0 auto;
+    padding: 10px 34px 25px 34px; 
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #111;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+}
+
+.navbar a.active,
+.navbar a:hover {
+    font-weight: 600;
+    border-bottom: 3px solid #111;
+}
