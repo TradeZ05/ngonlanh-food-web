@@ -43,7 +43,7 @@
             padding-bottom: 50px;
         }
 
-        /* --- STEPPER (THimage TRẠNG THÁI) --- */
+        /* --- STEPPER (THANH TRẠNG THÁI) --- */
         .tracking-stepper {
             width: 100%;
             max-width: 900px;
@@ -68,6 +68,7 @@
             flex: 1;
             text-align: center;
         }
+
         .step-dot {
             width: 30px;
             height: 30px;
@@ -75,8 +76,26 @@
             border: 3px solid #965A3E;
             border-radius: 50%;
             margin-bottom: 10px;
+            position: relative; /* Thêm position relative để canh chỉnh dấu tích */
         }
-        .step.active .step-dot { background: #965A3E; }
+
+        .step.active .step-dot {
+            background: #965A3E;
+        }
+
+        /* CSS vẽ dấu tích trắng cho các bước đã hoàn thành */
+        .step.active .step-dot::after {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 5px;
+            width: 6px;
+            height: 12px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
         .step-label { font-size: 14px; font-weight: 600; color: #555; }
         .step.active .step-label { color: #965A3E; font-weight: 700; }
 
@@ -173,7 +192,7 @@
                 <p><span class="info-label">Thời gian đặt:</span> 09:45, 29/04/2026</p>
             </div>
             <div style="text-align: right;">
-                <p><span class="info-label">Tổng tiền thimage toán:</span></p>
+                <p><span class="info-label">Tổng tiền thanh toán:</span></p>
                 <p style="font-size: 24px; font-weight: 800; color: #965A3E;">120.000đ</p>
             </div>
         </div>

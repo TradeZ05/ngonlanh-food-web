@@ -30,7 +30,7 @@
 
         .bg-full-left {
             left: 0;
-            object-position: right center; /* Cimage để hiển thị chi tiết sát mép nội dung */
+            object-position: right center; /* Căn để hiển thị chi tiết sát mép nội dung */
         }
 
         .bg-full-right {
@@ -132,6 +132,19 @@
         .account-nav-card img { width: 60px; height: 60px; object-fit: contain; margin-bottom: 10px; }
         .account-nav-card h3 { font-size: 14px; color: #333; font-weight: 700; margin: 0; }
 
+        /* CLASS MỚI CHO TỪ TIẾNG ANH (THAY THẾ ẢNH) */
+        .eng-icon {
+            font-size: 24px;
+            font-weight: 800;
+            color: #000;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
         @media (max-width: 900px) {
             .cart-layout { flex-direction: column; }
             .cart-right-col { position: static; }
@@ -168,8 +181,8 @@
             <div class="cart-item-card" data-price="65000">
                 <img src="image/1.png" alt="Món chay" class="cart-item-img">
                 <div class="cart-item-info">
-                    <h3 class="cart-item-name">Combo Chay Thimage Đạm</h3>
-                    <p class="cart-item-desc">Cơm gạo lứt + Đậu hũ sốt nấm + Cimage rong biển</p>
+                    <h3 class="cart-item-name">Combo Chay Thanh Đạm</h3>
+                    <p class="cart-item-desc">Cơm gạo lứt + Đậu hũ sốt nấm + Canh rong biển</p>
                     <div class="cart-item-price">65.000đ</div>
                 </div>
                 <div class="cart-item-actions">
@@ -220,26 +233,28 @@
                 <span style="font-weight: 700; color: #333;">TỔNG CỘNG:</span>
                 <span id="grandtotal-display" style="font-size: 24px; font-weight: 800; color: #965A3E;">120.000đ</span>
             </div>
-            <button id="btn-checkout" class="btn-checkout-primary" onclick="window.location.href='thimagetoan.html'">TIẾN HÀNH THimage TOÁN</button>
+            <!-- Đã sửa đúng link tới thanhtoan.html và text nút bấm -->
+            <button id="btn-checkout" class="btn-checkout-primary" onclick="window.location.href='thanhtoan.html'">TIẾN HÀNH THANH TOÁN</button>
         </div>
     </div>
 
+    <!-- Đã tinh chỉnh lại khối Navigation theo Style chữ tiếng Anh giống mục USER -->
     <section class="account-nav-section">
         <div class="account-nav-grid">
             <div class="account-nav-card" onclick="window.location.href='uudai.html'">
-                <img src="image/Tài khoản ưu đãi.png" alt="Ưu đãi">
+                <div class="eng-icon">VOUCHER</div>
                 <h3>Tài khoản ưu đãi</h3>
             </div>
             <div class="account-nav-card" onclick="window.location.href='thongtin2.html'">
-                <img src="image/Thông tin của quý khách.png" alt="Thông tin">
+                <div class="eng-icon">PROFILE</div>
                 <h3>Thông tin của quý khách</h3>
             </div>
             <div class="account-nav-card" onclick="window.location.href='doimatkhau.html'">
-                <img src="image/USER.png" alt="Đổi mật khẩu">
+                <div class="eng-icon">USER</div>
                 <h3>Đổi mật khẩu</h3>
             </div>
             <div class="account-nav-card" onclick="window.location.href='lichsu.html'">
-                <img src="image/Frame 606.png" alt="Lịch sử">
+                <div class="eng-icon">HISTORY</div>
                 <h3>Lịch sử đơn hàng</h3>
             </div>
         </div>
