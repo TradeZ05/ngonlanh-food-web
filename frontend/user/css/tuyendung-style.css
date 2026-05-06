@@ -4,7 +4,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
-    background-color: #FDFBEA; /* Màu nền kem nhạt */
+    background-color: #F2E8CF; /* Màu be chuẩn thiết kế */
     color: #2D3748;
 }
 
@@ -14,17 +14,17 @@
 
 /* Biến màu */
 :root {
-    --primary-brown: #8C6239;
+    --primary-brown: #8B5E3C;
     --light-brown: #CD9575;
     --card-bg-brown: #C48464;
     --text-dark: #333333;
     --text-light: #FFFFFF;
-    --border-color: #8C6239;
+    --border-color: #8B5E3C;
 }
 
 /* Header Custom */
 .custom-header {
-    background-color: #FDFBEA;
+    background-color: #F2E8CF;
     border-bottom: 1px solid rgba(0,0,0,0.05);
     padding: 15px 0;
 }
@@ -89,7 +89,7 @@
 
 /* Nav Custom */
 .custom-nav {
-    background-color: #FDFBEA;
+    background-color: #F2E8CF;
     padding: 15px 0;
     border-bottom: 1px solid rgba(0,0,0,0.05);
 }
@@ -222,7 +222,7 @@
 
 /* Section 2: Hiring Process */
 .hiring-process {
-    background-color: #FDFBEA;
+    background-color: #F2E8CF;
 }
 
 .process-steps {
@@ -334,9 +334,9 @@
 
 /* Footer */
 .custom-footer {
-    border-top: 1px solid rgba(0,0,0,0.1);
+    border-top: 5px solid #8B5E3C;
     padding-top: 60px;
-    background-color: #FDFBEA;
+    background-color: #F2E8CF;
     color: var(--text-dark);
 }
 

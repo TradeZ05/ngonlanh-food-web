@@ -1,7 +1,7 @@
 /* --- LIEN HE PAGE STYLES --- */
 
 .contact-main {
-    background-color: #A56948; /* Nền ngoài màu nâu */
+    background-color: #8B5E3C; /* Nền ngoài màu nâu chuẩn */
     padding: 60px 0;
 }
 
@@ -15,7 +15,7 @@
 
 /* Banner Card */
 .contact-banner-card {
-    background-color: #FDFBEA; /* Màu kem */
+    background-color: #F2E8CF; /* Màu be chuẩn thiết kế */
     border-radius: 20px;
     display: flex;
     justify-content: space-between;
@@ -64,7 +64,7 @@
 
 /* Main Content Card */
 .contact-content-card {
-    background-color: #FDFBEA;
+    background-color: #F2E8CF;
     border-radius: 20px;
     padding: 50px 60px;
     position: relative;
@@ -123,7 +123,7 @@
 }
 
 .btn-submit {
-    background-color: #935E44;
+    background-color: #8B5E3C;
     color: white;
     border: none;
     padding: 15px 40px;
@@ -251,7 +251,7 @@
 }
 
 .success-modal .modal-content {
-    background-color: #FDFBEA;
+    background-color: #F2E8CF;
     padding: 50px 60px;
     border-radius: 20px;
     text-align: center;
@@ -293,9 +293,9 @@
 }
 
 .success-modal .btn-home {
-    background-color: #FDFBEA;
+    background-color: #F2E8CF;
     color: #1E3A8A;
-    border: 1px solid #A56948;
+    border: 1px solid #8B5E3C;
     padding: 15px 40px;
     border-radius: 10px;
     font-size: 1.1rem;
@@ -306,6 +306,6 @@
 }
 
 .success-modal .btn-home:hover {
-    background-color: #A56948;
+    background-color: #8B5E3C;
     color: white;
 }
